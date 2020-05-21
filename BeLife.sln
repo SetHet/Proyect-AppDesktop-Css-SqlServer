@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempWPF", "TempWPF\TempWPF.csproj", "{E1BB5413-3B10-4216-A05A-071FC60654DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexionBD", "ConexionBD\ConexionBD.csproj", "{C02E42E2-1338-454C-B526-D5AC71910726}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E1BB5413-3B10-4216-A05A-071FC60654DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1BB5413-3B10-4216-A05A-071FC60654DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1BB5413-3B10-4216-A05A-071FC60654DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02E42E2-1338-454C-B526-D5AC71910726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02E42E2-1338-454C-B526-D5AC71910726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02E42E2-1338-454C-B526-D5AC71910726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02E42E2-1338-454C-B526-D5AC71910726}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
