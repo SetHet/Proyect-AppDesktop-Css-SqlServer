@@ -24,5 +24,17 @@ namespace TempWPF
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Change address
+            ConexionBD.Conexion.SetConnection(server.Text, bd.Text, Trusted_Conn.IsChecked.Value);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Get string
+            output.Text = ConexionBD.Conexion.connectionString;
+        }
     }
 }

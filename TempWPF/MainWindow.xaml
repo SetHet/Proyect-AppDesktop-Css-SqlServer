@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Get Address" HorizontalAlignment="Left" Margin="528,34,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Chance address" HorizontalAlignment="Left" Margin="42,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox Name="server" HorizontalAlignment="Left" Height="23" Margin="42,49,0,0" TextWrapping="Wrap" Text="DESKTOP-F8TM6K2\SQLEXPRESS" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="bd" HorizontalAlignment="Left" Height="23" Margin="42,77,0,0" TextWrapping="Wrap" Text="Usuarios" VerticalAlignment="Top" Width="219"/>
+        <CheckBox Name="Trusted_Conn" Content="trusted_conn" HorizontalAlignment="Left" Margin="42,105,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="output" HorizontalAlignment="Left" Margin="377,72,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="246" Width="386"/>
+
     </Grid>
 </Window>
