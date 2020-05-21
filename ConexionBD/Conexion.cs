@@ -99,21 +99,51 @@ namespace ConexionBD
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "INSERT INTO @table (@param)";
+                command.CommandText = "INSERT INTO @table (@param) VALUES (@values)";
                 command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@where", where);
+                command.Parameters.AddWithValue("@param", param);
+                command.Parameters.AddWithValue("@values", values);
 
                 try
                 {
                     connection.Open();
                     Int32 rownum = command.ExecuteNonQuery();
-                    numDelete = rownum;
+                    insert = rownum > 0;
                 }
                 catch (Exception ex)
                 {
                     System.Console.WriteLine("->Error en la peticion de insercion." +
                         "\nTable: " + table +
                         "\nParam: " + param +
+                        "\nValues: " + values +
+                        "\nException Message: \n" + ex.Message);
+                }
+                connection.Close();
+            }
+            return insert;
+        }
+
+        public static bool Insert(string table, string values)
+        {
+            bool insert = false;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "INSERT INTO @table VALUES (@values)";
+                command.Parameters.AddWithValue("@table", table);
+                command.Parameters.AddWithValue("@values", values);
+
+                try
+                {
+                    connection.Open();
+                    Int32 rownum = command.ExecuteNonQuery();
+                    insert = rownum > 0;
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine("->Error en la peticion de insercion." +
+                        "\nTable: " + table +
+                        "\nSin Parametros" +
                         "\nValues: " + values +
                         "\nException Message: \n" + ex.Message);
                 }
