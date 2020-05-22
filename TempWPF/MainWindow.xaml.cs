@@ -67,8 +67,26 @@ namespace TempWPF
             {
                 user.id = id;
                 user.Find();
-                Salida.Text = user.ToString();
+
+                U_Nombre.Text = user.nombre;
+                U_Apellido.Text = user.apellido;
+                Salida.Text = "Select user\n" + user.ToString();
             }
+        }
+
+        private void Btn_InsertUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_UpdateUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

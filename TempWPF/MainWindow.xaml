@@ -24,6 +24,9 @@
         <TextBox Name="U_Apellido" HorizontalAlignment="Left" Height="23" Margin="303,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
         <Button Content="ToString" HorizontalAlignment="Left" Margin="303,217,0,0" VerticalAlignment="Top" Width="198" Click="Button_Click_2"/>
         <Button Name="Btn_SelectUser" Content="Select user" HorizontalAlignment="Left" Margin="303,242,0,0" VerticalAlignment="Top" Width="198" Click="Btn_SelectUser_Click"/>
+        <Button Name="Btn_InsertUser" Content="Insert" HorizontalAlignment="Left" Margin="303,267,0,0" VerticalAlignment="Top" Width="198" Click="Btn_InsertUser_Click"/>
+        <Button x:Name="Btn_UpdateUser" Content="Update" HorizontalAlignment="Left" Margin="303,292,0,0" VerticalAlignment="Top" Width="198" Click="Btn_UpdateUser_Click"/>
+        <Button x:Name="Btn_DeleteUser" Content="Delete" HorizontalAlignment="Left" Margin="303,317,0,0" VerticalAlignment="Top" Width="198" Click="Btn_DeleteUser_Click"/>
 
     </Grid>
 </Window>
