@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ConexionBD;
+using BeLifeBD;
 
 namespace TempWPF
 {
@@ -24,6 +25,7 @@ namespace TempWPF
         public MainWindow()
         {
             InitializeComponent();
+            user = new Usuario();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -48,6 +50,24 @@ namespace TempWPF
             else
             {
                 Salida.Text = "ConexionBD Correcta: False";
+            }
+        }
+
+        Usuario user;
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //User toString
+            Salida.Text = user.ToString();
+        }
+
+        private void Btn_SelectUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(U_ID.Text, out int id))
+            {
+                user.id = id;
+                user.Find();
+                Salida.Text = user.ToString();
             }
         }
     }

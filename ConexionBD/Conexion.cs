@@ -42,15 +42,12 @@ namespace ConexionBD
 
         #region NoQuery
 
-        public static int? Delete(string table, string where)
+        public static int? Delete(string table, string where = "0 = 0")
         {
             int? numDelete = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "DELETE FROM @table WHERE @where";
-                command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@where", where);
+                SqlCommand command = new SqlCommand($"DELETE FROM {table} WHERE {where}", connection);
 
                 try
                 {
@@ -70,16 +67,12 @@ namespace ConexionBD
             return numDelete;
         }
 
-        public static int? Update(string table, string set, string where = "True")
+        public static int? Update(string table, string set, string where = "0=0")
         {
             int? numUpdate = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "UPDATE @table SET @set WHERE @where";
-                command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@set", set);
-                command.Parameters.AddWithValue("@where", where);
+                SqlCommand command = new SqlCommand($"UPDATE {table} SET {set} WHERE {where}", connection);
 
                 try
                 {
@@ -105,11 +98,7 @@ namespace ConexionBD
             bool insert = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "INSERT INTO @table (@param) VALUES (@values)";
-                command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@param", param);
-                command.Parameters.AddWithValue("@values", values);
+                SqlCommand command = new SqlCommand($"INSERT INTO {table} ({param}) VALUES ({values})", connection);
 
                 try
                 {
@@ -135,10 +124,7 @@ namespace ConexionBD
             bool insert = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "INSERT INTO @table VALUES (@values)";
-                command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@values", values);
+                SqlCommand command = new SqlCommand($"INSERT INTO {table} VALUES ({values})", connection);
 
                 try
                 {
@@ -163,16 +149,12 @@ namespace ConexionBD
 
         #region Query
 
-        public static object SelectValue(string table, string column, string where = "True")
+        public static object SelectValue(string table, string column, string where = "0 = 0")
         {
             object select = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT @column FROM @table WHERE @where ROWNUM <= 1";
-                command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@column", column);
-                command.Parameters.AddWithValue("@where", where);
+                SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM {table} WHERE {where}", connection);
 
                 try
                 {
@@ -193,16 +175,12 @@ namespace ConexionBD
             return select;
         }
 
-        public static object[] SelectFirst(string table, string column = "*", string where = "True")
+        public static object[] SelectFirst(string table, string column = "*", string where = "0 = 0")
         {
             object[] select = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT @column FROM @table WHERE @where ROWNUM <= 1";
-                command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@column", column);
-                command.Parameters.AddWithValue("@where", where);
+                SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM {table} WHERE {where}", connection);
 
                 try
                 {
@@ -211,6 +189,7 @@ namespace ConexionBD
                     {
                         if (reader.Read())
                         {
+                            select = new object[reader.FieldCount];
                             reader.GetValues(select);
                         }
                     }
@@ -229,16 +208,12 @@ namespace ConexionBD
             return select;
         }
 
-        public static List<object[]> Select(string table, string column = "*", string where = "True")
+        public static List<object[]> Select(string table, string column = "*", string where = "0 = 0")
         {
             List<object[]> select = new List<object[]>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT @column FROM @table WHERE @where ROWNUM <= 1";
-                command.Parameters.AddWithValue("@table", table);
-                command.Parameters.AddWithValue("@column", column);
-                command.Parameters.AddWithValue("@where", where);
+                SqlCommand command = new SqlCommand($"SELECT {column} FROM {table} WHERE {where}", connection);
 
                 try
                 {
@@ -248,6 +223,7 @@ namespace ConexionBD
                         object[] row = null;
                         while (reader.Read())
                         {
+                            row = new object[reader.FieldCount];
                             reader.GetValues(row);
                             select.Add(row);
                         }

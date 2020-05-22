@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempWPF", "TempWPF\TempWPF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexionBD", "ConexionBD\ConexionBD.csproj", "{C02E42E2-1338-454C-B526-D5AC71910726}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeLifeBD", "BeLifeBD\BeLifeBD.csproj", "{64C080E3-8B1F-46C4-86D1-36C5B251CB7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C02E42E2-1338-454C-B526-D5AC71910726}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C02E42E2-1338-454C-B526-D5AC71910726}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C02E42E2-1338-454C-B526-D5AC71910726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C080E3-8B1F-46C4-86D1-36C5B251CB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C080E3-8B1F-46C4-86D1-36C5B251CB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C080E3-8B1F-46C4-86D1-36C5B251CB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C080E3-8B1F-46C4-86D1-36C5B251CB7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
