@@ -153,5 +153,113 @@ namespace ConexionBD
         }
 
         #endregion
+
+        #region Query
+
+        public static object SelectValue(string table, string column, string where = "True")
+        {
+            object select = null;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT @column FROM @table WHERE @where ROWNUM <= 1";
+                command.Parameters.AddWithValue("@table", table);
+                command.Parameters.AddWithValue("@column", column);
+                command.Parameters.AddWithValue("@where", where);
+
+                try
+                {
+                    connection.Open();
+                    select = command.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine("->Error en la peticion de seleccion de valor." +
+                        "\nTable: " + table +
+                        "\nColumn: " + column +
+                        "\nWhere: " + where +
+                        "\nException Message: \n" + ex.Message);
+                    select = null;
+                }
+                connection.Close();
+            }
+            return select;
+        }
+
+        public static object[] SelectFirst(string table, string column = "*", string where = "True")
+        {
+            object[] select = null;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT @column FROM @table WHERE @where ROWNUM <= 1";
+                command.Parameters.AddWithValue("@table", table);
+                command.Parameters.AddWithValue("@column", column);
+                command.Parameters.AddWithValue("@where", where);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            reader.GetValues(select);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine("->Error en la peticion de seleccion de fila." +
+                        "\nTable: " + table +
+                        "\nColumn: " + column +
+                        "\nWhere: " + where +
+                        "\nException Message: \n" + ex.Message);
+                    select = null;
+                }
+                connection.Close();
+            }
+            return select;
+        }
+
+        public static List<object[]> Select(string table, string column = "*", string where = "True")
+        {
+            List<object[]> select = new List<object[]>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT @column FROM @table WHERE @where ROWNUM <= 1";
+                command.Parameters.AddWithValue("@table", table);
+                command.Parameters.AddWithValue("@column", column);
+                command.Parameters.AddWithValue("@where", where);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        object[] row = null;
+                        while (reader.Read())
+                        {
+                            reader.GetValues(row);
+                            select.Add(row);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine("->Error en la peticion de seleccion de varias filas." +
+                        "\nTable: " + table +
+                        "\nColumn: " + column +
+                        "\nWhere: " + where +
+                        "\nException Message: \n" + ex.Message);
+                    select = new List<object[]>();
+                }
+                connection.Close();
+            }
+            return select;
+        }
+
+        #endregion
     }
 }
