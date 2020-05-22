@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ConexionBD;
 
 namespace TempWPF
 {
@@ -29,12 +30,25 @@ namespace TempWPF
         {
             //Change address
             ConexionBD.Conexion.SetConnection(server.Text, bd.Text, Trusted_Conn.IsChecked.Value);
+            Salida.Text = "Se ha cambiado la direccion de conexion";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Get string
-            output.Text = ConexionBD.Conexion.connectionString;
+            Salida.Text = ConexionBD.Conexion.connectionString;
+        }
+
+        private void TestConexion_Click(object sender, RoutedEventArgs e)
+        {
+            if (Conexion.isConnectionPosible())
+            {
+                Salida.Text = "ConexionBD Correcta: True";
+            }
+            else
+            {
+                Salida.Text = "ConexionBD Correcta: False";
+            }
         }
     }
 }

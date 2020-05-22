@@ -24,9 +24,16 @@ namespace ConexionBD
             bool open = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                try
+                {
                     connection.Open();
                     open = connection.State == System.Data.ConnectionState.Open;
                     connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("La conexion a la BD a fallado \nException Message: " + ex.Message);
+                }
             }
             return open;
         }

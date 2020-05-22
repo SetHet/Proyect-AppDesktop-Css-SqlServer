@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TempWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1400">
     <Grid>
-        <Button Content="Get Address" HorizontalAlignment="Left" Margin="528,34,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="Chance address" HorizontalAlignment="Left" Margin="42,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Get Address" HorizontalAlignment="Left" Margin="42,150,0,0" VerticalAlignment="Top" Width="219" Click="Button_Click_1"/>
+        <Button Content="Chance address" HorizontalAlignment="Left" Margin="42,125,0,0" VerticalAlignment="Top" Width="219" Click="Button_Click"/>
         <TextBox Name="server" HorizontalAlignment="Left" Height="23" Margin="42,49,0,0" TextWrapping="Wrap" Text="DESKTOP-F8TM6K2\SQLEXPRESS" VerticalAlignment="Top" Width="219"/>
         <TextBox x:Name="bd" HorizontalAlignment="Left" Height="23" Margin="42,77,0,0" TextWrapping="Wrap" Text="Usuarios" VerticalAlignment="Top" Width="219"/>
-        <CheckBox Name="Trusted_Conn" Content="trusted_conn" HorizontalAlignment="Left" Margin="42,105,0,0" VerticalAlignment="Top"/>
-        <TextBlock Name="output" HorizontalAlignment="Left" Margin="377,72,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="246" Width="386"/>
+        <CheckBox Name="Trusted_Conn" Content="trusted_conn" HorizontalAlignment="Left" Margin="42,105,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <Label Content="Probando la conexion" HorizontalAlignment="Left" Margin="42,10,0,0" VerticalAlignment="Top" Height="34" Width="219"/>
+        <TextBlock Name="Salida" HorizontalAlignment="Left" Height="99" Margin="10,660,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="1372" Background="Black" Foreground="#FF00FF46" FontSize="20"/>
+        <Button Name="TestConexion" Content="Test conexion" HorizontalAlignment="Left" Margin="42,175,0,0" VerticalAlignment="Top" Width="219" Click="TestConexion_Click"/>
 
     </Grid>
 </Window>
