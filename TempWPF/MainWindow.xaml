@@ -16,9 +16,9 @@
         <TextBlock Name="Salida" HorizontalAlignment="Left" Height="99" Margin="10,660,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="1372" Background="Black" Foreground="#FF00FF46" FontSize="20"/>
         <Button Name="TestConexion" Content="Test conexion" HorizontalAlignment="Left" Margin="42,175,0,0" VerticalAlignment="Top" Width="219" Click="TestConexion_Click"/>
         <Label Content="Probando N/S Querys" HorizontalAlignment="Left" Margin="303,10,0,0" VerticalAlignment="Top" Width="198" Height="34"/>
-        <Label Content="ID" HorizontalAlignment="Left" Margin="303,49,0,0" VerticalAlignment="Top" Width="198" Height="23"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="303,105,0,0" VerticalAlignment="Top" Width="198" Height="23"/>
-        <Label Content="Apellido" HorizontalAlignment="Left" Margin="303,161,0,0" VerticalAlignment="Top" Width="198" Height="23"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="303,49,0,0" VerticalAlignment="Top" Width="198" Height="28"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="303,105,0,0" VerticalAlignment="Top" Width="198" Height="28"/>
+        <Label Content="Apellido" HorizontalAlignment="Left" Margin="303,161,0,0" VerticalAlignment="Top" Width="198" Height="28"/>
         <TextBox Name="U_ID" HorizontalAlignment="Left" Height="23" Margin="303,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
         <TextBox Name="U_Nombre" HorizontalAlignment="Left" Height="23" Margin="303,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
         <TextBox Name="U_Apellido" HorizontalAlignment="Left" Height="23" Margin="303,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
