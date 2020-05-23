@@ -66,27 +66,61 @@ namespace TempWPF
             if (int.TryParse(U_ID.Text, out int id))
             {
                 user.id = id;
-                user.Find();
-
-                U_Nombre.Text = user.nombre;
-                U_Apellido.Text = user.apellido;
-                Salida.Text = "Select user\n" + user.ToString();
+                if (user.Find())
+                {
+                    U_ID.Text = user.id.ToString();
+                    U_Nombre.Text = user.nombre;
+                    U_Apellido.Text = user.apellido;
+                    Salida.Text = "Select user\n" + user.ToString();
+                }
+                else
+                {
+                    U_Nombre.Text = "";
+                    U_Apellido.Text = "";
+                    Salida.Text = "Usuario no encontrado";
+                }
             }
         }
 
         private void Btn_InsertUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (int.TryParse(U_ID.Text, out int id))
+            {
+                user = new Usuario();
+                user.id = id;
+                user.nombre = U_Nombre.Text;
+                user.apellido = U_Apellido.Text;
+                bool corr = user.Insert();
+                if (corr) Salida.Text = "Insercion correcta: True";
+                else Salida.Text = "Insercion correcta: False";
+            }
+            
         }
 
         private void Btn_UpdateUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (int.TryParse(U_ID.Text, out int id))
+            {
+                user = new Usuario();
+                user.id = id;
+                user.nombre = U_Nombre.Text;
+                user.apellido = U_Apellido.Text;
+                int row = user.Update();
+                if (row > 0) Salida.Text = "Update correcto: True, cant: " + row;
+                else Salida.Text = "Update correcto: False, cant: " + row;
+            }
         }
 
         private void Btn_DeleteUser_Click(object sender, RoutedEventArgs e)
         {
-
+            if (int.TryParse(U_ID.Text, out int id))
+            {
+                user = new Usuario();
+                user.id = id;
+                int row = user.Delete();
+                if (row > 0) Salida.Text = "Delete correcto: True, cant: " + row;
+                else Salida.Text = "Delete correcto: False, cant: " + row;
+            }
         }
 
         private void Btn_Search_Name_Click(object sender, RoutedEventArgs e)
@@ -99,7 +133,12 @@ namespace TempWPF
 
         private void Btn_Search_Group_Click(object sender, RoutedEventArgs e)
         {
-
+            string mensaje = "";
+            foreach(Usuario u in Usuario.GetTable())
+            {
+                mensaje += $"id: {u.id}, nombre: {u.nombre}, apellido: {u.apellido}\n";
+            }
+            Salida.Text = mensaje;
         }
 
         private void U_ID_TextChanged(object sender, TextChangedEventArgs e)
