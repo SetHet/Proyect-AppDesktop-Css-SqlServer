@@ -19,7 +19,7 @@
         <Label Content="ID" HorizontalAlignment="Left" Margin="303,49,0,0" VerticalAlignment="Top" Width="198" Height="28"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="303,105,0,0" VerticalAlignment="Top" Width="198" Height="28"/>
         <Label Content="Apellido" HorizontalAlignment="Left" Margin="303,161,0,0" VerticalAlignment="Top" Width="198" Height="28"/>
-        <TextBox Name="U_ID" HorizontalAlignment="Left" Height="23" Margin="303,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
+        <TextBox Name="U_ID" HorizontalAlignment="Left" Height="23" Margin="303,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" TextChanged="U_ID_TextChanged" Text="0"/>
         <TextBox Name="U_Nombre" HorizontalAlignment="Left" Height="23" Margin="303,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
         <TextBox Name="U_Apellido" HorizontalAlignment="Left" Height="23" Margin="303,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
         <Button Content="ToString" HorizontalAlignment="Left" Margin="303,217,0,0" VerticalAlignment="Top" Width="198" Click="Button_Click_2"/>
@@ -27,6 +27,8 @@
         <Button Name="Btn_InsertUser" Content="Insert" HorizontalAlignment="Left" Margin="303,267,0,0" VerticalAlignment="Top" Width="198" Click="Btn_InsertUser_Click"/>
         <Button x:Name="Btn_UpdateUser" Content="Update" HorizontalAlignment="Left" Margin="303,292,0,0" VerticalAlignment="Top" Width="198" Click="Btn_UpdateUser_Click"/>
         <Button x:Name="Btn_DeleteUser" Content="Delete" HorizontalAlignment="Left" Margin="303,317,0,0" VerticalAlignment="Top" Width="198" Click="Btn_DeleteUser_Click"/>
+        <Button x:Name="Btn_Search_Name" Content="Get Name" HorizontalAlignment="Left" Margin="303,342,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Search_Name_Click" />
+        <Button x:Name="Btn_Search_Group" Content="Get Matriz" HorizontalAlignment="Left" Margin="303,367,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Search_Group_Click" />
 
     </Grid>
 </Window>

@@ -23,6 +23,15 @@ namespace BeLifeBD
             }
         }
 
+        public static string GetName(int id)
+        {
+            string x = "";
+
+            x = (string)Conexion.SelectValue("Usuario", "Nombre", $"id_usuario = {id}");
+
+            return x;
+        }
+
         public override string ToString()
         {
             return $"id: {id}, nombre: {nombre}, apellido: {apellido}";

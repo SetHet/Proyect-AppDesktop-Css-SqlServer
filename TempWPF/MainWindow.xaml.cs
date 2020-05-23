@@ -88,5 +88,30 @@ namespace TempWPF
         {
 
         }
+
+        private void Btn_Search_Name_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(U_ID.Text, out int id))
+            {
+                Salida.Text = Usuario.GetName(id);
+            }
+        }
+
+        private void Btn_Search_Group_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void U_ID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (int.TryParse(U_ID.Text, out int id))
+            {
+                
+            }
+            else
+            {
+                U_ID.Text = "0";
+            }
+        }
     }
 }
