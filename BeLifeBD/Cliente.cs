@@ -43,6 +43,7 @@ namespace BeLifeBD
             }
             else return null;
         }
+        
         //Static Find all
         public static List<Cliente> FindAll()
         {
@@ -108,7 +109,6 @@ namespace BeLifeBD
             if (i == null || i < 1) return false;
             else return true;
         }
-
 
         //Exist
         public bool Exist(string rut = null)

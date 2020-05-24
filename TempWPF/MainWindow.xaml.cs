@@ -28,6 +28,8 @@ namespace TempWPF
             user = new UsuarioTest();
         }
 
+        #region Conexion
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //Change address
@@ -53,6 +55,10 @@ namespace TempWPF
             }
         }
 
+        #endregion
+
+        #region Usuario Test
+        
         UsuarioTest user;
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -154,10 +160,18 @@ namespace TempWPF
             }
         }
 
+        #endregion
+
+        #region Test Length
+        
         private void TestLength_Click(object sender, RoutedEventArgs e)
         {
             Salida.Text = Tools.StringLength("0123456789", 5);
         }
+
+        #endregion
+
+        #region Login
 
         private void TestLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -169,6 +183,10 @@ namespace TempWPF
             if (login) Salida.Text = "Inicio de sesion: True";
             else Salida.Text = "Inicio de sesion: False";
         }
+
+        #endregion
+
+        #region Clases Referencia
 
         private void Btn_FindSexo_Click(object sender, RoutedEventArgs e)
         {
@@ -211,5 +229,41 @@ namespace TempWPF
             else
                 Salida.Text = "Plan >> no encontrado";
         }
+
+        #endregion
+
+        #region Cliente
+
+        private void Btn_Cliente_Find_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Cliente_FindAll_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Cliente_Select_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Cliente_Delete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Cliente_Update_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Cliente_Exist_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }

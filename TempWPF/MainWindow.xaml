@@ -43,6 +43,26 @@
         <Button x:Name="Btn_FindEstadoCivil" Content="Find Estado Civil" HorizontalAlignment="Left" Margin="556,102,0,0" VerticalAlignment="Top" Width="198" Click="Btn_FindEstadoCivil_Click"/>
         <Button x:Name="Btn_FindPlan" Content="Find Plan" HorizontalAlignment="Left" Margin="556,160,0,0" VerticalAlignment="Top" Width="198" Click="Btn_FindPlan_Click"/>
         <TextBox x:Name="Txt_ID_Class_referencia_String" HorizontalAlignment="Left" Height="23" Margin="556,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" />
+        <Label Content="Probando Cliente" HorizontalAlignment="Left" Margin="799,10,0,0" VerticalAlignment="Top" Width="198" Height="34"/>
+        <Label Content="Probando Contrato" HorizontalAlignment="Left" Margin="1044,10,0,0" VerticalAlignment="Top" Width="198" Height="34"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Height="28" Margin="799,44,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBox Name="Txt_Cliente_Rut" HorizontalAlignment="Left" Height="23" Margin="799,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Nombres" HorizontalAlignment="Left" Height="28" Margin="799,97,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="Txt_Cliente_Nombres" HorizontalAlignment="Left" Height="23" Margin="799,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Apellidos" HorizontalAlignment="Left" Height="28" Margin="799,147,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="Txt_Cliente_Apellidos" HorizontalAlignment="Left" Height="23" Margin="799,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Height="28" Margin="799,198,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="Txt_Cliente_FechaNacimiento" HorizontalAlignment="Left" Height="23" Margin="799,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Sexo" HorizontalAlignment="Left" Height="28" Margin="799,247,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="Txt_Cliente_Sexo" HorizontalAlignment="Left" Height="23" Margin="799,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Estado Civil" HorizontalAlignment="Left" Height="28" Margin="799,298,0,0" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="Txt_Cliente_EstadoCivil" HorizontalAlignment="Left" Height="23" Margin="799,326,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <Button Name="Btn_Cliente_Find" Content="Find" HorizontalAlignment="Left" Margin="799,354,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_Find_Click"/>
+        <Button Name="Btn_Cliente_FindAll" Content="Find All" HorizontalAlignment="Left" Margin="799,379,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_FindAll_Click"/>
+        <Button Name="Btn_Cliente_Select" Content="Select" HorizontalAlignment="Left" Margin="799,404,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_Select_Click"/>
+        <Button Name="Btn_Cliente_Delete" Content="Delete" HorizontalAlignment="Left" Margin="799,429,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_Delete_Click"/>
+        <Button Name="Btn_Cliente_Update" Content="Update" HorizontalAlignment="Left" Margin="799,454,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_Update_Click"/>
+        <Button Name="Btn_Cliente_Exist" Content="Exist" HorizontalAlignment="Left" Margin="799,479,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_Exist_Click"/>
 
     </Grid>
 </Window>
