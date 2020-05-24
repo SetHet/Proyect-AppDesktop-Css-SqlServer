@@ -172,7 +172,7 @@ namespace TempWPF
         private void Btn_FindSexo_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(Txt_ID_Class_referencia.Text, out int id)){
-                Sexo sexo = Sexo.Search(id);
+                Sexo sexo = Sexo.Find(id);
                 if (sexo != null)
                     Salida.Text = $"Sexo >> id: {sexo.id}, descripcion: {sexo.descripcion}";
                 else
@@ -185,6 +185,20 @@ namespace TempWPF
             if (!int.TryParse(Txt_ID_Class_referencia.Text, out int id))
             {
                 Txt_ID_Class_referencia.Text = "0";
+            }
+        }
+
+        private void Btn_FindEstadoCivil_Click(object sender, RoutedEventArgs e)
+        {
+            EstadoCivil ec = EstadoCivil.Find(int.Parse(Txt_ID_Class_referencia.Text));
+
+            if (ec != null)
+            {
+                Salida.Text = $"Estado Civil >> id: {ec.id}, desc: {ec.descripcion}";
+            }
+            else
+            {
+                Salida.Text = $"Estado Civil >> no encontrado";
             }
         }
     }

@@ -13,7 +13,7 @@ namespace BeLifeBD
         public string descripcion;
         public const string table = "Sexo";
 
-        public static Sexo Search(int id)
+        public static Sexo Find(int id)
         {
             object[] obj = Conexion.SelectFirst(table, where: $"idsexo = {id}");
             if (obj != null)
