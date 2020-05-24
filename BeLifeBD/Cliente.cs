@@ -16,12 +16,30 @@ namespace BeLifeBD
         public const int apellido_length = 20;
 
         //Variables
-        public string rut { get { return rut; } set { rut = Tools.StringLength(value, rut_length); } }
-        public string nombre { get { return nombre; } set { nombre = Tools.StringLength(value, nombre_length); } }
-        public string apellido { get { return apellido; } set { apellido = Tools.StringLength(value, apellido_length); } }
-        public string fechaNacimiento { get { return fechaNacimiento; } set { fechaNacimiento = value; } }
-        public int idSexo { get { return idSexo; } set { idSexo = (Sexo.Find(value) != null) ? value : 0; } }
-        public int idEstadoCivil { get { return idEstadoCivil; } set { idEstadoCivil = (EstadoCivil.Find(value) != null) ? value : 0; } }
+        string _rut;
+        string _nombre;
+        string _apellido;
+        string _fechaNacimiento;
+        int _idSexo;
+        int _idEstadoCivil;
+
+        public string rut { get { return _rut; } set { _rut = Tools.StringLength(value, rut_length); } }
+        public string nombre { get { return _nombre; } set { _nombre = Tools.StringLength(value, nombre_length); } }
+        public string apellido { get { return _apellido; } set { _apellido = Tools.StringLength(value, apellido_length); } }
+        public string fechaNacimiento { get { return _fechaNacimiento; } set { _fechaNacimiento = value; } }
+        public int idSexo { get { return _idSexo; } set { _idSexo = (Sexo.Find(value) != null) ? value : 0; } }
+        public int idEstadoCivil { get { return _idEstadoCivil; } set { _idEstadoCivil = (EstadoCivil.Find(value) != null) ? value : 0; } }
+
+        //Constructor
+        public Cliente()
+        {
+            rut = "";
+            nombre = "";
+            apellido = "";
+            fechaNacimiento = "";
+            idSexo = 0;
+            idEstadoCivil = 0;
+        }
 
         //FUNCIONES
 
