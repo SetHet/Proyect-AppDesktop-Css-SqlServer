@@ -45,7 +45,7 @@
     <Compile Include="EstadoCivil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sexo.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConexionBD\ConexionBD.csproj">

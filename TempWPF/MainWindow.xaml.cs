@@ -25,7 +25,7 @@ namespace TempWPF
         public MainWindow()
         {
             InitializeComponent();
-            user = new Usuario();
+            user = new UsuarioTest();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace TempWPF
             }
         }
 
-        Usuario user;
+        UsuarioTest user;
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -86,7 +86,7 @@ namespace TempWPF
         {
             if (int.TryParse(U_ID.Text, out int id))
             {
-                user = new Usuario();
+                user = new UsuarioTest();
                 user.id = id;
                 user.nombre = U_Nombre.Text;
                 user.apellido = U_Apellido.Text;
@@ -101,7 +101,7 @@ namespace TempWPF
         {
             if (int.TryParse(U_ID.Text, out int id))
             {
-                user = new Usuario();
+                user = new UsuarioTest();
                 user.id = id;
                 user.nombre = U_Nombre.Text;
                 user.apellido = U_Apellido.Text;
@@ -115,7 +115,7 @@ namespace TempWPF
         {
             if (int.TryParse(U_ID.Text, out int id))
             {
-                user = new Usuario();
+                user = new UsuarioTest();
                 user.id = id;
                 int row = user.Delete();
                 if (row > 0) Salida.Text = "Delete correcto: True, cant: " + row;
@@ -127,14 +127,14 @@ namespace TempWPF
         {
             if (int.TryParse(U_ID.Text, out int id))
             {
-                Salida.Text = Usuario.GetName(id);
+                Salida.Text = UsuarioTest.GetName(id);
             }
         }
 
         private void Btn_Search_Group_Click(object sender, RoutedEventArgs e)
         {
             string mensaje = "";
-            foreach(Usuario u in Usuario.GetTable())
+            foreach(UsuarioTest u in UsuarioTest.GetTable())
             {
                 mensaje += $"id: {u.id}, nombre: {u.nombre}, apellido: {u.apellido}\n";
             }

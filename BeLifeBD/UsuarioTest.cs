@@ -7,7 +7,7 @@ using ConexionBD;
 
 namespace BeLifeBD
 {
-    public class Usuario
+    public class UsuarioTest
     {
         public int id = 0;
         public string nombre;
@@ -71,13 +71,13 @@ namespace BeLifeBD
             return x;
         }
 
-        public static List<Usuario> GetTable()
+        public static List<UsuarioTest> GetTable()
         {
-            List<Usuario> usuarios = new List<Usuario>();
-            Usuario u;
+            List<UsuarioTest> usuarios = new List<UsuarioTest>();
+            UsuarioTest u;
             foreach(object[] colum in Conexion.Select("Usuario"))
             {
-                u = new Usuario();
+                u = new UsuarioTest();
                 u.id = (int)colum[0];
                 u.nombre = (string)colum[1];
                 u.apellido = (string)colum[2];
