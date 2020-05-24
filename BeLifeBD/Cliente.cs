@@ -16,12 +16,12 @@ namespace BeLifeBD
         public const int apellido_length = 20;
 
         //Variables
-        public string rut;
-        public string nombre;
-        public string apellido;
-        public string fechaNacimiento;
-        public int idSexo;
-        public int idEstadoCivil;
+        public string rut { get { return rut; } set { rut = Tools.StringLength(value, rut_length); } }
+        public string nombre { get { return nombre; } set { nombre = Tools.StringLength(value, nombre_length); } }
+        public string apellido { get { return apellido; } set { apellido = Tools.StringLength(value, apellido_length); } }
+        public string fechaNacimiento { get { return fechaNacimiento; } set { fechaNacimiento = value; } }
+        public int idSexo { get { return idSexo; } set { idSexo = (Sexo.Find(value) != null) ? value : 0; } }
+        public int idEstadoCivil { get { return idEstadoCivil; } set { idEstadoCivil = (EstadoCivil.Find(value) != null) ? value : 0; } }
 
         //FUNCIONES
 
