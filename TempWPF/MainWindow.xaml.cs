@@ -168,5 +168,24 @@ namespace TempWPF
             if (login) Salida.Text = "Inicio de sesion: True";
             else Salida.Text = "Inicio de sesion: False";
         }
+
+        private void Btn_FindSexo_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(Txt_ID_Class_referencia.Text, out int id)){
+                Sexo sexo = Sexo.Search(id);
+                if (sexo != null)
+                    Salida.Text = $"Sexo >> id: {sexo.id}, descripcion: {sexo.descripcion}";
+                else
+                    Salida.Text = $"Sexo >> no encontrado";
+            }
+        }
+
+        private void Txt_ID_Class_referencia_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!int.TryParse(Txt_ID_Class_referencia.Text, out int id))
+            {
+                Txt_ID_Class_referencia.Text = "0";
+            }
+        }
     }
 }
