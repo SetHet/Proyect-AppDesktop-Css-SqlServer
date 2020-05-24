@@ -236,7 +236,9 @@ namespace TempWPF
 
         private void Btn_Cliente_Find_Click(object sender, RoutedEventArgs e)
         {
-
+            Cliente c = Cliente.Find(Txt_Cliente_Rut.Text);
+            if (c != null) Salida.Text = c.ToString();
+            else Salida.Text = "Cliente > No encontrado";
         }
 
         private void Btn_Cliente_FindAll_Click(object sender, RoutedEventArgs e)

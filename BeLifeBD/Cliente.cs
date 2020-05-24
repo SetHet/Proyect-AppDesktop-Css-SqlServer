@@ -118,9 +118,14 @@ namespace BeLifeBD
             return Conexion.SelectValue(table, "rutCliente", $"rutCliente = '{rut}'") != null;
         }
 
+        //Other
+
+        public override string ToString()
+        {
+            return $"Cliente > rut: {rut}, nombres: {nombre}, apellidos: {apellido}, fechaNacimiento: {fechaNacimiento}, idSexo: {idSexo}, idEstadoCivil: {idEstadoCivil}";
+        }
 
 
-        
 
     }
 }
