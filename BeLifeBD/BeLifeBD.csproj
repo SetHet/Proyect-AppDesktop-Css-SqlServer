@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Ejecutivo.cs" />
     <Compile Include="EstadoCivil.cs" />
+    <Compile Include="Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sexo.cs" />
     <Compile Include="UsuarioTest.cs" />

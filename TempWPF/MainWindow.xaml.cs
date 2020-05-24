@@ -201,5 +201,14 @@ namespace TempWPF
                 Salida.Text = $"Estado Civil >> no encontrado";
             }
         }
+
+        private void Btn_FindPlan_Click(object sender, RoutedEventArgs e)
+        {
+            Plan p = Plan.Find(Txt_ID_Class_referencia_String.Text);
+            if (p != null)
+                Salida.Text = $"Plan >> id: {p.id}, nombre: {p.nombre}, prima: {p.primaBase}, poliza: {p.polizaActual}";
+            else
+                Salida.Text = "Plan >> no encontrado";
+        }
     }
 }
