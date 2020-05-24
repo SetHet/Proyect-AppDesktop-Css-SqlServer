@@ -152,5 +152,10 @@ namespace TempWPF
                 U_ID.Text = "0";
             }
         }
+
+        private void TestLength_Click(object sender, RoutedEventArgs e)
+        {
+            Salida.Text = Tools.StringLength("0123456789", 5);
+        }
     }
 }
