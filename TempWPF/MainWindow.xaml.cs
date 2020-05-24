@@ -330,7 +330,6 @@ namespace TempWPF
             else Salida.Text = "Cliente Insert: False";
 
         }
-        #endregion
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -349,5 +348,7 @@ namespace TempWPF
 
             }
         }
+
+        #endregion
     }
 }
