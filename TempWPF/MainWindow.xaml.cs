@@ -234,6 +234,30 @@ namespace TempWPF
 
         #region Cliente
 
+        void UpdateTxTCliente(Cliente c)
+        {
+            Txt_Cliente_Rut.Text = c.rut;
+            Txt_Cliente_Nombres.Text = c.nombre;
+            Txt_Cliente_Apellidos.Text = c.apellido;
+            Txt_Cliente_FechaNacimiento.Text = c.fechaNacimiento;
+            Txt_Cliente_Sexo.Text = c.idSexo.ToString();
+            Txt_Cliente_EstadoCivil.Text = c.idEstadoCivil.ToString();
+        }
+
+        Cliente CreateCliente()
+        {
+            Cliente c = new Cliente();
+
+            c.rut = Txt_Cliente_Rut.Text;
+            c.nombre = Txt_Cliente_Nombres.Text;
+            c.apellido = Txt_Cliente_Apellidos.Text;
+            c.fechaNacimiento = Txt_Cliente_FechaNacimiento.Text;
+            c.idSexo = int.Parse(Txt_Cliente_Sexo.Text);
+            c.idEstadoCivil = int.Parse(Txt_Cliente_EstadoCivil.Text);
+
+            return c;
+        }
+
         private void Btn_Cliente_Find_Click(object sender, RoutedEventArgs e)
         {
             Cliente c = Cliente.Find(Txt_Cliente_Rut.Text);
@@ -243,12 +267,23 @@ namespace TempWPF
 
         private void Btn_Cliente_FindAll_Click(object sender, RoutedEventArgs e)
         {
-
+            string mensaje = "Clientes: \n";
+            foreach(Cliente c in Cliente.FindAll())
+            {
+                mensaje += c.ToString() + "\n";
+            }
+            Salida.Text = mensaje;
         }
 
         private void Btn_Cliente_Select_Click(object sender, RoutedEventArgs e)
         {
-
+            Cliente c = new Cliente();
+            if (Txt_Cliente_Rut.Text != "")
+                c.Select(Txt_Cliente_Rut.Text);
+            else
+                c.Select();
+            UpdateTxTCliente(c);
+            Salida.Text = "Select Cliente";
         }
 
         private void Btn_Cliente_Delete_Click(object sender, RoutedEventArgs e)
@@ -265,7 +300,31 @@ namespace TempWPF
         {
 
         }
+        
+        private void Txt_Cliente_Sexo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!int.TryParse(Txt_Cliente_Sexo.Text, out int i))
+            {
+                Txt_Cliente_Sexo.Text = "0";
+            }
+        }
 
+        private void Txt_Cliente_EstadoCivil_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!int.TryParse(Txt_Cliente_EstadoCivil.Text, out int i))
+            {
+                Txt_Cliente_EstadoCivil.Text = "0";
+            }
+        }
+
+        private void Btn_Cliente_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente c = CreateCliente();
+            if (c.Insert()) Salida.Text = "Cliente Insert: True";
+            else Salida.Text = "Cliente Insert: False";
+
+        }
         #endregion
+
     }
 }

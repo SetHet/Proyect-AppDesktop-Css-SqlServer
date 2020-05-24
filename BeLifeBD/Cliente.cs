@@ -54,7 +54,7 @@ namespace BeLifeBD
                 c.rut = (string)row[0];
                 c.nombre = (string)row[1];
                 c.apellido = (string)row[2];
-                c.fechaNacimiento = (string)row[3];
+                c.fechaNacimiento = ((DateTime)row[3]).ToString();
                 c.idSexo = (int)row[4];
                 c.idEstadoCivil = (int)row[5];
                 return c;
@@ -74,7 +74,7 @@ namespace BeLifeBD
                 c.rut = (string)row[0];
                 c.nombre = (string)row[1];
                 c.apellido = (string)row[2];
-                c.fechaNacimiento = (string)row[3];
+                c.fechaNacimiento = ((DateTime)row[3]).ToString();
                 c.idSexo = (int)row[4];
                 c.idEstadoCivil = (int)row[5];
                 list.Add(c);
@@ -93,7 +93,7 @@ namespace BeLifeBD
                 this.rut = (string)row[0];
                 this.nombre = (string)row[1];
                 this.apellido = (string)row[2];
-                this.fechaNacimiento = (string)row[3];
+                this.fechaNacimiento = ((DateTime)row[3]).ToString();
                 this.idSexo = (int)row[4];
                 this.idEstadoCivil = (int)row[5];
             }
@@ -101,6 +101,15 @@ namespace BeLifeBD
             {
                 Console.WriteLine("No se encontro cliente, rut: " + rut);
             }
+        }
+
+        //Insert
+        public bool Insert()
+        {
+            if (Exist()) return false;
+
+            bool correct = Conexion.Insert(table, $"'{rut}', '{nombre}', '{apellido}', '{fechaNacimiento}', {idSexo}, {idEstadoCivil}");
+            return correct;
         }
 
         //Delete
