@@ -47,7 +47,7 @@ namespace ConexionBD
             int? numDelete = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"DELETE FROM [{table}] WHERE {where}", connection);
+                SqlCommand command = new SqlCommand($"DELETE FROM {table} WHERE {where}", connection);
 
                 try
                 {
@@ -72,7 +72,7 @@ namespace ConexionBD
             int? numUpdate = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"UPDATE [{table}] SET {set} WHERE {where}", connection);
+                SqlCommand command = new SqlCommand($"UPDATE {table} SET {set} WHERE {where}", connection);
 
                 try
                 {
@@ -98,7 +98,7 @@ namespace ConexionBD
             bool insert = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO [{table}] ({param}) VALUES ({values})", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO {table} ({param}) VALUES ({values})", connection);
 
                 try
                 {
@@ -124,7 +124,7 @@ namespace ConexionBD
             bool insert = false;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"INSERT INTO [{table}] VALUES ({values})", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO {table} VALUES ({values})", connection);
 
                 try
                 {
@@ -154,7 +154,7 @@ namespace ConexionBD
             object select = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM [{table}] WHERE {where}", connection);
+                SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM {table} WHERE {where}", connection);
 
                 try
                 {
@@ -180,7 +180,7 @@ namespace ConexionBD
             object[] select = null;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM [{table}] WHERE {where}", connection);
+                SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM {table} WHERE {where}", connection);
 
                 try
                 {
@@ -213,7 +213,7 @@ namespace ConexionBD
             List<object[]> select = new List<object[]>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand($"SELECT {column} FROM [{table}] WHERE {where}", connection);
+                SqlCommand command = new SqlCommand($"SELECT {column} FROM {table} WHERE {where}", connection);
 
                 try
                 {
