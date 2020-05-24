@@ -91,6 +91,7 @@ namespace TempWPF
                 user.nombre = U_Nombre.Text;
                 user.apellido = U_Apellido.Text;
                 bool corr = user.Insert();
+                if (corr) U_ID.Text = user.id.ToString();
                 if (corr) Salida.Text = "Insercion correcta: True";
                 else Salida.Text = "Insercion correcta: False";
             }
