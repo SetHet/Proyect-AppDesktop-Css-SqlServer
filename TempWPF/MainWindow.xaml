@@ -54,9 +54,9 @@
         <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Height="28" Margin="799,198,0,0" VerticalAlignment="Top" Width="198"/>
         <TextBox x:Name="Txt_Cliente_FechaNacimiento" HorizontalAlignment="Left" Height="23" Margin="799,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
         <Label Content="Sexo" HorizontalAlignment="Left" Height="28" Margin="799,247,0,0" VerticalAlignment="Top" Width="198"/>
-        <TextBox x:Name="Txt_Cliente_Sexo" HorizontalAlignment="Left" Height="23" Margin="799,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" TextChanged="Txt_Cliente_Sexo_TextChanged"/>
+        <TextBox x:Name="Txt_Cliente_Sexo" HorizontalAlignment="Left" Height="23" Margin="799,275,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="198" TextChanged="Txt_Cliente_Sexo_TextChanged"/>
         <Label Content="Estado Civil" HorizontalAlignment="Left" Height="28" Margin="799,298,0,0" VerticalAlignment="Top" Width="198"/>
-        <TextBox x:Name="Txt_Cliente_EstadoCivil" HorizontalAlignment="Left" Height="23" Margin="799,326,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" TextChanged="Txt_Cliente_EstadoCivil_TextChanged"/>
+        <TextBox x:Name="Txt_Cliente_EstadoCivil" HorizontalAlignment="Left" Height="23" Margin="799,326,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="198" TextChanged="Txt_Cliente_EstadoCivil_TextChanged"/>
         <Button Name="Btn_Cliente_Find" Content="Find" HorizontalAlignment="Left" Margin="799,354,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_Find_Click"/>
         <Button Name="Btn_Cliente_FindAll" Content="Find All" HorizontalAlignment="Left" Margin="799,379,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_FindAll_Click"/>
         <Button Name="Btn_Cliente_Select" Content="Select" HorizontalAlignment="Left" Margin="799,404,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Cliente_Select_Click"/>
@@ -73,6 +73,8 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <Label Content="Probando Cliente, DateTime" HorizontalAlignment="Left" Margin="556,185,0,0" VerticalAlignment="Top" Width="198" Height="34"/>
+        <Button Content="Date Time" HorizontalAlignment="Left" Margin="556,217,0,0" VerticalAlignment="Top" Width="198" Click="Button_Click_3"/>
 
     </Grid>
 </Window>
