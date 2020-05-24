@@ -27,6 +27,11 @@ namespace BeLifeBD
         public string nombre { get { return _nombre; } set { _nombre = Tools.StringLength(value, nombre_length); } }
         public string apellido { get { return _apellido; } set { _apellido = Tools.StringLength(value, apellido_length); } }
         public string fechaNacimiento { get { return _fechaNacimiento; } set { _fechaNacimiento = value; } }
+        public DateTime fechaNacimiento_DateTime
+        {
+            get { return DateTime.Parse(fechaNacimiento); }
+            set { fechaNacimiento = value.ToString(); }
+        }
         public int idSexo { get { return _idSexo; } set { _idSexo = (Sexo.Find(value) != null) ? value : 0; } }
         public int idEstadoCivil { get { return _idEstadoCivil; } set { _idEstadoCivil = (EstadoCivil.Find(value) != null) ? value : 0; } }
 
