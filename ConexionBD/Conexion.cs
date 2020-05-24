@@ -11,7 +11,7 @@ namespace ConexionBD
     {
         #region Datos conexion
 
-        public static string connectionString = @"Server = DESKTOP-F8TM6K2\SQLEXPRESS; Database=Usuarios;Trusted_Connection=True;";
+        public static string connectionString = @"Server = DESKTOP-F8TM6K2\SQLEXPRESS; Database=BeLife;Trusted_Connection=True;";
 
         public static void SetConnection(string server, string database, bool trusted_connection = true)
         {

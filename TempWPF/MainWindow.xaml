@@ -31,6 +31,12 @@
         <Button x:Name="Btn_Search_Group" Content="Get Matriz" HorizontalAlignment="Left" Margin="303,367,0,0" VerticalAlignment="Top" Width="198" Click="Btn_Search_Group_Click" />
         <Label Content="Probando la conexion" HorizontalAlignment="Left" Margin="42,203,0,0" VerticalAlignment="Top" Height="34" Width="219"/>
         <Button x:Name="TestLength" Content="Test Length String" HorizontalAlignment="Left" Margin="42,237,0,0" VerticalAlignment="Top" Width="219" Click="TestLength_Click"/>
+        <Label Content="Probando Login" HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Height="34" Width="219"/>
+        <Button Name="TestLogin" Content="Login" HorizontalAlignment="Left" Margin="42,404,0,0" VerticalAlignment="Top" Width="219" Click="TestLogin_Click"/>
+        <TextBox Name="Txt_Usuario" HorizontalAlignment="Left" Height="23" Margin="42,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="219"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="42,292,0,0" VerticalAlignment="Top" Width="219" Height="28"/>
+        <TextBox x:Name="Txt_Codigo" HorizontalAlignment="Left" Height="23" Margin="42,376,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="219"/>
+        <Label Content="Codigo/Password" HorizontalAlignment="Left" Margin="42,348,0,0" VerticalAlignment="Top" Width="219" Height="28"/>
 
     </Grid>
 </Window>

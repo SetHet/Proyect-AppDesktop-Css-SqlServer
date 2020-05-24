@@ -157,5 +157,16 @@ namespace TempWPF
         {
             Salida.Text = Tools.StringLength("0123456789", 5);
         }
+
+        private void TestLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Ejecutivo ej = new Ejecutivo();
+            ej.usuario = Txt_Usuario.Text;
+            ej.codigo = Txt_Codigo.Text;
+            bool login = ej.ExistInBD();
+
+            if (login) Salida.Text = "Inicio de sesion: True";
+            else Salida.Text = "Inicio de sesion: False";
+        }
     }
 }

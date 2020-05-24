@@ -10,6 +10,7 @@ namespace ConexionBD
     {
         public static string StringLength(string text, int length)
         {
+            if (text == null || text.Length <= length) return text;
             return text.Substring(0, length);
         }
     }
