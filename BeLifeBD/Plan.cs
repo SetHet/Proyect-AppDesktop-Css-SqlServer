@@ -9,7 +9,7 @@ namespace BeLifeBD
 {
     public class Plan
     {
-        public const string table = "plan";
+        public const string table = "[plan]";
         
         public string id;
         public string nombre;
