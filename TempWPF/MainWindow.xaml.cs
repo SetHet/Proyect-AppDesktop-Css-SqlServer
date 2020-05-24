@@ -288,17 +288,23 @@ namespace TempWPF
 
         private void Btn_Cliente_Delete_Click(object sender, RoutedEventArgs e)
         {
-
+            Cliente c = CreateCliente();
+            if (c.Delete()) Salida.Text = "Delete correcto: True";
+            else Salida.Text = "Delete correcto: False";
         }
 
         private void Btn_Cliente_Update_Click(object sender, RoutedEventArgs e)
         {
-
+            Cliente c = CreateCliente();
+            if (c.Update()) Salida.Text = "Update correcto: True";
+            else Salida.Text = "Update correcto: False";
         }
 
         private void Btn_Cliente_Exist_Click(object sender, RoutedEventArgs e)
         {
-
+            Cliente c = CreateCliente();
+            if (c.Exist()) Salida.Text = "Existe Cliente: True";
+            else Salida.Text = "Existe Cliente: False";
         }
         
         private void Txt_Cliente_Sexo_TextChanged(object sender, TextChangedEventArgs e)
@@ -326,5 +332,22 @@ namespace TempWPF
         }
         #endregion
 
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            //Date Time
+            Cliente c = new Cliente();
+            try
+            {
+                Salida.Text = "";
+                c.fechaNacimiento_DateTime = DateTime.Parse(Txt_Cliente_FechaNacimiento.Text);
+                Salida.Text += c.fechaNacimiento_DateTime.ToString() + "\n";
+                Salida.Text += "Test Date Time correcto: True";
+            }
+            catch (Exception ex)
+            {
+                Salida.Text = "Test Date Time correcto: False\n" + ex.Message;
+
+            }
+        }
     }
 }

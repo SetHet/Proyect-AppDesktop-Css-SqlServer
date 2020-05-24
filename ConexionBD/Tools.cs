@@ -10,9 +10,7 @@ namespace ConexionBD
     {
         public static string StringLength(string text, int length)
         {
-            if (text == null) Console.WriteLine("Texto: NULL");
-            else Console.WriteLine("Texto: " + text);
-            if (text == null || text == "" || text.Length <= length) return text;
+            if (text == null || text.Length <= length) return text;
             return text.Substring(0, length);
         }
     }
