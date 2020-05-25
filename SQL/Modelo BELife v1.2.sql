@@ -73,7 +73,7 @@ ALTER TABLE [dbo].[Sexo] ADD CONSTRAINT [Sexo_PK] PRIMARY KEY ([IdSexo])
 go
 
 -- Table Contrato
-
+Drop table [Contrato];
 CREATE TABLE [Contrato]
 (
  [Numero] Nvarchar(14) NOT NULL,
