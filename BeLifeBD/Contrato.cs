@@ -64,5 +64,52 @@ namespace BeLifeBD
 
         #endregion
 
+        #region BD
+
+        //Find
+
+        //Find All
+
+        //Select
+
+        //Insert
+
+        //Update
+        public bool Update()
+        {
+            if (!Exist()) return false;
+
+            int? i = Conexion.Update(table, 
+                $"FechaCreacion = '{fechaCreacion_string}', " +
+                $"FechaTermino = '{fechaTermino_string}', " +
+                $"RutCliente = '{rutCliente}', " +
+                $"CodigoPlan = '{codigoPlan}', " +
+                $"FechaInicioVigencia = '{fechaInicioVigencia_string}', " +
+                $"FechaFinVigencia = '{fechaFinVigencia_string}', " +
+                $"Vigente = '{vigente.ToString()}', " +
+                $"DeclaracionSalud = '{declaracionSalud.ToString()}', " +
+                $"PrimaAnual = '{primaAnual.ToString()}', " +
+                $"PrimaMensual = '{primaMensual.ToString()}', " +
+                $"Observaciones = '{observaciones}'",
+                $"Numero = '{numero}'");
+
+            return true;
+        }
+
+        //Delete
+        public bool Delete()
+        {
+            if (!Exist()) return false;
+            int? i = Conexion.Delete(table, $"Numero = '{numero}'");
+            return i != null && i > 0;
+        }
+
+        //Exist
+        public bool Exist()
+        {
+            return Conexion.SelectValue(table, "numero", $"Numero = '{numero}'") != null;
+        }
+
+        #endregion
     }
 }

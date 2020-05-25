@@ -345,7 +345,6 @@ namespace TempWPF
             catch (Exception ex)
             {
                 Salida.Text = "Test Date Time correcto: False\n" + ex.Message;
-
             }
         }
 
