@@ -67,12 +67,85 @@ namespace BeLifeBD
         #region BD
 
         //Find
+        public static Contrato Find(string numero)
+        {
+            Contrato c = new Contrato();
+            c.numero = numero;
+            if (c.Select()) return c;
+            else return null;
+        }
 
         //Find All
+        public static List<Contrato> FindAll()
+        {
+            List<Contrato> list = new List<Contrato>();
+            Contrato contrato;
+            foreach (object[] obj in Conexion.Select(table))
+            {
+                contrato = new Contrato();
+                contrato.numero = (string)obj[0];
+                contrato.fechaCreacion = (DateTime)obj[1];
+                contrato.fechaTermino = (DateTime)obj[2];
+                contrato.rutCliente = (string)obj[3];
+                contrato.codigoPlan = (string)obj[4];
+                contrato.fechaInicioVigencia = (DateTime)obj[5];
+                contrato.fechaFinVigencia = (DateTime)obj[6];
+                contrato.vigente = (bool)obj[7];
+                contrato.declaracionSalud = (bool)obj[8];
+                contrato.primaAnual = (float)obj[9];
+                contrato.primaMensual = (float)obj[10];
+                contrato.observaciones = (string)obj[11];
+                list.Add(contrato);
+            }
+            
+            return list;
+        }
 
         //Select
+        public bool Select()
+        {
+            object[] obj = Conexion.SelectFirst(table, where: $"Numero = '{numero}'");
+
+            if (obj != null)
+            {
+                numero = (string)obj[0];
+                fechaCreacion = (DateTime)obj[1];
+                fechaTermino = (DateTime)obj[2];
+                rutCliente = (string)obj[3];
+                codigoPlan = (string)obj[4];
+                fechaInicioVigencia = (DateTime)obj[5];
+                fechaFinVigencia = (DateTime)obj[6];
+                vigente = (bool)obj[7];
+                declaracionSalud = (bool)obj[8];
+                primaAnual = (float)obj[9];
+                primaMensual = (float)obj[10];
+                observaciones = (string)obj[11];
+                return true;
+            }
+            return false;
+        }
 
         //Insert
+        public bool Insert()
+        {
+            if (Exist()) return false;
+
+            bool corr = Conexion.Insert(table,
+                $"'{numero}', " +
+                $"'{fechaCreacion_string}', " +
+                $"'{fechaTermino_string}', " +
+                $"'{rutCliente}', " +
+                $"'{codigoPlan}', " +
+                $"'{fechaInicioVigencia_string}', " +
+                $"'{fechaFinVigencia_string}', " +
+                $"'{vigente.ToString()}', " +
+                $"'{declaracionSalud.ToString()}', " +
+                $"'{primaAnual.ToString()}', " +
+                $"'{primaMensual.ToString()}', " +
+                $"'{observaciones}'");
+
+            return corr;
+        }
 
         //Update
         public bool Update()
