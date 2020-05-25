@@ -99,6 +99,13 @@
         <TextBox x:Name="UI_Contrato_PrimaAnual" HorizontalAlignment="Left" Height="23" Margin="909,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="UI_Contrato_PrimaMensual" HorizontalAlignment="Left" Height="23" Margin="909,302,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="UI_Contrato_Observaciones" HorizontalAlignment="Left" Height="23" Margin="909,329,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
+        <Button Name="Btn_Find" Content="Find" HorizontalAlignment="Left" Margin="1114,46,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Find_Click" />
+        <Button x:Name="Btn_FindAll" Content="Find All" HorizontalAlignment="Left" Margin="1114,71,0,0" VerticalAlignment="Top" Width="162" Click="Btn_FindAll_Click" />
+        <Button x:Name="Btn_Exist" Content="Exist" HorizontalAlignment="Left" Margin="1114,96,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Exist_Click" />
+        <Button x:Name="Btn_Select" Content="Select" HorizontalAlignment="Left" Margin="1114,121,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Select_Click" />
+        <Button x:Name="Btn_Insert" Content="Insert" HorizontalAlignment="Left" Margin="1114,146,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Insert_Click" />
+        <Button x:Name="Btn_Update" Content="Update" HorizontalAlignment="Left" Margin="1114,171,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Update_Click" />
+        <Button x:Name="Btn_Delete" Content="Delete" HorizontalAlignment="Left" Margin="1114,194,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Delete_Click" />
 
     </Grid>
 </Window>

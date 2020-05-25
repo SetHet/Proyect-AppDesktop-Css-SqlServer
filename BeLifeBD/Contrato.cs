@@ -19,11 +19,11 @@ namespace BeLifeBD
         public const int codigo_length = 5;
 
         //Variables
-        public string _numero = "";
+        string _numero = "";
         public DateTime fechaCreacion = new DateTime();
         public DateTime fechaTermino = new DateTime();
-        public string _rutCliente = "";
-        public string _codigoPlan = "";
+        string _rutCliente = "";
+        string _codigoPlan = "";
         public DateTime fechaInicioVigencia = new DateTime();
         public DateTime fechaFinVigencia = new DateTime();
         public bool vigente = false;
