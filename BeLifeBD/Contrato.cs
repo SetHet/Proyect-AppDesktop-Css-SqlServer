@@ -92,8 +92,8 @@ namespace BeLifeBD
                 contrato.fechaFinVigencia = (DateTime)obj[6];
                 contrato.vigente = (bool)obj[7];
                 contrato.declaracionSalud = (bool)obj[8];
-                contrato.primaAnual = (float)obj[9];
-                contrato.primaMensual = (float)obj[10];
+                contrato.primaAnual = (float)(double)obj[9];
+                contrato.primaMensual = (float)(double)obj[10];
                 contrato.observaciones = (string)obj[11];
                 list.Add(contrato);
             }
@@ -117,8 +117,8 @@ namespace BeLifeBD
                 fechaFinVigencia = (DateTime)obj[6];
                 vigente = (bool)obj[7];
                 declaracionSalud = (bool)obj[8];
-                primaAnual = (float)obj[9];
-                primaMensual = (float)obj[10];
+                primaAnual = (float)(double)obj[9];
+                primaMensual = (float)(double)obj[10];
                 observaciones = (string)obj[11];
                 return true;
             }
@@ -140,8 +140,8 @@ namespace BeLifeBD
                 $"'{fechaFinVigencia_string}', " +
                 $"{(vigente?1:0)}, " +
                 $"{(declaracionSalud?1:0)}, " +
-                $"'{((decimal)primaAnual).ToString()}', " +
-                $"'{primaMensual.ToString(System.Globalization.NumberFormatInfo.InvariantInfo)}', " +
+                $"'{Tools.float2SQL(primaAnual)}', " +
+                $"'{Tools.float2SQL(primaMensual)}', " +
                 $"'{observaciones}'");
 
             return corr;
@@ -161,8 +161,8 @@ namespace BeLifeBD
                 $"FechaFinVigencia = '{fechaFinVigencia_string}', " +
                 $"Vigente = '{vigente.ToString()}', " +
                 $"DeclaracionSalud = '{declaracionSalud.ToString()}', " +
-                $"PrimaAnual = '{primaAnual.ToString()}', " +
-                $"PrimaMensual = '{primaMensual.ToString()}', " +
+                $"PrimaAnual = '{Tools.float2SQL(primaAnual)}', " +
+                $"PrimaMensual = '{Tools.float2SQL(primaMensual)}', " +
                 $"Observaciones = '{observaciones}'",
                 $"Numero = '{numero}'");
             return i != null && i > 0;
