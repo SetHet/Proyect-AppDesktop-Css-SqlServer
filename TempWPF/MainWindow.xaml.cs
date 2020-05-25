@@ -395,37 +395,55 @@ namespace TempWPF
 
         private void Btn_Find_Click(object sender, RoutedEventArgs e)
         {
-
+            Contrato c = CreateContrato();
+            c = Contrato.Find(c.numero);
+            if (c != null) Salida.Text = c.ToString();
+            else Salida.Text = "Contrato no encontrado";
         }
 
         private void Btn_FindAll_Click(object sender, RoutedEventArgs e)
         {
-
+            Salida.Text = "";
+            foreach(Contrato c in Contrato.FindAll())
+            {
+                Salida.Text += c.ToString() + "\n";
+            }
         }
 
         private void Btn_Exist_Click(object sender, RoutedEventArgs e)
         {
-
+            Contrato c = CreateContrato();
+            if (c.Exist()) Salida.Text = "Contrato Exist: True";
+            else Salida.Text = "Contrato Exist: False";
         }
 
         private void Btn_Select_Click(object sender, RoutedEventArgs e)
         {
-
+            Contrato c = CreateContrato();
+            if (c.Select()) Salida.Text = "Contrato Select: True";
+            else Salida.Text = "Contrato Select: False";
+            LoadContrato(c);
         }
 
         private void Btn_Insert_Click(object sender, RoutedEventArgs e)
         {
-
+            Contrato c = CreateContrato();
+            if (c.Insert()) Salida.Text = "Contrato Insert: True";
+            else Salida.Text = "Contrato Insert: False";
         }
 
         private void Btn_Update_Click(object sender, RoutedEventArgs e)
         {
-
+            Contrato c = CreateContrato();
+            if (c.Update()) Salida.Text = "Contrato Update: True";
+            else Salida.Text = "Contrato Update: False";
         }
 
         private void Btn_Delete_Click(object sender, RoutedEventArgs e)
         {
-
+            Contrato c = CreateContrato();
+            if (c.Delete()) Salida.Text = "Contrato Delete: True";
+            else Salida.Text = "Contrato Delete: False";
         }
     }
         #endregion

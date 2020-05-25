@@ -183,5 +183,24 @@ namespace BeLifeBD
         }
 
         #endregion
+
+        #region Other
+        public override string ToString()
+        {
+            return $"Contrato > " +
+                $"Num: {numero}, " +
+                $"FC: {fechaCreacion.Date.ToString()}, " +
+                $"FT: {fechaTermino.Date.ToString()}, " +
+                $"RutCliente: {rutCliente}, " +
+                $"CodigoPlan: {codigoPlan}, " +
+                $"FIV: {fechaInicioVigencia.Date.ToString()}, " +
+                $"FFV: {fechaFinVigencia.Date.ToString()}, " +
+                $"Vigencia: {vigente.ToString()}, " +
+                $"DecSalud: {declaracionSalud.ToString()}, " +
+                $"PrimaAnual: {primaAnual}, " +
+                $"PrimaMensual: {primaMensual}, " +
+                $"Observaciones: {observaciones}";
+        }
+        #endregion
     }
 }
