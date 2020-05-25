@@ -136,7 +136,6 @@ namespace ConexionBD
                 {
                     System.Console.WriteLine("->Error en la peticion de insercion." +
                         "\nTable: " + table +
-                        "\nSin Parametros" +
                         "\nValues: " + values +
                         "\nException Message: \n" + ex.Message);
                 }

@@ -129,7 +129,7 @@ namespace BeLifeBD
         public bool Insert()
         {
             if (Exist()) return false;
-
+            Console.WriteLine("intentando insertar");
             bool corr = Conexion.Insert(table,
                 $"'{numero}', " +
                 $"'{fechaCreacion_string}', " +
@@ -138,10 +138,10 @@ namespace BeLifeBD
                 $"'{codigoPlan}', " +
                 $"'{fechaInicioVigencia_string}', " +
                 $"'{fechaFinVigencia_string}', " +
-                $"'{vigente.ToString()}', " +
-                $"'{declaracionSalud.ToString()}', " +
-                $"'{primaAnual.ToString()}', " +
-                $"'{primaMensual.ToString()}', " +
+                $"{(vigente?1:0)}, " +
+                $"{(declaracionSalud?1:0)}, " +
+                $"'{((decimal)primaAnual).ToString()}', " +
+                $"'{primaMensual.ToString(System.Globalization.NumberFormatInfo.InvariantInfo)}', " +
                 $"'{observaciones}'");
 
             return corr;

@@ -403,7 +403,7 @@ namespace TempWPF
 
         private void Btn_FindAll_Click(object sender, RoutedEventArgs e)
         {
-            Salida.Text = "";
+            Salida.Text = "Lista Contratos: \n";
             foreach(Contrato c in Contrato.FindAll())
             {
                 Salida.Text += c.ToString() + "\n";
@@ -415,6 +415,8 @@ namespace TempWPF
             Contrato c = CreateContrato();
             if (c.Exist()) Salida.Text = "Contrato Exist: True";
             else Salida.Text = "Contrato Exist: False";
+
+            Salida.Text += "\n" + c.ToString();
         }
 
         private void Btn_Select_Click(object sender, RoutedEventArgs e)
