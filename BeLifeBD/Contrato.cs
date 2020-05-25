@@ -92,8 +92,7 @@ namespace BeLifeBD
                 $"PrimaMensual = '{primaMensual.ToString()}', " +
                 $"Observaciones = '{observaciones}'",
                 $"Numero = '{numero}'");
-
-            return true;
+            return i != null && i > 0;
         }
 
         //Delete
