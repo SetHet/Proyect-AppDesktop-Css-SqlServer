@@ -330,7 +330,6 @@ namespace TempWPF
             else Salida.Text = "Cliente Insert: False";
 
         }
-        #endregion
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -346,8 +345,108 @@ namespace TempWPF
             catch (Exception ex)
             {
                 Salida.Text = "Test Date Time correcto: False\n" + ex.Message;
-
             }
         }
+
+        #endregion
+
+        #region Contrato
+
+        Contrato CreateContrato()
+        {
+            Contrato c = new Contrato();
+            try
+            {
+                c.numero = UI_Contrato_Numero.Text;
+                c.fechaCreacion = UI_Contrato_FechaCreacion.SelectedDate.Value;
+                c.fechaTermino = UI_Contrato_FechaTermino.SelectedDate.Value;
+                c.rutCliente = UI_Contrato_RutCliente.Text;
+                c.codigoPlan = UI_Contrato_CodigoPlan.Text;
+                c.fechaInicioVigencia = UI_Contrato_FechaInicioVigencia.SelectedDate.Value;
+                c.fechaFinVigencia = UI_Contrato_FechaFinVigencia.SelectedDate.Value;
+                c.vigente = UI_Contrato_Vigente.IsChecked.Value;
+                c.declaracionSalud = UI_Contrato_DeclaracionSalud.IsChecked.Value;
+                c.primaAnual = float.Parse(UI_Contrato_PrimaAnual.Text);
+                c.primaMensual = float.Parse(UI_Contrato_PrimaMensual.Text);
+                c.observaciones = UI_Contrato_Observaciones.Text;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("\n>>>>ERROR de create contrato: \n" + ex.Message);
+            }
+            return c;
+        }
+
+        void LoadContrato(Contrato c)
+        {
+            UI_Contrato_Numero.Text = c.numero;
+            UI_Contrato_FechaCreacion.SelectedDate = c.fechaCreacion;
+            UI_Contrato_FechaTermino.SelectedDate = c.fechaTermino;
+            UI_Contrato_RutCliente.Text = c.rutCliente;
+            UI_Contrato_CodigoPlan.Text = c.codigoPlan;
+            UI_Contrato_FechaInicioVigencia.SelectedDate = c.fechaInicioVigencia;
+            UI_Contrato_FechaFinVigencia.SelectedDate = c.fechaFinVigencia;
+            UI_Contrato_Vigente.IsChecked = c.vigente;
+            UI_Contrato_DeclaracionSalud.IsChecked = c.declaracionSalud;
+            UI_Contrato_PrimaAnual.Text = c.primaAnual.ToString();
+            UI_Contrato_PrimaMensual.Text = c.primaMensual.ToString();
+            UI_Contrato_Observaciones.Text = c.observaciones;
+        }
+
+        private void Btn_Find_Click(object sender, RoutedEventArgs e)
+        {
+            Contrato c = CreateContrato();
+            c = Contrato.Find(c.numero);
+            if (c != null) Salida.Text = c.ToString();
+            else Salida.Text = "Contrato no encontrado";
+        }
+
+        private void Btn_FindAll_Click(object sender, RoutedEventArgs e)
+        {
+            Salida.Text = "Lista Contratos: \n";
+            foreach(Contrato c in Contrato.FindAll())
+            {
+                Salida.Text += c.ToString() + "\n";
+            }
+        }
+
+        private void Btn_Exist_Click(object sender, RoutedEventArgs e)
+        {
+            Contrato c = CreateContrato();
+            if (c.Exist()) Salida.Text = "Contrato Exist: True";
+            else Salida.Text = "Contrato Exist: False";
+
+            Salida.Text += "\n" + c.ToString();
+        }
+
+        private void Btn_Select_Click(object sender, RoutedEventArgs e)
+        {
+            Contrato c = CreateContrato();
+            if (c.Select()) Salida.Text = "Contrato Select: True";
+            else Salida.Text = "Contrato Select: False";
+            LoadContrato(c);
+        }
+
+        private void Btn_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            Contrato c = CreateContrato();
+            if (c.Insert()) Salida.Text = "Contrato Insert: True";
+            else Salida.Text = "Contrato Insert: False";
+        }
+
+        private void Btn_Update_Click(object sender, RoutedEventArgs e)
+        {
+            Contrato c = CreateContrato();
+            if (c.Update()) Salida.Text = "Contrato Update: True";
+            else Salida.Text = "Contrato Update: False";
+        }
+
+        private void Btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            Contrato c = CreateContrato();
+            if (c.Delete()) Salida.Text = "Contrato Delete: True";
+            else Salida.Text = "Contrato Delete: False";
+        }
     }
+        #endregion
 }
