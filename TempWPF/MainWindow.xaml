@@ -107,5 +107,6 @@
         <Button x:Name="Btn_Update" Content="Update" HorizontalAlignment="Left" Margin="1114,171,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Update_Click" />
         <Button x:Name="Btn_Delete" Content="Delete" HorizontalAlignment="Left" Margin="1114,194,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Delete_Click" />
 
+
     </Grid>
 </Window>

@@ -1,0 +1,107 @@
+﻿<Window x:Class="Interfaz.BeLife"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Interfaz"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="BeLife" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Storyboard x:Key="AbrirMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="80"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="220"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CerrarMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="80"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BtnAbrirMenu">
+            <BeginStoryboard Storyboard="{StaticResource AbrirMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BtnCerrarMenu">
+            <BeginStoryboard Storyboard="{StaticResource  CerrarMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid Background="White">
+        <Grid Margin="80,0,0,0" Height="80" VerticalAlignment="Top">
+            <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
+                <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Close"/>
+                
+            </Button>
+            <Image Source="Imagenes/Logo BeLife.png" Margin="10" Width="200"/>
+        </Grid>
+        <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#7e3b81" >
+
+            <Button x:Name="BtnAbrirMenu" Click="BtnAbrirMenu_Click" Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="{x:Null}" Visibility="Visible">
+                <materialDesign:PackIcon Kind="Menu" Width="60" Height="60" Foreground="White" Margin="0,10,0,0"/>
+            </Button>
+            <Button x:Name="BtnCerrarMenu" Click="BtnCerrarMenu_Click" Margin="130,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="{x:Null}" Visibility="Collapsed">
+                <materialDesign:PackIcon Kind="ArrowLeft" Width="60" Height="60" Foreground="White"/>
+            </Button>
+
+            <materialDesign:TransitioningContent x:Name="Transi" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                <Grid Width="10" x:Name="BarraTran" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,150" Background="Blue"/>
+            </materialDesign:TransitioningContent>
+
+            <ListView x:Name="ListMenu" Margin="10,150,0,0" Width="220" Background="{x:Null}" SelectionChanged="ListMenu_SelectionChanged">
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Home" Width="60" Height="60" Margin="-10" Foreground="White"/>
+                        <TextBlock  Text="Menú Principal" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="People" Width="60" Height="60" Margin="-10" Foreground="White"/>
+                        <TextBlock  Text="Clientes" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Contract" Width="60" Height="60" Margin="-10" Foreground="White"/>
+                        <TextBlock  Text="Contrato" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0"/>
+                    </StackPanel>
+                </ListViewItem>
+
+            </ListView>
+        </Grid>
+        <Grid Margin="80,80,0,0">
+            <Label Content="Bienvenido Juan" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Button Width="200" Height="150" Margin="267,129,477,241" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+                <StackPanel Width="200" Height="150" Margin="-20 -4">
+                    <materialDesign:PackIcon Kind="Contract" Width="120" Height="120" Foreground="White" HorizontalAlignment="Center"/>
+                    <Label Content="Mostrar Contratos" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
+                </StackPanel>
+            </Button>
+            <Button Width="200" Height="73" Margin="210,0,0,187" BorderThickness="1" Background="#7e3b81">
+                <materialDesign:PackIcon Kind="FileFindOutline" Height="65" Width="65"/>
+            </Button>
+            <Button Width="200" Height="73" Margin="210,0,0,33"  BorderThickness="1" Background="#7e3b81">
+                <materialDesign:PackIcon Kind="NoteAdd" Height="65" Width="65" />
+            </Button>
+            <Button Width="200" Height="Auto" Margin="267,290,477,157" BorderThickness="1" Background="#7e3b81">
+                <materialDesign:PackIcon Kind="AccountAdd" Height="65" Width="65"/>
+            </Button>
+            <Button Width="200" Height="73" Margin="0,287,210,0" BorderThickness="1" Background="#7e3b81">
+                <materialDesign:PackIcon Kind="UserSearch" Height="65" Width="65"/>
+            </Button>
+            <Button Width="200" Height="Auto" Margin="477,290,267,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+                <StackPanel Orientation="Vertical" Width="200" Height="150" Margin="-20,-4">
+                    <materialDesign:PackIcon Width="120" Height="120" HorizontalAlignment="Center" Kind="UserGroup"/>
+                    <Label Content="Mostrar Clientes" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
