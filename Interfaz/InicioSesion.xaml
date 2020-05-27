@@ -8,19 +8,38 @@
         mc:Ignorable="d"
         Height="600" Width="450" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="BtnClose" VerticalAlignment="Top" HorizontalAlignment="Right" Background="White" Padding="0" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="BtnClose_Click" Margin="0,1.6,1.6,0" Width="36">
-            <materialDesign:PackIcon Kind="Close" Width="30" Height="30" Foreground="#7e3b81" Margin="-13" />
+        <Grid Visibility="Visible" x:Name="GridInicio">
+            <materialDesign:PackIcon Kind="Account" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,200,0,0" Foreground="#7e3b81"/>
+            <TextBox x:Name="txtUser" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,270,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81"/>
+            <materialDesign:PackIcon Kind="Lock" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,325,0,0" Foreground="#7e3b81"/>
+            <PasswordBox x:Name="txtPass" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,400,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81"/>
+            <Button x:Name="BtnLogin" Click="BtnLogin_Click" VerticalAlignment="Bottom" Margin="0,0,0,100" Width="150" Height="50" Background="#7e3b81">
+                <StackPanel Orientation="Horizontal" Margin="-10 0">
+                    <materialDesign:PackIcon Kind="LoginVariant" VerticalAlignment="Center" Width="40" Height="40"/>
+                    <Label Content="Iniciar Sesión" Foreground="White" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="BtnConfig" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="50" Margin="10" Background="#7e3b81" BorderBrush="#7e3b81" Click="BtnConfig_Click" >
+                <materialDesign:PackIcon Kind="Gear" Width="30" Height="30" Margin="-8"/>
+            </Button>
+        </Grid>
+        <Grid Visibility="Collapsed" x:Name="GridConfig">
+            <materialDesign:PackIcon Kind="Server" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,200,0,0" Foreground="#7e3b81"/>
+            <TextBox x:Name="txtServer" Margin="0,-20,0,0" Width="200" Height="30" HorizontalAlignment="Center" BorderBrush="#7e3b81"/>
+            <materialDesign:PackIcon Kind="Database" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,315,0,0" Foreground="#7e3b81"/>
+            <TextBox x:Name="txtData" Margin="0,200,0,0" Width="200" Height="30" HorizontalAlignment="Center" BorderBrush="#7e3b81"/>
+            <materialDesign:PackIcon Kind="Security" Margin="-30,425,0,0" HorizontalAlignment="Center" Width="70" Height="70" Foreground="#7e3b81"/>
+            <CheckBox x:Name="CheckSafeCon" HorizontalAlignment="Center" Margin="250,451,157.6,132" Width="18" Height="18" />
+            <Button x:Name="BtnBack" Margin="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="50" Background="#7e3b81" Click="BtnBack_Click">
+                <materialDesign:PackIcon Kind="ArrowBack" Width="50" Height="50" Margin="-16,-10" Foreground="White"/>
+            </Button>
+            <Button x:Name="BtnSave" Margin="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="50" Height="50" Background="#7e3b81" Click="BtnSave_Click">
+                <materialDesign:PackIcon Kind="ContentSave" Width="50" Height="50" Margin="-16,-10" Foreground="White"/>
+            </Button>
+        </Grid>
+        <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,15,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
+            <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Close"/>
         </Button>
         <Image Source="Imagenes/Logo BeLife.png" Height="70" VerticalAlignment="Top" Margin="0,80,0,0"/>
-        <materialDesign:PackIcon Kind="Account" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,200,0,0" Foreground="#7e3b81"/>
-        <TextBox x:Name="txtUser" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,270,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81"/>
-        <materialDesign:PackIcon Kind="Lock" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,325,0,0" Foreground="#7e3b81"/>
-        <PasswordBox x:Name="txtPass" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,400,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81"/>
-        <Button x:Name="BtnLogin" Click="BtnLogin_Click" VerticalAlignment="Bottom" Margin="0,0,0,100" Width="50" Height="50" Background="#7e3b81"> 
-            <materialDesign:PackIcon Kind="LoginVariant" Margin="-11" Width="40" Height="40"/>
-        </Button>
-        <Button x:Name="BtnConfig" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="50" Margin="10" Background="#7e3b81" BorderBrush="#7e3b81" Click="BtnConfig_Click" >
-            <materialDesign:PackIcon Kind="Gear" Width="30" Height="30" Margin="-8"/>
-        </Button>
     </Grid>
 </Window>

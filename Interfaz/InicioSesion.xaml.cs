@@ -32,7 +32,8 @@ namespace Interfaz
 
         private void BtnConfig_Click(object sender, RoutedEventArgs e)
         {
-
+            GridInicio.Visibility = Visibility.Collapsed;
+            GridConfig.Visibility = Visibility.Visible;
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -51,6 +52,26 @@ namespace Interfaz
             {
                 MessageBox.Show("El Usuario o la Contraseña no son válidos");
             }
+        }
+        private void BtnClose_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BtnClose.Background = new SolidColorBrush(Color.FromRgb(247, 50, 50));
+        }
+
+        private void BtnClose_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BtnClose.Background = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            GridConfig.Visibility = Visibility.Collapsed;
+            GridInicio.Visibility = Visibility.Visible;
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
