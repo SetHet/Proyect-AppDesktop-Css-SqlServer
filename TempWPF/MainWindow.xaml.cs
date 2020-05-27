@@ -40,7 +40,7 @@ namespace TempWPF
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Get string
-            Salida.Text = ConexionBD.Conexion.connectionString;
+            Salida.Text = ConexionBD.Conexion.connectionConfig;
         }
 
         private void TestConexion_Click(object sender, RoutedEventArgs e)

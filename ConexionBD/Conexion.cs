@@ -11,18 +11,18 @@ namespace ConexionBD
     {
         #region Datos conexion
 
-        public static string connectionString = @"Server = LAPTOP-DPRGNT7E\SQLEXPRESS; Database=BeLife;Trusted_Connection=True;";
+        public static string connectionConfig = @"Server = TheServer; Database=BeLife;Trusted_Connection=True;";
 
         public static void SetConnection(string server, string database, bool trusted_connection = true)
         {
-            string newConnString = "Server = " + server + "; Database=" + database + "; Trusted_Connection=" + (trusted_connection?"True":"False") + ";";
-            connectionString = newConnString;
+            string newConnString = $"Server = {server} ; Database= {database} ; Trusted_Connection= {(trusted_connection ? "True" : "False")};";
+            connectionConfig = newConnString;
         }
 
         public static bool isConnectionPosible()
         {
             bool open = false;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 try
                 {
@@ -45,7 +45,7 @@ namespace ConexionBD
         public static int? Delete(string table, string where = "0 = 0")
         {
             int? numDelete = null;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 SqlCommand command = new SqlCommand($"DELETE FROM {table} WHERE {where}", connection);
 
@@ -70,7 +70,7 @@ namespace ConexionBD
         public static int? Update(string table, string set, string where = "0=0")
         {
             int? numUpdate = null;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 SqlCommand command = new SqlCommand($"UPDATE {table} SET {set} WHERE {where}", connection);
 
@@ -96,7 +96,7 @@ namespace ConexionBD
         public static bool Insert(string table, string param, string values)
         {
             bool insert = false;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO {table} ({param}) VALUES ({values})", connection);
 
@@ -122,7 +122,7 @@ namespace ConexionBD
         public static bool Insert(string table, string values)
         {
             bool insert = false;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 SqlCommand command = new SqlCommand($"INSERT INTO {table} VALUES ({values})", connection);
 
@@ -151,7 +151,7 @@ namespace ConexionBD
         public static object SelectValue(string table, string column, string where = "0 = 0")
         {
             object select = null;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM {table} WHERE {where}", connection);
 
@@ -177,7 +177,7 @@ namespace ConexionBD
         public static object[] SelectFirst(string table, string column = "*", string where = "0 = 0")
         {
             object[] select = null;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 SqlCommand command = new SqlCommand($"SELECT TOP(1) {column} FROM {table} WHERE {where}", connection);
 
@@ -210,7 +210,7 @@ namespace ConexionBD
         public static List<object[]> Select(string table, string column = "*", string where = "0 = 0")
         {
             List<object[]> select = new List<object[]>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionConfig))
             {
                 SqlCommand command = new SqlCommand($"SELECT {column} FROM {table} WHERE {where}", connection);
 
