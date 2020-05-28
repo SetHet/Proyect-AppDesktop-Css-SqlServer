@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArchivosLocales
 {
-    class FileControlDicc
+    public class FileControlDicc
     {
         public string filePath = "";
 

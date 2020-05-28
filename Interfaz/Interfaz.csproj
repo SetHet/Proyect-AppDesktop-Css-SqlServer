@@ -210,6 +210,10 @@
     <Resource Include="Imagenes\Logo BeLife.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ArchivosLocales\ArchivosLocales.csproj">
+      <Project>{49190254-77bc-43f6-9536-bd084b42901b}</Project>
+      <Name>ArchivosLocales</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BeLifeBD\BeLifeBD.csproj">
       <Project>{64c080e3-8b1f-46c4-86d1-36c5b251cb7e}</Project>
       <Name>BeLifeBD</Name>
