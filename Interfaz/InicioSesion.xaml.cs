@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ArchivosLocales;
+using ConexionBD;
 
 namespace Interfaz
 {
@@ -23,6 +25,7 @@ namespace Interfaz
         public InicioSesion()
         {
             InitializeComponent();
+            StartConfiguracion();
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
@@ -71,7 +74,60 @@ namespace Interfaz
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            
+            ui2config();
+            fileControl.DiccToFile(config.dicc);
+            SetConnection();
+            Console.WriteLine(">>>>>Coneccion correcta: " + TestConexion());
         }
+
+        #region Configuracion
+
+        Configuracion config;
+        FileControlDicc fileControl;
+
+        void StartConfiguracion()
+        {
+            config = new Configuracion();
+            fileControl = new FileControlDicc("ConfiguracionBD.belifeconfiggg");
+
+            if (fileControl.Exist)
+            {
+                config.dicc = fileControl.FileToDicc();
+            }
+            else
+            {
+                fileControl.DiccToFile(config.dicc);
+            }
+
+            config2ui();
+
+            SetConnection();
+        }
+
+        void SetConnection()
+        {
+            Conexion.SetConnection(config.dicc["Server"], config.dicc["Database"], config.dicc["Trusted_Connection"] == "True");
+        }
+
+        void config2ui()
+        {
+            txtServer.Text = config.dicc["Server"];
+            txtData.Text = config.dicc["Database"];
+            CheckSafeCon.IsChecked = config.dicc["Trusted_Connection"] == "True";
+        }
+
+        void ui2config()
+        {
+            config.dicc["Server"] = txtServer.Text;
+            config.dicc["Database"] = txtData.Text;
+            config.dicc["Trusted_Connection"] = CheckSafeCon.IsChecked.Value?"True":"False";
+        }
+
+        bool TestConexion()
+        {
+            return Conexion.isConnectionPosible();
+        }
+        
+        #endregion
     }
 }
