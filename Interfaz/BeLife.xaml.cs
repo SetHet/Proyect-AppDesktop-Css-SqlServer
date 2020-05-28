@@ -28,12 +28,34 @@ namespace Interfaz
         {
             int index = ListMenu.SelectedIndex;
             MoverCursor(index);
+            switch (index)
+            {
+                case 0:
+                    GridClientes.Visibility = Visibility.Collapsed;
+                    GridPrincipal.Visibility = Visibility.Visible;
+                    GridContratos.Visibility = Visibility.Collapsed;
+                    break;
+                case 1:
+                    GridClientes.Visibility = Visibility.Visible;
+                    GridPrincipal.Visibility = Visibility.Collapsed;
+                    GridContratos.Visibility = Visibility.Collapsed;
+                    break;
+                case 2:
+                    GridContratos.Visibility = Visibility.Visible;
+                    GridClientes.Visibility = Visibility.Collapsed;
+                    GridPrincipal.Visibility = Visibility.Collapsed;
+                    break;
+            }
         }
 
-        private void MoverCursor(int index)
+        private void BtnMostrarContratos_Click(object sender, RoutedEventArgs e)
         {
-            Transi.OnApplyTemplate();
-            BarraTran.Margin = new Thickness(0,150+(70*index),0,0);
+            CambiarAGridContratos();
+        }
+
+        private void BtnMostrarClientes_Click(object sender, RoutedEventArgs e)
+        {
+            CambiarAGridClientes();
         }
 
         private void BtnAbrirMenu_Click(object sender, RoutedEventArgs e)
@@ -62,6 +84,28 @@ namespace Interfaz
         private void BtnClose_MouseLeave(object sender, MouseEventArgs e)
         {
             BtnClose.Background = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+        }
+
+        private void CambiarAGridClientes()
+        {
+            ListMenu.SelectedIndex = 1;
+            GridContratos.Visibility = Visibility.Collapsed;
+            GridClientes.Visibility = Visibility.Visible;
+            GridPrincipal.Visibility = Visibility.Collapsed;
+        }
+
+        private void CambiarAGridContratos()
+        {
+            ListMenu.SelectedIndex = 2;
+            GridContratos.Visibility = Visibility.Visible;
+            GridClientes.Visibility = Visibility.Collapsed;
+            GridPrincipal.Visibility = Visibility.Collapsed;
+        }
+
+        private void MoverCursor(int index)
+        {
+            Transi.OnApplyTemplate();
+            BarraTran.Margin = new Thickness(0, 150 + (70 * index), 0, 0);
         }
     }
 }

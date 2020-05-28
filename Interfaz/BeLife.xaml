@@ -37,7 +37,12 @@
         <Grid Margin="80,0,0,0" Height="80" VerticalAlignment="Top">
             <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Close"/>
-                
+            </Button>
+            <Button x:Name="BtnMinimizar" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,65,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
+                <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="WindowMinimize"/>
+            </Button>
+            <Button x:Name="BtnContraste" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,100,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
+                <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Electricity"/>
             </Button>
             <Image Source="Imagenes/Logo BeLife.png" Margin="10" Width="200"/>
         </Grid>
@@ -76,9 +81,9 @@
 
             </ListView>
         </Grid>
-        <Grid Margin="80,80,0,0">
+        <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Visible">
             <Label Content="Bienvenido Juan" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <Button Width="200" Height="150" Margin="267,129,477,241" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+            <Button x:Name="BtnMostrarContratos" Click="BtnMostrarContratos_Click" Width="200" Height="150" Margin="267,129,477,241" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
                 <StackPanel Width="200" Height="150" Margin="-20 -4">
                     <materialDesign:PackIcon Kind="Contract" Width="120" Height="120" Foreground="White" HorizontalAlignment="Center"/>
                     <Label Content="Mostrar Contratos" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
@@ -96,12 +101,18 @@
             <Button Width="200" Height="73" Margin="0,287,210,0" BorderThickness="1" Background="#7e3b81">
                 <materialDesign:PackIcon Kind="UserSearch" Height="65" Width="65"/>
             </Button>
-            <Button Width="200" Height="Auto" Margin="477,290,267,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+            <Button x:Name="BtnMostrarClientes" Click="BtnMostrarClientes_Click" Width="200" Height="Auto" Margin="477,290,267,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
                 <StackPanel Orientation="Vertical" Width="200" Height="150" Margin="-20,-4">
                     <materialDesign:PackIcon Width="120" Height="120" HorizontalAlignment="Center" Kind="UserGroup"/>
                     <Label Content="Mostrar Clientes" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
                 </StackPanel>
             </Button>
+        </Grid>
+        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="Black">
+            
+        </Grid>
+        <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Collapsed" Background="White">
+
         </Grid>
     </Grid>
 </Window>
