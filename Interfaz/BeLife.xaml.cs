@@ -107,5 +107,7 @@ namespace Interfaz
             Transi.OnApplyTemplate();
             BarraTran.Margin = new Thickness(0, 150 + (70 * index), 0, 0);
         }
+
+   
     }
 }

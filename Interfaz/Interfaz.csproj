@@ -219,6 +219,38 @@
       <Name>ConexionBD</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Ajustes.png" />
+    <Resource Include="Imagenes\BuscarCliente.png" />
+    <Resource Include="Imagenes\Calendario.png" />
+    <Resource Include="Imagenes\ClientAdd.png" />
+    <Resource Include="Imagenes\ClientDelete.png" />
+    <Resource Include="Imagenes\Clientes.png" />
+    <Resource Include="Imagenes\ClientSearch.png" />
+    <Resource Include="Imagenes\ClientUpdate.png" />
+    <Resource Include="Imagenes\ContractAdd.png" />
+    <Resource Include="Imagenes\ContractDelete.png" />
+    <Resource Include="Imagenes\ContractSearch.png" />
+    <Resource Include="Imagenes\ContractUpdate.png" />
+    <Resource Include="Imagenes\Contratos.png" />
+    <Resource Include="Imagenes\DataBase.png" />
+    <Resource Include="Imagenes\DataSearch.png" />
+    <Resource Include="Imagenes\EstadoCivil.png" />
+    <Resource Include="Imagenes\Genero.png" />
+    <Resource Include="Imagenes\Guardar.png" />
+    <Resource Include="Imagenes\Home.png" />
+    <Resource Include="Imagenes\Id.png" />
+    <Resource Include="Imagenes\LogOut.png" />
+    <Resource Include="Imagenes\Menu.png" />
+    <Resource Include="Imagenes\MostrarContrato.png" />
+    <Resource Include="Imagenes\paleta.png" />
+    <Resource Include="Imagenes\Password.png" />
+    <Resource Include="Imagenes\Rayo.png" />
+    <Resource Include="Imagenes\Security.png" />
+    <Resource Include="Imagenes\Server.png" />
+    <Resource Include="Imagenes\User.png" />
+    <Resource Include="Imagenes\X.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
