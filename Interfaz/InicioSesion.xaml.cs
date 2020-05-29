@@ -41,20 +41,20 @@ namespace Interfaz
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            /*Ejecutivo ej = new Ejecutivo();
+            Ejecutivo ej = new Ejecutivo();
             ej.usuario = txtUser.Text;
             ej.codigo = txtPass.Password.ToString();
             bool login = ej.ExistInBD();
             if (login)
-            {*/
+            {
                 BeLife beLife = new BeLife();
                 beLife.Show();
                 this.Close();
-            /*}
+            }
             else
             {
                 MessageBox.Show("El Usuario o la Contraseña no son válidos");
-            }*/
+            }
         }
         private void BtnClose_MouseEnter(object sender, MouseEventArgs e)
         {

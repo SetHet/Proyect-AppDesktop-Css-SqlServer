@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BeLifeBD;
+using ConexionBD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,11 +53,27 @@ namespace Interfaz
         private void BtnMostrarContratos_Click(object sender, RoutedEventArgs e)
         {
             CambiarAGridContratos();
+            GridContratosListas.Visibility = Visibility.Visible;
+            object[][] matriz = Conexion.Select("Contrato").ToArray();
+            foreach (object[] row in matriz)
+            {
+                var data = new Contrato { numero = (string)row[0], rutCliente = (string)row[2], vigente = (bool)row[6], fechaCreacion = (DateTime)row[1], codigoPlan = (string)row[3] };
+                dtgMostrarContratos.Items.Add(data);
+            }
         }
 
         private void BtnMostrarClientes_Click(object sender, RoutedEventArgs e)
         {
             CambiarAGridClientes();
+            GridClientesListar.Visibility = Visibility.Visible;
+            Cliente cliente = new Cliente();
+            List<Cliente> listaCli = new List<Cliente>();
+            object[][] matriz = Conexion.Select("Cliente").ToArray();
+            foreach(object[] row in matriz)
+            {
+                var data = new Cliente { rut = (string)row[0], nombre = (string)row[1], apellido = (string)row[2], idSexo = (int)row[4], idEstadoCivil = (int)row[5] };
+                dtgMostrarClientes.Items.Add(data);
+            }
         }
 
         private void BtnAbrirMenu_Click(object sender, RoutedEventArgs e)

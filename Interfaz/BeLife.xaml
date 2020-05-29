@@ -46,7 +46,7 @@
             </Button>
             <Image Source="Imagenes/Logo BeLife.png" Margin="10" Width="200"/>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Collapsed">
+        <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Visible">
             <Label Content="Bienvenido Juan" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <Button x:Name="BtnMostrarContratos" Click="BtnMostrarContratos_Click" Width="200" Height="150" Margin="267,129,477,241" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
                 <StackPanel Width="200" Height="150" Margin="-20 -4">
@@ -85,40 +85,95 @@
                 </StackPanel>
             </Button>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Visible" Background="White">
-            <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
-               <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
-                <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black">
-                    <ComboBoxItem IsSelected="True">Selecione Género</ComboBoxItem>
-                    <ComboBoxItem> Hombre</ComboBoxItem>
-                    <ComboBoxItem> Mujer</ComboBoxItem>
-                </ComboBox>
-                <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" Background="{x:Null}" BorderBrush="Black">
-                    <ComboBoxItem IsSelected="True">Selecione Estado Civil</ComboBoxItem>
-                    <ComboBoxItem>Soltero</ComboBoxItem>
-                    <ComboBoxItem>Casado</ComboBoxItem>
-                    <ComboBoxItem>Divorciado</ComboBoxItem>
-                    <ComboBoxItem>Viuda</ComboBoxItem>
-                 </ComboBox>
-                 <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 40" Orientation="Horizontal" Height="50" Width="150">
-                    <TextBox Width="100" VerticalAlignment="Center" />
-                    <Button Margin="10,0" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}">
-                        <materialDesign:PackIcon Kind="Search" Width="30" Height="30" Foreground="White" Margin="-16 -12"/>
-                    </Button>
-                 </StackPanel>
+        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="White">
+            <Grid x:Name="GridClientesListar" Visibility="Collapsed">
+                <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
+                    <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
+                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black">
+                        <ComboBoxItem IsSelected="True">Selecione Género</ComboBoxItem>
+                        <ComboBoxItem>Hombre</ComboBoxItem>
+                        <ComboBoxItem>Mujer</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" Background="{x:Null}" BorderBrush="Black">
+                        <ComboBoxItem IsSelected="True">Selecione Estado Civil</ComboBoxItem>
+                        <ComboBoxItem>Soltero</ComboBoxItem>
+                        <ComboBoxItem>Casado</ComboBoxItem>
+                        <ComboBoxItem>Divorciado</ComboBoxItem>
+                        <ComboBoxItem>Viuda</ComboBoxItem>
+                    </ComboBox>
+                    <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 40" Orientation="Horizontal" Height="50" Width="150">
+                        <TextBox Width="100" VerticalAlignment="Center" />
+                        <Button Margin="10,0" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <materialDesign:PackIcon Kind="Search" Width="30" Height="30" Foreground="White" Margin="-16 -12"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <DataGrid x:Name="dtgMostrarClientes" Margin="300,50,50,50">
+                    <DataGrid.Columns>
+                        <materialDesign:DataGridTextColumn Header="Rut" Binding="{Binding rut}" Width="118.72"/>
+                        <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding nombre}"/>
+                        <materialDesign:DataGridTextColumn Header="Apellidos" Width="118.72" Binding="{Binding apellido}"/>
+                        <materialDesign:DataGridTextColumn Header="Género" Width="118.72" Binding="{Binding idSexo}"/>
+                        <materialDesign:DataGridTextColumn Header="Estado Civil" Width="118.72" Binding="{Binding idSexo}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
-            <DataGrid Margin="300,50,50,50">
-                <DataGrid.Columns>
-                    <materialDesign:DataGridTextColumn Header="Rut" Width="50" Binding="{Binding Rut}"/>
-                    <materialDesign:DataGridTextColumn Header="Nombre" Width="50" Binding="{Binding Nombres}"/>
-                    <materialDesign:DataGridTextColumn Header="Apellidos" Width="50" Binding="{Binding Apellidos}"/>
-                    <materialDesign:DataGridTextColumn Header="Género" Width="50" Binding="{Binding Genero}"/>
-                    <materialDesign:DataGridTextColumn Header="Estado Civil" Width="50" Binding="{Binding EstadoCivil}"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <Grid x:Name="GridRegistrarCliente" Visibility="Collapsed">
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,20,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="625"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="412"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="412"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="320" Margin="540,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="213"/>
+                <Image HorizontalAlignment="Left" Height="160" Margin="140,20,0,0" VerticalAlignment="Top" Width="170" Source="Imagenes/Id.png"/>
+                <Image HorizontalAlignment="Left" Height="160" Margin="140,180,0,0" VerticalAlignment="Top" Width="188" Source="Imagenes/EstadoCivil.png"/>
+                <Image HorizontalAlignment="Left" Height="160" Margin="140,340,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Genero.png"/>
+                <Image HorizontalAlignment="Left" Height="90" Margin="595,200,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Calendario.png"/>
+                <TextBox x:Name="txtb_nombre" HorizontalAlignment="Left" Height="30" Margin="330,45,0,0" VerticalAlignment="Top" Width="400" Text="RUT"/>
+                <TextBox x:Name="txtb_apellido" HorizontalAlignment="Left" Height="30" Margin="330,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Text="Nombre"/>
+                <TextBox HorizontalAlignment="Left" Height="30" Margin="330,125,0,0" VerticalAlignment="Top" Width="400" Text="Apellido"/>
+                <ComboBox HorizontalAlignment="Left" Height="35" Margin="330,210,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Gray">
+                </ComboBox>
+                <ComboBox HorizontalAlignment="Left" Margin="330,370,0,0" VerticalAlignment="Top" Width="180" Height="35">
+                    
+                </ComboBox>
+                <DatePicker Margin="550,160,0,0" Width="190" HorizontalAlignment="Left"/>
+                <Button HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}">
+                    <materialDesign:PackIcon Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10"/>
+                </Button>
+                <Button  HorizontalAlignment="Left" Height="120" Margin="790,140,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
+                    <materialDesign:PackIcon Kind="Search" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                </Button>
+                <Button  HorizontalAlignment="Left" Height="120" Margin="790,270,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
+                    <materialDesign:PackIcon Kind="AccountEdit" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                </Button>
+                <Button  HorizontalAlignment="Left" Height="120" Margin="790,400,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
+                    <materialDesign:PackIcon Kind="Delete" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                </Button>
+            </Grid>
         </Grid>
         <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Collapsed" Background="White">
-
+            <Grid x:Name="GridContratosListas" Visibility="Collapsed">
+                <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
+                    <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
+                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black">
+                        <Label Content="Número Contrato" FontFamily="Verdana" FontSize="14"/>
+                    </ComboBox>
+                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" Background="{x:Null}" BorderBrush="Black">
+                        <Label Content="RUT" FontFamily="Verdana" FontSize="14"/>
+                    </ComboBox>
+                    <ComboBox  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 150"  Height="40" Width="150">
+                        <Label Content="Número Poliza" FontFamily="Verdana" FontSize="14"/>
+                    </ComboBox>
+                </Grid>
+                <DataGrid x:Name="dtgMostrarContratos" Margin="300,50,50,50">
+                    <DataGrid.Columns>
+                        <materialDesign:DataGridTextColumn Header="N° Contrato" Binding="{Binding numero}" Width="118.72"/>
+                        <materialDesign:DataGridTextColumn Header="Titular" Width="118.72" Binding="{Binding rutCliente}"/>
+                        <materialDesign:DataGridTextColumn Header="Vigencia" Width="118.72" Binding="{Binding vigente}"/>
+                        <materialDesign:DataGridTextColumn Header="Fecha Creación" Width="118.72" Binding="{Binding fechaCreacion}"/>
+                        <materialDesign:DataGridTextColumn Header="Plan Asociado" Width="118.72" Binding="{Binding codigoPlan}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Grid>
         <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#7e3b81" >
 
