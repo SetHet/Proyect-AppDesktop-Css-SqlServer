@@ -126,6 +126,82 @@ namespace Interfaz
             BarraTran.Margin = new Thickness(0, 150 + (70 * index), 0, 0);
         }
 
-   
+        private void BtnAgregarUnCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = new Cliente
+            {
+                rut = txtbNombreCliente.Text,
+                nombre = txtbNombreCliente.Text,
+                apellido = txtApellidoCliente.Text,
+                fechaNacimiento = dtpFechNacimiento.Text,
+                idSexo = txtGeneroCliente.SelectedIndex + 1,
+                idEstadoCivil = txtEstadoCivilCliente.SelectedIndex + 1
+            };
+            cliente.Insert();
+            /*if ()
+            {
+                MessageBox.Show("Cliente Agregado Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se ha Agregado el Cliente");
+            }*/
+
+        }
+
+
+        private void TxtRutCliente_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRutCliente.Text.Equals(""))
+            {
+                txtRutCliente.Text = "RUT";
+            }
+        }
+
+        private void TxtRutCliente_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRutCliente.Text.Equals("RUT"))
+            {
+                txtRutCliente.Text = "";
+            }
+        }
+
+        private void TxtbNombreCliente_GotFocus(object sender, RoutedEventArgs e)
+        {
+            string nombre = txtbNombreCliente.Text.Trim();
+            if (nombre.Equals("Nombre"))
+            {
+                txtbNombreCliente.Text = "";
+            }
+        }
+
+        private void TxtbNombreCliente_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string nombre = txtbNombreCliente.Text.Trim();
+            if (nombre.Equals(""))
+            {
+                txtbNombreCliente.Text = "Nombre";
+            }
+        }
+
+        private void TxtApellidoCliente_GotFocus(object sender, RoutedEventArgs e)
+        {
+            string apellido = txtApellidoCliente.Text.Trim();
+            if (apellido.Equals("Apellido"))
+            {
+                txtApellidoCliente.Text = "";
+            }
+        }
+
+        private void TxtApellidoCliente_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string apelldo = txtApellidoCliente.Text.Trim();
+            if (apelldo.Equals(""))
+            {
+                txtApellidoCliente.Text = "Apellido";
+            }
+        }
+
+
     }
 }

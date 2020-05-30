@@ -46,7 +46,7 @@
             </Button>
             <Image Source="Imagenes/Logo BeLife.png" Margin="10" Width="200"/>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Visible">
+        <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Collapsed">
             <Label Content="Bienvenido Juan" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <Button x:Name="BtnMostrarContratos" Click="BtnMostrarContratos_Click" Width="200" Height="150" Margin="267,129,477,241" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
                 <StackPanel Width="200" Height="150" Margin="-20 -4">
@@ -85,22 +85,22 @@
                 </StackPanel>
             </Button>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="White">
+        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Visible" Background="White">
             <Grid x:Name="GridClientesListar" Visibility="Collapsed">
                 <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
-                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black">
-                        <ComboBoxItem IsSelected="True">Selecione Género</ComboBoxItem>
+                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black" Text="Selecione Género" IsReadOnly="True" IsEditable="True">
                         <ComboBoxItem>Hombre</ComboBoxItem>
                         <ComboBoxItem>Mujer</ComboBoxItem>
                     </ComboBox>
-                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" Background="{x:Null}" BorderBrush="Black">
-                        <ComboBoxItem IsSelected="True">Selecione Estado Civil</ComboBoxItem>
+                    <ComboBox HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" Background="{x:Null}" BorderBrush="Black" IsEditable="True" IsReadOnly="True" Text="Selecciones Estado Civil">
                         <ComboBoxItem>Soltero</ComboBoxItem>
                         <ComboBoxItem>Casado</ComboBoxItem>
                         <ComboBoxItem>Divorciado</ComboBoxItem>
                         <ComboBoxItem>Viuda</ComboBoxItem>
                     </ComboBox>
+
+
                     <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 40" Orientation="Horizontal" Height="50" Width="150">
                         <TextBox Width="100" VerticalAlignment="Center" />
                         <Button Margin="10,0" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}">
@@ -118,25 +118,32 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-            <Grid x:Name="GridRegistrarCliente" Visibility="Collapsed">
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,20,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="625"/>
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="412"/>
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="412"/>
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="320" Margin="540,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="213"/>
+            <Grid x:Name="GridRegistrarCliente" Visibility="Visible">
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="161" Margin="130,20,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="624"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="161" Margin="130,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
+                <Rectangle Fill="White" HorizontalAlignment="Left" Height="320" Margin="539,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="215"/>
                 <Image HorizontalAlignment="Left" Height="160" Margin="140,20,0,0" VerticalAlignment="Top" Width="170" Source="Imagenes/Id.png"/>
                 <Image HorizontalAlignment="Left" Height="160" Margin="140,180,0,0" VerticalAlignment="Top" Width="188" Source="Imagenes/EstadoCivil.png"/>
                 <Image HorizontalAlignment="Left" Height="160" Margin="140,340,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Genero.png"/>
                 <Image HorizontalAlignment="Left" Height="90" Margin="595,200,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Calendario.png"/>
-                <TextBox x:Name="txtb_nombre" HorizontalAlignment="Left" Height="30" Margin="330,45,0,0" VerticalAlignment="Top" Width="400" Text="RUT"/>
-                <TextBox x:Name="txtb_apellido" HorizontalAlignment="Left" Height="30" Margin="330,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Text="Nombre"/>
-                <TextBox HorizontalAlignment="Left" Height="30" Margin="330,125,0,0" VerticalAlignment="Top" Width="400" Text="Apellido"/>
-                <ComboBox HorizontalAlignment="Left" Height="35" Margin="330,210,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Gray">
+                <TextBox x:Name="txtRutCliente" HorizontalAlignment="Left" Height="30" Margin="330,45,0,0" VerticalAlignment="Top" Width="400" Text="RUT" LostFocus="TxtRutCliente_LostFocus" GotFocus="TxtRutCliente_GotFocus" />
+                <TextBox x:Name="txtbNombreCliente" HorizontalAlignment="Left" Height="30" Margin="330,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Text="Nombre" GotFocus="TxtbNombreCliente_GotFocus" LostFocus="TxtbNombreCliente_LostFocus"/>
+                <TextBox x:Name="txtApellidoCliente" HorizontalAlignment="Left" Height="30" Margin="330,125,0,0" VerticalAlignment="Top" Width="400" Text="Apellido" GotFocus="TxtApellidoCliente_GotFocus" LostFocus="TxtApellidoCliente_LostFocus"/>
+                <ComboBox x:Name="txtEstadoCivilCliente" HorizontalAlignment="Left" Height="35" Margin="330,210,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Gray" IsEditable="True" IsReadOnly="True" Text="Estado Civil">
+                    <ComboBoxItem>Soltero</ComboBoxItem>
+                    <ComboBoxItem>Casado</ComboBoxItem>
+                    <ComboBoxItem>Divorciado</ComboBoxItem>
+                    <ComboBoxItem>Viudo</ComboBoxItem>
                 </ComboBox>
-                <ComboBox HorizontalAlignment="Left" Margin="330,370,0,0" VerticalAlignment="Top" Width="180" Height="35">
-                    
+                <ComboBox  x:Name="txtGeneroCliente" HorizontalAlignment="Left" Margin="330,370,0,0" VerticalAlignment="Top" Width="180" Height="35" Text="Género" IsReadOnly="True" IsEditable="True">
+                    <ComboBoxItem>Hombre</ComboBoxItem>
+                    <ComboBoxItem>Mujer</ComboBoxItem>
                 </ComboBox>
-                <DatePicker Margin="550,160,0,0" Width="190" HorizontalAlignment="Left"/>
-                <Button HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}">
+                <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left"/>
+
+
+                <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}">
                     <materialDesign:PackIcon Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10"/>
                 </Button>
                 <Button  HorizontalAlignment="Left" Height="120" Margin="790,140,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
