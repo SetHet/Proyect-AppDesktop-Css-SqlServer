@@ -59,7 +59,7 @@ namespace BeLifeBD
                 c.rut = (string)row[0];
                 c.nombre = (string)row[1];
                 c.apellido = (string)row[2];
-                c.fechaNacimiento = ((DateTime)row[3]).ToString();
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
                 c.idSexo = (int)row[4];
                 c.idEstadoCivil = (int)row[5];
                 return c;
@@ -79,7 +79,7 @@ namespace BeLifeBD
                 c.rut = (string)row[0];
                 c.nombre = (string)row[1];
                 c.apellido = (string)row[2];
-                c.fechaNacimiento = ((DateTime)row[3]).ToString();
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
                 c.idSexo = (int)row[4];
                 c.idEstadoCivil = (int)row[5];
                 list.Add(c);
@@ -98,7 +98,7 @@ namespace BeLifeBD
                 this.rut = (string)row[0];
                 this.nombre = (string)row[1];
                 this.apellido = (string)row[2];
-                this.fechaNacimiento = ((DateTime)row[3]).ToString();
+                this.fechaNacimiento_DateTime = (DateTime)row[3];
                 this.idSexo = (int)row[4];
                 this.idEstadoCivil = (int)row[5];
             }
@@ -136,7 +136,7 @@ namespace BeLifeBD
             if (!Exist()) return false;
             string rut = Tools.StringLength(this.rut, rut_length);
             int? i = Conexion.Update(table, 
-                $"nombres = '{this.nombre}', apellidos = '{this.apellido}', fechaNacimiento = '{this.fechaNacimiento}', idSexo = {this.idSexo}, idEstadoCivil = {this.idEstadoCivil}", 
+                $"nombres = '{this.nombre}', apellidos = '{this.apellido}', fechaNacimiento = CONVERT(DATETIME,'{this.fechaNacimiento}', 105), idSexo = {this.idSexo}, idEstadoCivil = {this.idEstadoCivil}", 
                 $"rutCliente = '{rut}'");
             if (i == null || i < 1) return false;
             else return true;

@@ -132,12 +132,12 @@ namespace BeLifeBD
             Console.WriteLine("intentando insertar");
             bool corr = Conexion.Insert(table,
                 $"'{numero}', " +
-                $"'{fechaCreacion_string}', " +
-                $"'{fechaTermino_string}', " +
+                $"CONVERT(DATETIME,'{fechaCreacion_string}', 105), " +
+                $"CONVERT(DATETIME,'{fechaTermino_string}', 105), " +
                 $"'{rutCliente}', " +
                 $"'{codigoPlan}', " +
-                $"'{fechaInicioVigencia_string}', " +
-                $"'{fechaFinVigencia_string}', " +
+                $"CONVERT(DATETIME,'{fechaInicioVigencia_string}', 105), " +
+                $"CONVERT(DATETIME,'{fechaFinVigencia_string}', 105), " +
                 $"{(vigente?1:0)}, " +
                 $"{(declaracionSalud?1:0)}, " +
                 $"'{Tools.float2SQL(primaAnual)}', " +
@@ -153,12 +153,12 @@ namespace BeLifeBD
             if (!Exist()) return false;
 
             int? i = Conexion.Update(table, 
-                $"FechaCreacion = '{fechaCreacion_string}', " +
-                $"FechaTermino = '{fechaTermino_string}', " +
+                $"FechaCreacion = CONVERT(DATETIME,'{fechaCreacion_string}', 105), " +
+                $"FechaTermino = CONVERT(DATETIME,'{fechaTermino_string}', 105), " +
                 $"RutCliente = '{rutCliente}', " +
                 $"CodigoPlan = '{codigoPlan}', " +
-                $"FechaInicioVigencia = '{fechaInicioVigencia_string}', " +
-                $"FechaFinVigencia = '{fechaFinVigencia_string}', " +
+                $"FechaInicioVigencia = CONVERT(DATETIME,'{fechaInicioVigencia_string}', 105), " +
+                $"FechaFinVigencia = CONVERT(DATETIME,'{fechaFinVigencia_string}', 105), " +
                 $"Vigente = '{vigente.ToString()}', " +
                 $"DeclaracionSalud = '{declaracionSalud.ToString()}', " +
                 $"PrimaAnual = '{Tools.float2SQL(primaAnual)}', " +
