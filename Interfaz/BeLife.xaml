@@ -38,7 +38,7 @@
             <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Close"/>
             </Button>
-            <Button x:Name="BtnMinimizar" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,65,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
+            <Button x:Name="BtnMinimizar" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,65,0" BorderThickness="0" Click="BtnMinimizar_Click"  Background="#7e3b81">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="WindowMinimize"/>
             </Button>
             <Button x:Name="BtnContraste" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,100,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
@@ -99,8 +99,6 @@
                         <ComboBoxItem>Divorciado</ComboBoxItem>
                         <ComboBoxItem>Viuda</ComboBoxItem>
                     </ComboBox>
-
-
                     <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 40" Orientation="Horizontal" Height="50" Width="150">
                         <TextBox Width="100" VerticalAlignment="Center" />
                         <Button Margin="10,0" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}">
@@ -140,21 +138,17 @@
                     <ComboBoxItem>Hombre</ComboBoxItem>
                     <ComboBoxItem>Mujer</ComboBoxItem>
                 </ComboBox>
-                <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short">
-                    
-                </DatePicker>
-
-
+                <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short"/>
                 <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}">
                     <materialDesign:PackIcon Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10"/>
                 </Button>
-                <Button  HorizontalAlignment="Left" Height="120" Margin="790,140,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
+                <Button x:Name="BtnBuscarClientes" Click="BtnBuscarClientes_Click" HorizontalAlignment="Left" Height="120" Margin="790,140,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
                     <materialDesign:PackIcon Kind="Search" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
                 </Button>
-                <Button  HorizontalAlignment="Left" Height="120" Margin="790,270,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
+                <Button x:Name="BtnActualizar" Click="BtnActualizar_Click" HorizontalAlignment="Left" Height="120" Margin="790,270,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
                     <materialDesign:PackIcon Kind="AccountEdit" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
                 </Button>
-                <Button  HorizontalAlignment="Left" Height="120" Margin="790,400,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
+                <Button x:Name="BtnBorrarUsuario" Click="BtnBorrarUsuario_Click" HorizontalAlignment="Left" Height="120" Margin="790,400,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
                     <materialDesign:PackIcon Kind="Delete" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
                 </Button>
             </Grid>

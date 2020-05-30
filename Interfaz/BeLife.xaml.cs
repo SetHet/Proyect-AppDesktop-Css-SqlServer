@@ -94,6 +94,11 @@ namespace Interfaz
             Application.Current.Shutdown();
         }
 
+        private void BtnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
         private void BtnClose_MouseEnter(object sender, MouseEventArgs e)
         {
             BtnClose.Background = new SolidColorBrush(Color.FromRgb(247, 50, 50));
@@ -126,31 +131,7 @@ namespace Interfaz
             BarraTran.Margin = new Thickness(0, 150 + (70 * index), 0, 0);
         }
 
-        private void BtnAgregarUnCliente_Click(object sender, RoutedEventArgs e)
-        {
-            Cliente cliente = new Cliente
-            {
-                rut = txtbNombreCliente.Text,
-                nombre = txtbNombreCliente.Text,
-                apellido = txtApellidoCliente.Text,
-                fechaNacimiento = "31/03/2000",
-                idSexo = txtGeneroCliente.SelectedIndex + 1,
-                idEstadoCivil = txtEstadoCivilCliente.SelectedIndex + 1
-            };
-            MessageBox.Show(dtpFechNacimiento.Text);
-            /*
-            cliente.Insert();*
-            /*if ()
-            {
-                MessageBox.Show("Cliente Agregado Correctamente");
-            }
-            else
-            {
-                MessageBox.Show("No se ha Agregado el Cliente");
-            }*/
-
-        }
-
+        
 
         private void TxtRutCliente_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -202,6 +183,93 @@ namespace Interfaz
             {
                 txtApellidoCliente.Text = "Apellido";
             }
+        }
+
+        private void BtnAgregarUnCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente cliente = new Cliente
+            {
+                rut = txtRutCliente.Text,
+                nombre = txtbNombreCliente.Text,
+                apellido = txtApellidoCliente.Text,
+                fechaNacimiento = dtpFechNacimiento.Text,
+                idSexo = txtGeneroCliente.SelectedIndex + 1,
+                idEstadoCivil = txtEstadoCivilCliente.SelectedIndex + 1
+            };
+            MessageBox.Show(dtpFechNacimiento.Text);
+            if (cliente.Insert())
+            {
+                MessageBox.Show("Cliente Agregado Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se ha Agregado el Cliente");
+            }
+
+        }
+
+        private void BtnBuscarClientes_Click(object sender, RoutedEventArgs e)
+        {
+
+            List<Cliente> listClientes = new List<Cliente>();
+            Cliente cliente = Cliente.Find(txtRutCliente.Text);
+            if (cliente != null)
+            {
+                listClientes.Add(cliente);
+                txtbNombreCliente.Text = listClientes[0].nombre;
+                txtApellidoCliente.Text = listClientes[0].apellido;
+                txtGeneroCliente.SelectedIndex = listClientes[0].idSexo - 1;
+                txtEstadoCivilCliente.SelectedIndex = listClientes[0].idEstadoCivil - 1;
+            }
+            else
+            {
+                MessageBox.Show("Cliente no encontrado");
+            }
+
+        }
+
+        private void BtnBorrarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            string rut = txtRutCliente.Text;
+            Cliente cliente = new Cliente();
+            if (cliente.Delete(rut))
+            {
+                MessageBox.Show("Cliente Eliminado");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar el cliente o no existe");
+            }
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            string rut = txtRutCliente.Text.Trim();
+            if (rut.Equals("RUT")||rut.Equals(""))
+            {
+                MessageBox.Show("Primero Ingrese un RUT y Busque el Cliente");
+            }
+            else
+            {
+                Cliente cliente = new Cliente
+                {
+                    rut = txtRutCliente.Text,
+                    nombre = txtbNombreCliente.Text,
+                    apellido = txtApellidoCliente.Text,
+                    fechaNacimiento = dtpFechNacimiento.Text,
+                    idSexo = txtGeneroCliente.SelectedIndex + 1,
+                    idEstadoCivil = txtEstadoCivilCliente.SelectedIndex + 1
+                };
+                if (cliente.Update())
+                {
+                    MessageBox.Show("Cliente Actualizado");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar el cliente");
+                }
+            }
+
         }
 
 
