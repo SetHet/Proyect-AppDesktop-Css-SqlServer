@@ -140,7 +140,9 @@
                     <ComboBoxItem>Hombre</ComboBoxItem>
                     <ComboBoxItem>Mujer</ComboBoxItem>
                 </ComboBox>
-                <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left"/>
+                <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short">
+                    
+                </DatePicker>
 
 
                 <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}">

@@ -133,11 +133,13 @@ namespace Interfaz
                 rut = txtbNombreCliente.Text,
                 nombre = txtbNombreCliente.Text,
                 apellido = txtApellidoCliente.Text,
-                fechaNacimiento = dtpFechNacimiento.Text,
+                fechaNacimiento = "31/03/2000",
                 idSexo = txtGeneroCliente.SelectedIndex + 1,
                 idEstadoCivil = txtEstadoCivilCliente.SelectedIndex + 1
             };
-            cliente.Insert();
+            MessageBox.Show(dtpFechNacimiento.Text);
+            /*
+            cliente.Insert();*
             /*if ()
             {
                 MessageBox.Show("Cliente Agregado Correctamente");
