@@ -113,7 +113,7 @@ namespace BeLifeBD
         {
             if (Exist()) return false;
 
-            bool correct = Conexion.Insert(table, $"'{rut}', '{nombre}', '{apellido}', '{fechaNacimiento}', {idSexo}, {idEstadoCivil}");
+            bool correct = Conexion.Insert(table, $"'{rut}', '{nombre}', '{apellido}', CONVERT(DATETIME,'{fechaNacimiento}', 103), {idSexo}, {idEstadoCivil}");
             return correct;
         }
 
