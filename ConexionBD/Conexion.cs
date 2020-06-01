@@ -19,6 +19,11 @@ namespace ConexionBD
             connectionConfig = newConnString;
         }
 
+        public static void SyncCulture()
+        {
+            System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfoByIetfLanguageTag("es-ES");
+        }
+
         public static bool isConnectionPosible()
         {
             bool open = false;
