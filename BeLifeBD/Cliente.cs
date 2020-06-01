@@ -9,6 +9,7 @@ namespace BeLifeBD
 {
     public class Cliente
     {
+        #region Parametros
         //Settings
         public const string table = "Cliente";
         public const int rut_length = 10;
@@ -35,6 +36,10 @@ namespace BeLifeBD
         public int idSexo { get { return _idSexo; } set { _idSexo = (Sexo.Find(value) != null) ? value : 0; } }
         public int idEstadoCivil { get { return _idEstadoCivil; } set { _idEstadoCivil = (EstadoCivil.Find(value) != null) ? value : 0; } }
 
+        #endregion
+
+        #region Constructores
+
         //Constructor
         public Cliente()
         {
@@ -46,6 +51,9 @@ namespace BeLifeBD
             idEstadoCivil = 0;
         }
 
+        #endregion
+
+        #region Querys y no Querys
         //FUNCIONES
 
         //Find static
@@ -149,6 +157,8 @@ namespace BeLifeBD
             rut = Tools.StringLength(rut, rut_length);
             return Conexion.SelectValue(table, "rutCliente", $"rutCliente = '{rut}'") != null;
         }
+
+        #endregion
 
         //Other
 
