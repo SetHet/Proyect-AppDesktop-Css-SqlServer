@@ -278,6 +278,41 @@ namespace Interfaz
 
         }
 
+        private void Btn_agregar_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime DiaYHora = DateTime.Today;
+            try
+            {
+                Contrato contrato = new Contrato
+                {
+                    numero = "",
+                    fechaCreacion = DiaYHora,
+                    fechaTermino = DiaYHora.AddYears(5),
+                    rutCliente = txtb_titular.Text,
+                    codigoPlan = "VID0"+txtb_plan.SelectedIndex.ToString(),
+                    fechaInicioVigencia = txtb_inicioVig.SelectedDate.Value,
+                    fechaFinVigencia = txtb_terminoVig.SelectedDate.Value,
+                    vigente = txtb_vigente.IsChecked.Value,
+                    primaAnual = float.Parse(txtb_primaAnu.Text),
+                    primaMensual = float.Parse(txtb_primaMen.Text),
+                    observaciones = txtb_obs.Text
+                };
+                if (contrato.Insert())
+                {
+                    MessageBox.Show("Insertado Correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Algo Salió Mal...");
+                }
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("Ingrese todos los datos");
+            }
+
+
+        }
     }
 }
