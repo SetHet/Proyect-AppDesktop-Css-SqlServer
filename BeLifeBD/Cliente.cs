@@ -9,6 +9,7 @@ namespace BeLifeBD
 {
     public class Cliente
     {
+        #region Parametros
         //Settings
         public const string table = "Cliente";
         public const int rut_length = 10;
@@ -35,6 +36,10 @@ namespace BeLifeBD
         public int idSexo { get { return _idSexo; } set { _idSexo = (Sexo.Find(value) != null) ? value : 0; } }
         public int idEstadoCivil { get { return _idEstadoCivil; } set { _idEstadoCivil = (EstadoCivil.Find(value) != null) ? value : 0; } }
 
+        #endregion
+
+        #region Constructores
+
         //Constructor
         public Cliente()
         {
@@ -46,6 +51,9 @@ namespace BeLifeBD
             idEstadoCivil = 0;
         }
 
+        #endregion
+
+        #region Querys y no Querys
         //FUNCIONES
 
         //Find static
@@ -59,7 +67,7 @@ namespace BeLifeBD
                 c.rut = (string)row[0];
                 c.nombre = (string)row[1];
                 c.apellido = (string)row[2];
-                c.fechaNacimiento = ((DateTime)row[3]).ToString();
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
                 c.idSexo = (int)row[4];
                 c.idEstadoCivil = (int)row[5];
                 return c;
@@ -79,7 +87,7 @@ namespace BeLifeBD
                 c.rut = (string)row[0];
                 c.nombre = (string)row[1];
                 c.apellido = (string)row[2];
-                c.fechaNacimiento = ((DateTime)row[3]).ToString();
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
                 c.idSexo = (int)row[4];
                 c.idEstadoCivil = (int)row[5];
                 list.Add(c);
@@ -98,7 +106,7 @@ namespace BeLifeBD
                 this.rut = (string)row[0];
                 this.nombre = (string)row[1];
                 this.apellido = (string)row[2];
-                this.fechaNacimiento = ((DateTime)row[3]).ToString();
+                this.fechaNacimiento_DateTime = (DateTime)row[3];
                 this.idSexo = (int)row[4];
                 this.idEstadoCivil = (int)row[5];
             }
@@ -136,7 +144,7 @@ namespace BeLifeBD
             if (!Exist()) return false;
             string rut = Tools.StringLength(this.rut, rut_length);
             int? i = Conexion.Update(table, 
-                $"nombres = '{this.nombre}', apellidos = '{this.apellido}', fechaNacimiento = '{this.fechaNacimiento}', idSexo = {this.idSexo}, idEstadoCivil = {this.idEstadoCivil}", 
+                $"nombres = '{this.nombre}', apellidos = '{this.apellido}', fechaNacimiento = CONVERT(DATETIME,'{this.fechaNacimiento}', 105), idSexo = {this.idSexo}, idEstadoCivil = {this.idEstadoCivil}", 
                 $"rutCliente = '{rut}'");
             if (i == null || i < 1) return false;
             else return true;
@@ -149,6 +157,8 @@ namespace BeLifeBD
             rut = Tools.StringLength(rut, rut_length);
             return Conexion.SelectValue(table, "rutCliente", $"rutCliente = '{rut}'") != null;
         }
+
+        #endregion
 
         //Other
 
