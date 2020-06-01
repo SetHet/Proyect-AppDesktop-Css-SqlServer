@@ -26,6 +26,7 @@ namespace Interfaz
         {
             InitializeComponent();
             StartConfiguracion();
+            ConexionBD.Conexion.SyncCulture();
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
