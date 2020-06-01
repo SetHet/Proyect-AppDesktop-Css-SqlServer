@@ -106,6 +106,10 @@
         <Button x:Name="Btn_Insert" Content="Insert" HorizontalAlignment="Left" Margin="1114,146,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Insert_Click" />
         <Button x:Name="Btn_Update" Content="Update" HorizontalAlignment="Left" Margin="1114,171,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Update_Click" />
         <Button x:Name="Btn_Delete" Content="Delete" HorizontalAlignment="Left" Margin="1114,194,0,0" VerticalAlignment="Top" Width="162" Click="Btn_Delete_Click" />
+        <Button Content="Button" HorizontalAlignment="Left" Height="34" Margin="1298,378,0,0" VerticalAlignment="Top" Width="84" Click="Button_Click_4"/>
+        <Button Content="Zone 1" HorizontalAlignment="Left" Height="31" Margin="1298,417,0,0" VerticalAlignment="Top" Width="57" Click="Button_Click_5"/>
+        <Button Content="Zone 2" HorizontalAlignment="Left" Height="45" Margin="1298,453,0,0" VerticalAlignment="Top" Width="57" Click="Button_Click_6"/>
+        <TextBox Name="Txt_Culture" HorizontalAlignment="Left" Height="35" Margin="1298,329,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="84"/>
 
 
     </Grid>

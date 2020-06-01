@@ -447,6 +447,27 @@ namespace TempWPF
             if (c.Delete()) Salida.Text = "Contrato Delete: True";
             else Salida.Text = "Contrato Delete: False";
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Salida.Text = (string)System.Globalization.DateTimeFormatInfo.CurrentInfo.FullDateTimePattern;
+            Salida.Text += "\n" + System.Globalization.DateTimeFormatInfo.InvariantInfo.FullDateTimePattern;
+            
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfoByIetfLanguageTag(Txt_Culture.Text);
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            foreach(var culture in System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.AllCultures))
+            {
+                Console.WriteLine(culture.DisplayName);
+            }
+            Console.WriteLine("Mi cultura: " + System.Globalization.CultureInfo.CurrentCulture.DisplayName + "   number: " + System.Globalization.CultureInfo.CurrentCulture);
+        }
     }
         #endregion
 }
