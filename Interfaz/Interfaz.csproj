@@ -170,6 +170,8 @@
     <Compile Include="BeLife.xaml.cs">
       <DependentUpon>BeLife.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatosClientes.cs" />
+    <Compile Include="DatosContrato.cs" />
     <Compile Include="InicioSesion.xaml.cs">
       <DependentUpon>InicioSesion.xaml</DependentUpon>
     </Compile>
@@ -254,6 +256,11 @@
     <Resource Include="Imagenes\Server.png" />
     <Resource Include="Imagenes\User.png" />
     <Resource Include="Imagenes\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\ActualizarContrato.png" />
+    <Resource Include="Imagenes\AgregarContrato.png" />
+    <Resource Include="Imagenes\EliminarContrato.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.2\build\MaterialDesignThemes.targets')" />

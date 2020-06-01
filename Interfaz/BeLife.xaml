@@ -85,7 +85,7 @@
                 </StackPanel>
             </Button>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Visible" Background="White">
+        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="White">
             <Grid x:Name="GridClientesListar" Visibility="Collapsed">
                 <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
@@ -108,15 +108,15 @@
                 </Grid>
                 <DataGrid x:Name="dtgMostrarClientes" Margin="300,50,50,50">
                     <DataGrid.Columns>
-                        <materialDesign:DataGridTextColumn Header="Rut" Binding="{Binding rut}" Width="118.72"/>
-                        <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding nombre}"/>
-                        <materialDesign:DataGridTextColumn Header="Apellidos" Width="118.72" Binding="{Binding apellido}"/>
-                        <materialDesign:DataGridTextColumn Header="Género" Width="118.72" Binding="{Binding idSexo}"/>
-                        <materialDesign:DataGridTextColumn Header="Estado Civil" Width="118.72" Binding="{Binding idSexo}"/>
+                        <materialDesign:DataGridTextColumn Header="Rut" Binding="{Binding Rut}" Width="118.72"/>
+                        <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding Nombre}"/>
+                        <materialDesign:DataGridTextColumn Header="Apellidos" Width="118.72" Binding="{Binding Apellido}"/>
+                        <materialDesign:DataGridTextColumn Header="Género" Width="118.72" Binding="{Binding Genero}"/>
+                        <materialDesign:DataGridTextColumn Header="Estado Civil" Width="118.72" Binding="{Binding Estado}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-            <Grid x:Name="GridRegistrarCliente" Visibility="Visible">
+            <Grid x:Name="GridRegistrarCliente" Visibility="Collapsed">
                 <Rectangle Fill="White" HorizontalAlignment="Left" Height="161" Margin="130,20,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="624"/>
                 <Rectangle Fill="White" HorizontalAlignment="Left" Height="161" Margin="130,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
                 <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
@@ -139,7 +139,7 @@
                     <ComboBoxItem>Mujer</ComboBoxItem>
                 </ComboBox>
                 <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short"/>
-                <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}">
+                <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}" Foreground="#DDFD0303">
                     <materialDesign:PackIcon Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10"/>
                 </Button>
                 <Button x:Name="BtnBuscarClientes" Click="BtnBuscarClientes_Click" HorizontalAlignment="Left" Height="120" Margin="790,140,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
@@ -153,7 +153,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Collapsed" Background="White">
+        <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Visible" Background="White">
             <Grid x:Name="GridContratosListas" Visibility="Collapsed">
                 <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
@@ -169,13 +169,47 @@
                 </Grid>
                 <DataGrid x:Name="dtgMostrarContratos" Margin="300,50,50,50">
                     <DataGrid.Columns>
-                        <materialDesign:DataGridTextColumn Header="N° Contrato" Binding="{Binding numero}" Width="118.72"/>
-                        <materialDesign:DataGridTextColumn Header="Titular" Width="118.72" Binding="{Binding rutCliente}"/>
-                        <materialDesign:DataGridTextColumn Header="Vigencia" Width="118.72" Binding="{Binding vigente}"/>
-                        <materialDesign:DataGridTextColumn Header="Fecha Creación" Width="118.72" Binding="{Binding fechaCreacion}"/>
-                        <materialDesign:DataGridTextColumn Header="Plan Asociado" Width="118.72" Binding="{Binding codigoPlan}"/>
+                        <materialDesign:DataGridTextColumn Header="N° Contrato" Binding="{Binding Numero}" Width="118.72"/>
+                        <materialDesign:DataGridTextColumn Header="Titular" Width="118.72" Binding="{Binding RutTitular}"/>
+                        <materialDesign:DataGridTextColumn Header="Vigencia" Width="118.72" Binding="{Binding Vigencia}"/>
+                        <materialDesign:DataGridTextColumn Header="Fecha Creación" Width="118.72" Binding="{Binding FechaCreacion}"/>
+                        <materialDesign:DataGridTextColumn Header="Plan Asociado" Width="118.72" Binding="{Binding PlanAsociado}"/>
                     </DataGrid.Columns>
                 </DataGrid>
+            </Grid>
+            <Grid x:Name="GridAgregarContrato" Visibility="Visible">
+                <Rectangle HorizontalAlignment="Left" Height="380" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="460"/>
+                <TextBox x:Name="txtb_titular" HorizontalAlignment="Left" Height="26" Margin="15,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81"/>
+                <ComboBox x:Name="txtb_plan" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" IsEditable="True" IsReadOnly="True" Text="Seleccione Un Plan" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81">
+                    <ComboBoxItem>Vida Inicial</ComboBoxItem>
+                    <ComboBoxItem>Vida Total</ComboBoxItem>
+                    <ComboBoxItem>Vida Conductor</ComboBoxItem>
+                    <ComboBoxItem>Vida Senior</ComboBoxItem>
+                    <ComboBoxItem>Vida Ahorro</ComboBoxItem>
+                </ComboBox>
+                <TextBox x:Name="txtb_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txtb_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txtb_termino" HorizontalAlignment="Left" Height="26" Margin="306,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txtb_salud" HorizontalAlignment="Left" Height="26" Margin="306,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txtb_primaMen" HorizontalAlignment="Left" Height="26" Margin="15,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txtb_primaAnu" HorizontalAlignment="Left" Height="26" Margin="306,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txtb_obs" HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="425" BorderBrush="#FFBA86BC"/>
+                <Button x:Name="btn_agregar" HorizontalAlignment="Left" Height="114" Margin="565,365,0,0" VerticalAlignment="Top" Width="281" BorderBrush="#FFBA86BC">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Imagenes/AgregarContrato.png" Stretch="Uniform"/>
+                    </Button.Background>
+                    <Label Content="Agregar&#xA;Contrato" Margin="160,0,0,0" Foreground="#FF7E3B81" FontWeight="Bold" FontSize="14" FontFamily="Verdana"/>
+                </Button>
+                <Label Content="Titular" HorizontalAlignment="Left" Margin="15,55,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Plan Asociado" HorizontalAlignment="Left" Margin="15,112,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Inicio Vigencia" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Termino Vigencia" HorizontalAlignment="Left" Margin="15,242,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Termino" HorizontalAlignment="Left" Margin="306,182,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Prima Mensual" HorizontalAlignment="Left" Margin="15,310,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Prima Anual" HorizontalAlignment="Left" Margin="306,310,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Salud" HorizontalAlignment="Left" Margin="306,242,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Contrato Nº" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="378" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+                <Label Content="Observaciones" HorizontalAlignment="Left" Margin="586,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
             </Grid>
         </Grid>
         <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#7e3b81" >

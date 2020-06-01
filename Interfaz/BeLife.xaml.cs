@@ -57,7 +57,9 @@ namespace Interfaz
             object[][] matriz = Conexion.Select("Contrato").ToArray();
             foreach (object[] row in matriz)
             {
-                var data = new Contrato { numero = (string)row[0], rutCliente = (string)row[2], vigente = (bool)row[6], fechaCreacion = (DateTime)row[1], codigoPlan = (string)row[3] };
+                var data = new DatosContrato { Numero = (string)row[0], RutTitular = (string)row[2], Vigencia = ((bool)row[6]).ToString(), FechaCreacion = ((DateTime)row[1]).ToString(), PlanAsociado = (string)row[3] };
+
+                MessageBox.Show(row[1].ToString());
                 dtgMostrarContratos.Items.Add(data);
             }
         }
@@ -66,12 +68,15 @@ namespace Interfaz
         {
             CambiarAGridClientes();
             GridClientesListar.Visibility = Visibility.Visible;
-            Cliente cliente = new Cliente();
-            List<Cliente> listaCli = new List<Cliente>();
+            GridRegistrarCliente.Visibility = Visibility.Collapsed;
+            dtgMostrarClientes.Items.Clear();
+            DatosClientes datos = new DatosClientes(); 
             object[][] matriz = Conexion.Select("Cliente").ToArray();
             foreach(object[] row in matriz)
             {
-                var data = new Cliente { rut = (string)row[0], nombre = (string)row[1], apellido = (string)row[2], idSexo = (int)row[4], idEstadoCivil = (int)row[5] };
+                string descg = datos.Generos((int)row[4]);
+                string desce = datos.EstadoCivil((int)row[5]);
+                var data = new DatosClientes { Rut = (string)row[0], Nombre = (string)row[1], Apellido = (string)row[2], Genero = descg, Estado = desce };
                 dtgMostrarClientes.Items.Add(data);
             }
         }
@@ -220,6 +225,7 @@ namespace Interfaz
                 txtApellidoCliente.Text = listClientes[0].apellido;
                 txtGeneroCliente.SelectedIndex = listClientes[0].idSexo - 1;
                 txtEstadoCivilCliente.SelectedIndex = listClientes[0].idEstadoCivil - 1;
+                dtpFechNacimiento.Text = cliente.fechaNacimiento;
             }
             else
             {
