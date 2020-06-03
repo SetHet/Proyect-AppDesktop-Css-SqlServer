@@ -1,5 +1,7 @@
 ﻿using BeLifeBD;
 using ConexionBD;
+using MaterialDesignThemes.Wpf;
+using MaterialDesignColors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,16 +38,24 @@ namespace Interfaz
                     GridClientes.Visibility = Visibility.Collapsed;
                     GridPrincipal.Visibility = Visibility.Visible;
                     GridContratos.Visibility = Visibility.Collapsed;
+                    
                     break;
                 case 1:
                     GridClientes.Visibility = Visibility.Visible;
                     GridPrincipal.Visibility = Visibility.Collapsed;
                     GridContratos.Visibility = Visibility.Collapsed;
+                    GridRegistrarCliente.Visibility = Visibility.Visible;
+                    GridClientesListar.Visibility = Visibility.Collapsed;
                     break;
                 case 2:
                     GridContratos.Visibility = Visibility.Visible;
+                    GridGestionContrato.Visibility = Visibility.Visible;
                     GridClientes.Visibility = Visibility.Collapsed;
                     GridPrincipal.Visibility = Visibility.Collapsed;
+                    GridAgregarContrato.Visibility = Visibility.Visible;
+                    GridContratosListas.Visibility = Visibility.Collapsed;
+                    GridActu.Visibility = Visibility.Collapsed;
+                    GridAgregarContrato.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -54,12 +64,11 @@ namespace Interfaz
         {
             CambiarAGridContratos();
             GridContratosListas.Visibility = Visibility.Visible;
+            GridAgregarContrato.Visibility = Visibility.Collapsed;
             object[][] matriz = Conexion.Select("Contrato").ToArray();
             foreach (object[] row in matriz)
             {
-                var data = new DatosContrato { Numero = (string)row[0], RutTitular = (string)row[2], Vigencia = ((bool)row[6]).ToString(), FechaCreacion = ((DateTime)row[1]).ToString(), PlanAsociado = (string)row[3] };
-
-                MessageBox.Show(row[1].ToString());
+                var data = new DatosContrato { Numero = (string)row[0], RutTitular = (string)row[3], Vigencia = ((bool)row[7]).ToString(), FechaCreacion = ((DateTime)row[1]).ToString(), PlanAsociado = (string)row[4] };
                 dtgMostrarContratos.Items.Add(data);
             }
         }
@@ -201,7 +210,6 @@ namespace Interfaz
                 idSexo = txtGeneroCliente.SelectedIndex + 1,
                 idEstadoCivil = txtEstadoCivilCliente.SelectedIndex + 1
             };
-            MessageBox.Show(dtpFechNacimiento.Text);
             if (cliente.Insert())
             {
                 MessageBox.Show("Cliente Agregado Correctamente");
@@ -236,15 +244,22 @@ namespace Interfaz
 
         private void BtnBorrarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            string rut = txtRutCliente.Text;
-            Cliente cliente = new Cliente();
-            if (cliente.Delete(rut))
+            string rut = txtRutCliente.Text.Trim();
+            if (rut.Equals("RUT") || rut.Equals(""))
             {
-                MessageBox.Show("Cliente Eliminado");
+                MessageBox.Show("Primero Ingrese un RUT y Busque el Cliente");
             }
             else
             {
-                MessageBox.Show("No se pudo eliminar el cliente o no existe");
+                Cliente cliente = new Cliente();
+                if (cliente.Delete(rut))
+                {
+                    MessageBox.Show("Cliente Eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el cliente o no existe");
+                }
             }
         }
 
@@ -285,13 +300,14 @@ namespace Interfaz
             {
                 Contrato contrato = new Contrato
                 {
-                    numero = "",
+                    numero = "3",
                     fechaCreacion = DiaYHora,
                     fechaTermino = DiaYHora.AddYears(5),
                     rutCliente = txtb_titular.Text,
-                    codigoPlan = "VID0"+txtb_plan.SelectedIndex.ToString(),
+                    codigoPlan = "VID0" + txtb_plan.SelectedIndex + 1.ToString(),
                     fechaInicioVigencia = txtb_inicioVig.SelectedDate.Value,
                     fechaFinVigencia = txtb_terminoVig.SelectedDate.Value,
+                    declaracionSalud = txtb_salud.IsChecked.Value,
                     vigente = txtb_vigente.IsChecked.Value,
                     primaAnual = float.Parse(txtb_primaAnu.Text),
                     primaMensual = float.Parse(txtb_primaMen.Text),
@@ -313,6 +329,113 @@ namespace Interfaz
             }
 
 
+        }
+
+        private void BtnContraste_Click(object sender, RoutedEventArgs e)
+        {
+            var paleta = new PaletteHelper();
+            ITheme tema = paleta.GetTheme();
+            tema.PrimaryMid = new ColorPair(Colors.Red,Colors.Red);
+            
+            tema.TextBoxBorder = Colors.Red;
+            paleta.SetTheme(tema);
+        }
+
+
+        private void BtnEliminarContrato_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contrato contrato = new Contrato
+                {
+                    numero = txtBuscarNumero.Text
+                };
+
+                if (contrato.Delete())
+                {
+                    MessageBox.Show("Contrato Eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("Algo Salió Mal");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void BtnActualizarContrato_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contrato contrato = new Contrato
+                {
+                    rutCliente = txta_titular.Text,
+                    codigoPlan = "VID0" + txta_plan.SelectedIndex + 1.ToString(),
+                    fechaInicioVigencia = txta_inicioVig.SelectedDate.Value,
+                    fechaFinVigencia = txta_terminoVig.SelectedDate.Value,
+                    vigente = CB_estado.IsChecked.Value,
+                    declaracionSalud = txta_salud.IsChecked.Value,
+                    primaAnual = float.Parse(txta_primaAnu.Text),
+                    primaMensual = float.Parse(txta_primaMen.Text),
+                    observaciones = txta_obs.Text
+                };
+                if (contrato.Update())
+                {
+                    MessageBox.Show("Contrato Actualizado");
+                }
+                else
+                {
+                    MessageBox.Show("Algo Salió Mal");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void BtnAgregarContrato_Click(object sender, RoutedEventArgs e)
+        {
+            GridAgregarContrato.Visibility = Visibility.Visible;
+            GridGestionContrato.Visibility = Visibility.Collapsed;
+        }
+
+        private void BtnBuscarContraro_Click(object sender, RoutedEventArgs e)
+        {
+            stkBuscar.Visibility = Visibility.Visible;
+          
+        }
+
+        private void BtnEncontrarContra_Click(object sender, RoutedEventArgs e)
+        {
+
+            Contrato contrato = new Contrato();
+            contrato = Contrato.Find(txtBuscarNumero.Text);
+            if (contrato !=null)
+            {
+                GridGestionContrato.Visibility = Visibility.Collapsed;
+                GridActu.Visibility = Visibility.Visible;
+                txta_titular.Text = contrato.rutCliente;
+                txta_obs.Text = contrato.observaciones;
+                txta_primaAnu.Text = contrato.primaAnual.ToString();
+                txta_primaMen.Text = contrato.primaMensual.ToString();
+                lblNContrato.Content = "Contrato Nº" + contrato.numero;
+                txta_creacion.Text = contrato.fechaCreacion.ToString();
+                txta_inicioVig.Text = contrato.fechaInicioVigencia.ToString();
+                txta_terminoVig.Text = contrato.fechaFinVigencia.ToString();
+                txta_termino.Text = contrato.fechaTermino.ToString();
+                txta_salud.IsChecked = contrato.declaracionSalud;
+                CB_estado.IsChecked = contrato.declaracionSalud;
+            }
+            else
+            {
+                MessageBox.Show("El número no está asociado a ningún contrato");
+            }
         }
     }
 }

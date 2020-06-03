@@ -6,18 +6,19 @@
         xmlns:local="clr-namespace:Interfaz"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         Title="BeLife" Height="600" Width="1024" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
 
     <Window.Resources>
         <Storyboard x:Key="AbrirMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="80"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="230"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CerrarMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="220"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="230"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="80"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
@@ -33,7 +34,7 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Grid Background="White">
+    <Grid Background="White" x:Name="Gi">
         <Grid Margin="80,0,0,0" Height="80" VerticalAlignment="Top">
             <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Close"/>
@@ -41,7 +42,7 @@
             <Button x:Name="BtnMinimizar" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,65,0" BorderThickness="0" Click="BtnMinimizar_Click"  Background="#7e3b81">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="WindowMinimize"/>
             </Button>
-            <Button x:Name="BtnContraste" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,100,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
+            <Button x:Name="BtnContraste" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,100,0" BorderThickness="0" Click="BtnContraste_Click"  Background="#7e3b81">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Electricity"/>
             </Button>
             <Image Source="Imagenes/Logo BeLife.png" Margin="10" Width="200"/>
@@ -50,7 +51,7 @@
             <Label Content="Bienvenido Juan" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <Button x:Name="BtnMostrarContratos" Click="BtnMostrarContratos_Click" Width="200" Height="150" Margin="267,129,477,241" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
                 <StackPanel Width="200" Height="150" Margin="-20 -4">
-                    <materialDesign:PackIcon Kind="Contract" Width="120" Height="120" Foreground="White" HorizontalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="Contract" Width="120" Height="120" HorizontalAlignment="Center"/>
                     <Label Content="Mostrar Contratos" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
                 </StackPanel>
             </Button>
@@ -128,7 +129,7 @@
                 <TextBox x:Name="txtRutCliente" HorizontalAlignment="Left" Height="30" Margin="330,45,0,0" VerticalAlignment="Top" Width="400" Text="RUT" LostFocus="TxtRutCliente_LostFocus" GotFocus="TxtRutCliente_GotFocus" />
                 <TextBox x:Name="txtbNombreCliente" HorizontalAlignment="Left" Height="30" Margin="330,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Text="Nombre" GotFocus="TxtbNombreCliente_GotFocus" LostFocus="TxtbNombreCliente_LostFocus"/>
                 <TextBox x:Name="txtApellidoCliente" HorizontalAlignment="Left" Height="30" Margin="330,125,0,0" VerticalAlignment="Top" Width="400" Text="Apellido" GotFocus="TxtApellidoCliente_GotFocus" LostFocus="TxtApellidoCliente_LostFocus"/>
-                <ComboBox x:Name="txtEstadoCivilCliente" HorizontalAlignment="Left" Height="35" Margin="330,210,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Gray" IsEditable="True" IsReadOnly="True" Text="Estado Civil">
+                <ComboBox x:Name="txtEstadoCivilCliente" HorizontalAlignment="Left" Height="35" Margin="330,210,0,0" VerticalAlignment="Top" Width="180" IsEditable="True" IsReadOnly="True" Text="Estado Civil">
                     <ComboBoxItem>Soltero</ComboBoxItem>
                     <ComboBoxItem>Casado</ComboBoxItem>
                     <ComboBoxItem>Divorciado</ComboBoxItem>
@@ -154,6 +155,31 @@
             </Grid>
         </Grid>
         <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Visible" Background="White">
+            <Grid x:Name="GridGestionContrato" Visibility="Collapsed">
+                <Button x:Name="BtnAgregarContrato" Click="BtnAgregarContrato_Click" Width="200" Height="311" Margin="267,129,477,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+                    <StackPanel Width="200" Height="150" Margin="-20 -4">
+                        <materialDesign:PackIcon Kind="NoteAdd" Width="120" Height="120" HorizontalAlignment="Center"/>
+                        <Label Content="Agregar Contrato" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </Button>
+           
+                <Button x:Name="BtnBuscarContraro" Click="BtnBuscarContraro_Click" Width="200" Height="Auto" Margin="477,129,267,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+                    <StackPanel Orientation="Vertical" Width="200" Height="150" Margin="-20,-4">
+                        <materialDesign:PackIcon Width="120" Height="120" HorizontalAlignment="Center" Kind="TextBoxSearch"/>
+                        <Label Content="Buscar Contrato" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
+                    </StackPanel>
+                </Button>
+                <StackPanel Width="300" Height="200" Background="#FF673AB7" Visibility="Collapsed" x:Name="stkBuscar">
+                    <Label Content="Ingrese Número Para Buscar" Foreground="White" HorizontalAlignment="Center" Margin="0 20" FontSize="20"/>
+                    <TextBox x:Name="txtBuscarNumero" BorderBrush="White" Margin="20 0"/>
+                    <Button x:Name="BtnEncontrarContra" Click="BtnEncontrarContra_Click" Width="100" Height="50" Margin="0 30" VerticalAlignment="Bottom" Background="#7e3b81">
+                        <StackPanel Orientation="Horizontal" Height="50" Width="100" Margin="-16,-10">
+                            <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Width="30" Height="30"/>
+                            <TextBlock Text="Buscar" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
             <Grid x:Name="GridContratosListas" Visibility="Collapsed">
                 <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
@@ -177,7 +203,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-            <Grid x:Name="GridAgregarContrato" Visibility="Visible">
+            <Grid x:Name="GridAgregarContrato" Visibility="Collapsed">
                 <Rectangle HorizontalAlignment="Left" Height="380" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="461"/>
                 <TextBox x:Name="txtb_titular" HorizontalAlignment="Left" Height="26" Margin="15,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81"/>
                 <ComboBox x:Name="txtb_plan" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" IsEditable="True" IsReadOnly="True" Text="Seleccione Un Plan" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81">
@@ -211,8 +237,54 @@
                 <Label Content="Contrato Nº" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="378" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
                 <Label Content="Observaciones" HorizontalAlignment="Left" Margin="586,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
             </Grid>
+            <Grid x:Name="GridActu" Visibility="Visible">
+                <Rectangle HorizontalAlignment="Left" Height="430" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="460"/>
+                <TextBox x:Name="txta_titular" HorizontalAlignment="Left" Height="26" Margin="15,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txta_poliza" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81"/>
+                <ComboBox x:Name="txta_plan" HorizontalAlignment="Left" Height="26" Margin="15,195,0,0" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81" IsReadOnly="True" IsEditable="True">
+                    <ComboBoxItem>Vida Inicial</ComboBoxItem>
+                    <ComboBoxItem>Vida Total</ComboBoxItem>
+                    <ComboBoxItem>Vida Conductor</ComboBoxItem>
+                    <ComboBoxItem>Vida Senior</ComboBoxItem>
+                    <ComboBoxItem>Vida Ahorro</ComboBoxItem>
+                </ComboBox>
+                <DatePicker x:Name="txta_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,263,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <DatePicker x:Name="txta_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,315,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txta_creacion" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txta_termino" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txta_primaMen" HorizontalAlignment="Left" Height="26" Margin="15,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <TextBox x:Name="txta_primaAnu" HorizontalAlignment="Left" Height="26" Margin="15,434,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <CheckBox x:Name="txta_salud" HorizontalAlignment="Left" Height="26" Margin="304,382,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
+                <CheckBox x:Name="CB_estado" HorizontalAlignment="Left" Margin="304,434,0,0" VerticalAlignment="Top" Width="130" Height="26"/>
+                <TextBox x:Name="txta_obs" HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" VerticalAlignment="Top" Width="425" BorderBrush="#FFBA86BC"/>
+                <Button x:Name="BtnActualizarContrato" Click="BtnActualizarContrato_Click" HorizontalAlignment="Left" Height="75" Margin="509,385,0,0" Background="{x:Null}" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC">
+                    <StackPanel Orientation="Horizontal" Margin="-17,0,0,0" Width="170" >
+                        <materialDesign:PackIcon Kind="Update" HorizontalAlignment="Right" Width="65" Height="65" Foreground="#7e3b81"/>
+                        <TextBlock Width="105" VerticalAlignment="Center" Foreground="#7e3b81" TextAlignment="Center"><Run Text="Actualizar "/><LineBreak/><Run Text="Contrato"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="BtnEliminarContrato" Click="BtnEliminarContrato_Click" HorizontalAlignment="Left" Height="75" Margin="729,385,0,0" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC" Background="{x:Null}" Foreground="{x:Null}">
+                    <StackPanel Orientation="Horizontal" Margin="-17,0,0,0" Width="170">
+                        <materialDesign:PackIcon Kind="Trash" HorizontalAlignment="Right" Width="65" Height="65" Foreground="#7e3b81"/>
+                        <TextBlock Width="105" VerticalAlignment="Center" Foreground="#7e3b81" TextAlignment="Center"><Run Text="ELiminar "/><LineBreak/><Run Text="Contrato"/></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Label Content="Titular" HorizontalAlignment="Left" Margin="15,55,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Poliza" HorizontalAlignment="Left" Margin="15,112,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Plan Asociado" HorizontalAlignment="Left" Margin="15,169,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Inicio Vigencia" HorizontalAlignment="Left" Margin="15,237,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Termino Vigencia" HorizontalAlignment="Left" Margin="15,289,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Creación" HorizontalAlignment="Left" Margin="304,237,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Termino" HorizontalAlignment="Left" Margin="304,289,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Prima Mensual" HorizontalAlignment="Left" Margin="15,356,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Prima Anual" HorizontalAlignment="Left" Margin="15,408,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Salud" HorizontalAlignment="Left" Margin="304,356,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Estado" HorizontalAlignment="Left" Margin="304,408,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Contrato Nº" x:Name="lblNContrato" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="378" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+                <Label Content="Observaciones" HorizontalAlignment="Left" Margin="586,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+            </Grid>
         </Grid>
-        <Grid Visibility="Collapsed" x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#7e3b81" >
+        <Grid Visibility="Visible" x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#7e3b81">
 
             <Button x:Name="BtnAbrirMenu" Click="BtnAbrirMenu_Click" Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" Height="80" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="{x:Null}" Visibility="Visible">
                 <materialDesign:PackIcon Kind="Menu" Width="60" Height="60" Foreground="White" Margin="0,10,0,0"/>
@@ -228,20 +300,20 @@
             <ListView x:Name="ListMenu" Margin="10,150,0,0" Width="220" Background="{x:Null}" SelectionChanged="ListMenu_SelectionChanged">
                 <ListViewItem Height="70">
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Home" Width="60" Height="60" Margin="-10" Foreground="White"/>
-                        <TextBlock  Text="Menú Principal" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0"/>
+                        <materialDesign:PackIcon Kind="Home" Width="60" Height="60" Margin="-10" Foreground="White" />
+                        <TextBlock  Text="Menú Principal" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0" Foreground="White"/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem Height="70">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="People" Width="60" Height="60" Margin="-10" Foreground="White"/>
-                        <TextBlock  Text="Clientes" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0"/>
+                        <TextBlock  Text="Clientes" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0" Foreground="White"/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem Height="70">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Contract" Width="60" Height="60" Margin="-10" Foreground="White"/>
-                        <TextBlock  Text="Contrato" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0"/>
+                        <TextBlock  Text="Contrato" VerticalAlignment="Center" FontSize="20" Margin="25,0,0,0" Foreground="White"/>
                     </StackPanel>
                 </ListViewItem>
 
