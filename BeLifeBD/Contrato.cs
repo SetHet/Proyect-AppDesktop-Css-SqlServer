@@ -101,6 +101,106 @@ namespace BeLifeBD
             return list;
         }
 
+        public static List<Contrato> FindAll_ByRut(string rutCliente)
+        {
+            List<Contrato> list = new List<Contrato>();
+            Contrato contrato;
+            foreach (object[] obj in Conexion.Select(table, where:$"RutCliente = '{rutCliente}'"))
+            {
+                contrato = new Contrato();
+                contrato.numero = (string)obj[0];
+                contrato.fechaCreacion = (DateTime)obj[1];
+                contrato.fechaTermino = (DateTime)obj[2];
+                contrato.rutCliente = (string)obj[3];
+                contrato.codigoPlan = (string)obj[4];
+                contrato.fechaInicioVigencia = (DateTime)obj[5];
+                contrato.fechaFinVigencia = (DateTime)obj[6];
+                contrato.vigente = (bool)obj[7];
+                contrato.declaracionSalud = (bool)obj[8];
+                contrato.primaAnual = (float)(double)obj[9];
+                contrato.primaMensual = (float)(double)obj[10];
+                contrato.observaciones = (string)obj[11];
+                list.Add(contrato);
+            }
+
+            return list;
+        }
+
+        public static List<Contrato> FindAll_ByNumero(string numeroContrato)
+        {
+            List<Contrato> list = new List<Contrato>();
+            Contrato contrato;
+            foreach (object[] obj in Conexion.Select(table, where:$"numero = '{numeroContrato}'"))
+            {
+                contrato = new Contrato();
+                contrato.numero = (string)obj[0];
+                contrato.fechaCreacion = (DateTime)obj[1];
+                contrato.fechaTermino = (DateTime)obj[2];
+                contrato.rutCliente = (string)obj[3];
+                contrato.codigoPlan = (string)obj[4];
+                contrato.fechaInicioVigencia = (DateTime)obj[5];
+                contrato.fechaFinVigencia = (DateTime)obj[6];
+                contrato.vigente = (bool)obj[7];
+                contrato.declaracionSalud = (bool)obj[8];
+                contrato.primaAnual = (float)(double)obj[9];
+                contrato.primaMensual = (float)(double)obj[10];
+                contrato.observaciones = (string)obj[11];
+                list.Add(contrato);
+            }
+
+            return list;
+        }
+
+        public static List<Contrato> FindAll_ByPoliza(string poliza)
+        {
+            List<Contrato> list = new List<Contrato>();
+            Contrato contrato;
+            foreach (object[] obj in Conexion.Select(table, where:$"CodigoPlan = '{poliza}'"))
+            {
+                contrato = new Contrato();
+                contrato.numero = (string)obj[0];
+                contrato.fechaCreacion = (DateTime)obj[1];
+                contrato.fechaTermino = (DateTime)obj[2];
+                contrato.rutCliente = (string)obj[3];
+                contrato.codigoPlan = (string)obj[4];
+                contrato.fechaInicioVigencia = (DateTime)obj[5];
+                contrato.fechaFinVigencia = (DateTime)obj[6];
+                contrato.vigente = (bool)obj[7];
+                contrato.declaracionSalud = (bool)obj[8];
+                contrato.primaAnual = (float)(double)obj[9];
+                contrato.primaMensual = (float)(double)obj[10];
+                contrato.observaciones = (string)obj[11];
+                list.Add(contrato);
+            }
+
+            return list;
+        }
+
+        public static List<Contrato> FindAll(string where)
+        {
+            List<Contrato> list = new List<Contrato>();
+            Contrato contrato;
+            foreach (object[] obj in Conexion.Select(table, where:where))
+            {
+                contrato = new Contrato();
+                contrato.numero = (string)obj[0];
+                contrato.fechaCreacion = (DateTime)obj[1];
+                contrato.fechaTermino = (DateTime)obj[2];
+                contrato.rutCliente = (string)obj[3];
+                contrato.codigoPlan = (string)obj[4];
+                contrato.fechaInicioVigencia = (DateTime)obj[5];
+                contrato.fechaFinVigencia = (DateTime)obj[6];
+                contrato.vigente = (bool)obj[7];
+                contrato.declaracionSalud = (bool)obj[8];
+                contrato.primaAnual = (float)(double)obj[9];
+                contrato.primaMensual = (float)(double)obj[10];
+                contrato.observaciones = (string)obj[11];
+                list.Add(contrato);
+            }
+
+            return list;
+        }
+
         //Select
         public bool Select()
         {

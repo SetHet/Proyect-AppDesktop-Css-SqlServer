@@ -95,6 +95,82 @@ namespace BeLifeBD
             return list;
         }
 
+        public static List<Cliente> FindAll_ByRut(string search_rut)
+        {
+            List<Cliente> list = new List<Cliente>();
+            object[][] matriz = Conexion.Select(table, where: $"rutCliente = '{search_rut}'").ToArray();
+            Cliente c;
+            foreach (object[] row in matriz)
+            {
+                c = new Cliente();
+                c.rut = (string)row[0];
+                c.nombre = (string)row[1];
+                c.apellido = (string)row[2];
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
+                c.idSexo = (int)row[4];
+                c.idEstadoCivil = (int)row[5];
+                list.Add(c);
+            }
+            return list;
+        }
+
+        public static List<Cliente> FindAll_BySexo(int idSexo)
+        {
+            List<Cliente> list = new List<Cliente>();
+            object[][] matriz = Conexion.Select(table, where:$"idSexo = {idSexo}").ToArray();
+            Cliente c;
+            foreach (object[] row in matriz)
+            {
+                c = new Cliente();
+                c.rut = (string)row[0];
+                c.nombre = (string)row[1];
+                c.apellido = (string)row[2];
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
+                c.idSexo = (int)row[4];
+                c.idEstadoCivil = (int)row[5];
+                list.Add(c);
+            }
+            return list;
+        }
+
+        public static List<Cliente> FindAll_ByEstadoCivil(int idEstadoCivil)
+        {
+            List<Cliente> list = new List<Cliente>();
+            object[][] matriz = Conexion.Select(table, where:$"idEstadoCivil = {idEstadoCivil}").ToArray();
+            Cliente c;
+            foreach (object[] row in matriz)
+            {
+                c = new Cliente();
+                c.rut = (string)row[0];
+                c.nombre = (string)row[1];
+                c.apellido = (string)row[2];
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
+                c.idSexo = (int)row[4];
+                c.idEstadoCivil = (int)row[5];
+                list.Add(c);
+            }
+            return list;
+        }
+
+        public static List<Cliente> FindAll(string where)
+        {
+            List<Cliente> list = new List<Cliente>();
+            object[][] matriz = Conexion.Select(table, where:where).ToArray();
+            Cliente c;
+            foreach (object[] row in matriz)
+            {
+                c = new Cliente();
+                c.rut = (string)row[0];
+                c.nombre = (string)row[1];
+                c.apellido = (string)row[2];
+                c.fechaNacimiento_DateTime = (DateTime)row[3];
+                c.idSexo = (int)row[4];
+                c.idEstadoCivil = (int)row[5];
+                list.Add(c);
+            }
+            return list;
+        }
+
         //Select
         public void Select(string rut = null)
         {
