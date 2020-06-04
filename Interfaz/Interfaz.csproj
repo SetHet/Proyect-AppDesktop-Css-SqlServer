@@ -149,6 +149,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tarificador.cs" />
     <Page Include="BeLife.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

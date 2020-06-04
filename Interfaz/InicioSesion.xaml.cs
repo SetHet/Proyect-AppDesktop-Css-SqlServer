@@ -128,7 +128,26 @@ namespace Interfaz
         {
             return Conexion.isConnectionPosible();
         }
-        
+
         #endregion
+
+        private void TxtUser_GotFocus(object sender, RoutedEventArgs e)
+        {
+            string apelldo = txtUser.Text.Trim();
+            if (apelldo.Equals("Usuario"))
+            {
+                txtUser.Text = "";
+            }
+        }
+
+        private void TxtUser_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string apelldo = txtUser.Text.Trim();
+            if (apelldo.Equals(""))
+            {
+                txtUser.Text = "Usuario";
+            }
+        }
     }
+
 }

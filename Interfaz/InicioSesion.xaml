@@ -10,9 +10,9 @@
     <Grid>
         <Grid Visibility="Visible" x:Name="GridInicio">
             <materialDesign:PackIcon Kind="Account" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,200,0,0" Foreground="#7e3b81"/>
-            <TextBox x:Name="txtUser" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,270,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81"/>
+            <TextBox x:Name="txtUser" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,270,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81" GotFocus="TxtUser_GotFocus" Text="Usuario" LostFocus="TxtUser_LostFocus"/>
             <materialDesign:PackIcon Kind="Lock" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,325,0,0" Foreground="#7e3b81"/>
-            <PasswordBox x:Name="txtPass" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,400,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81"/>
+            <PasswordBox x:Name="txtPass" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" Margin="0,400,0,0" VerticalAlignment="Top" BorderBrush="#7e3b81"/>
             <Button x:Name="BtnLogin" Click="BtnLogin_Click" VerticalAlignment="Bottom" Margin="0,0,0,100" Width="150" Height="50" Background="#7e3b81">
                 <StackPanel Orientation="Horizontal" Margin="-10 0">
                     <materialDesign:PackIcon Kind="LoginVariant" VerticalAlignment="Center" Width="40" Height="40"/>
