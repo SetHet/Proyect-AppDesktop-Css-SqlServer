@@ -28,82 +28,6 @@ namespace Interfaz
             InitializeComponent();
         }
 
-        private void ListMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            int index = ListMenu.SelectedIndex;
-            MoverCursor(index);
-            switch (index)
-            {
-                case 0:
-                    GridClientes.Visibility = Visibility.Collapsed;
-                    GridPrincipal.Visibility = Visibility.Visible;
-                    GridContratos.Visibility = Visibility.Collapsed;
-                    
-                    break;
-                case 1:
-                    GridClientes.Visibility = Visibility.Visible;
-                    GridPrincipal.Visibility = Visibility.Collapsed;
-                    GridContratos.Visibility = Visibility.Collapsed;
-                    GridRegistrarCliente.Visibility = Visibility.Visible;
-                    GridClientesListar.Visibility = Visibility.Collapsed;
-                    break;
-                case 2:
-                    GridContratos.Visibility = Visibility.Visible;
-                    GridGestionContrato.Visibility = Visibility.Visible;
-                    GridClientes.Visibility = Visibility.Collapsed;
-                    GridPrincipal.Visibility = Visibility.Collapsed;
-                    GridAgregarContrato.Visibility = Visibility.Visible;
-                    GridContratosListas.Visibility = Visibility.Collapsed;
-                    GridActu.Visibility = Visibility.Collapsed;
-                    GridAgregarContrato.Visibility = Visibility.Collapsed;
-                    break;
-            }
-        }
-
-        private void BtnMostrarContratos_Click(object sender, RoutedEventArgs e)
-        {
-            CambiarAGridContratos();
-            GridContratosListas.Visibility = Visibility.Visible;
-            GridAgregarContrato.Visibility = Visibility.Collapsed;
-            GridActu.Visibility = Visibility.Collapsed;
-            GridGestionContrato.Visibility = Visibility.Collapsed;
-            LlenaSinContra();
-        }
-
-        private void BtnMostrarClientes_Click(object sender, RoutedEventArgs e)
-        {
-            CambiarAGridClientes();
-            GridClientesListar.Visibility = Visibility.Visible;
-            GridRegistrarCliente.Visibility = Visibility.Collapsed;
-            LlenarSin();
-        }
-        private void BtnBuscarContratosPrin_Click(object sender, RoutedEventArgs e)
-        {
-            CambiarAGridContratos();
-            GridAgregarContrato.Visibility = Visibility.Collapsed;
-            GridContratosListas.Visibility = Visibility.Collapsed;
-            GridActu.Visibility = Visibility.Collapsed;
-            GridGestionContrato.Visibility = Visibility.Visible;
-            stkBuscar.Visibility = Visibility.Visible;
-        }
-
-        private void BtnAgregrarContratoPrin_Click(object sender, RoutedEventArgs e)
-        {
-            CambiarAGridContratos();
-            GridAgregarContrato.Visibility = Visibility.Visible;
-            GridContratosListas.Visibility = Visibility.Collapsed;
-            GridActu.Visibility = Visibility.Collapsed;
-            GridGestionContrato.Visibility = Visibility.Collapsed;
-        }
-
-        private void BntCrarClientePrin_Click(object sender, RoutedEventArgs e)
-        {
-            CambiarAGridClientes();
-            GridClientesListar.Visibility = Visibility.Collapsed;
-            GridRegistrarCliente.Visibility = Visibility.Visible;
-        }
-
-
         private void BtnFiltratClientes_Click(object sender, RoutedEventArgs e)
         {
             dtgMostrarClientes.Items.Clear();
@@ -150,16 +74,48 @@ namespace Interfaz
             filtrar = "";
         }
 
-        private void BtnAbrirMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnFiltrarContratos_Click(object sender, RoutedEventArgs e)
         {
-            BtnAbrirMenu.Visibility = Visibility.Collapsed;
-            BtnCerrarMenu.Visibility = Visibility.Visible;
-        }
+            string filtrar = "";
+            if (txtNumeroFiltrar.SelectedIndex > 0)
+            {
+                filtrar = filtrar + " Numero='" + txtNumeroFiltrar.Text.ToString() + "'";
 
-        private void BtnCerrarMenu_Click(object sender, RoutedEventArgs e)
-        {
-            BtnAbrirMenu.Visibility = Visibility.Visible;
-            BtnCerrarMenu.Visibility = Visibility.Collapsed;
+            }
+            if (txtPlanFiltrar.SelectedIndex > 0)
+            {
+                if (filtrar.Equals(""))
+                {
+                    filtrar = filtrar + " CodigoPlan= 'VID0" + txtPlanFiltrar.SelectedIndex.ToString() + "'";
+                }
+
+                else
+                {
+                    filtrar = filtrar + " and CodigoPlan='VID0" + txtPlanFiltrar.SelectedIndex.ToString() + "'";
+                }
+            }
+
+            if (txtRutFiltrar.SelectedIndex > 0)
+            {
+                if (filtrar.Equals(""))
+                {
+                    filtrar = filtrar + " RutCliente='" + txtRutFiltrar.SelectedItem.ToString() + "'";
+                }
+                else
+                {
+                    filtrar = filtrar + "and RutCliente='" + txtRutFiltrar.SelectedItem.ToString() + "'";
+                }
+
+            }
+            if (filtrar != "")
+            {
+                LlenarConFiltroContrato(filtrar);
+            }
+            else
+            {
+                LlenaSinContra();
+            }
+            filtrar = "";
 
         }
 
@@ -183,6 +139,19 @@ namespace Interfaz
             BtnClose.Background = new SolidColorBrush(Color.FromRgb(126, 59, 129));
         }
 
+        private void BtnAbrirMenu_Click(object sender, RoutedEventArgs e)
+        {
+            BtnAbrirMenu.Visibility = Visibility.Collapsed;
+            BtnCerrarMenu.Visibility = Visibility.Visible;
+        }
+
+        private void BtnCerrarMenu_Click(object sender, RoutedEventArgs e)
+        {
+            BtnAbrirMenu.Visibility = Visibility.Visible;
+            BtnCerrarMenu.Visibility = Visibility.Collapsed;
+
+        }
+
         private void CambiarAGridClientes()
         {
             ListMenu.SelectedIndex = 1;
@@ -199,14 +168,83 @@ namespace Interfaz
             GridPrincipal.Visibility = Visibility.Collapsed;
         }
 
+        private void ListMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = ListMenu.SelectedIndex;
+            MoverCursor(index);
+            switch (index)
+            {
+                case 0:
+                    GridClientes.Visibility = Visibility.Collapsed;
+                    GridPrincipal.Visibility = Visibility.Visible;
+                    GridContratos.Visibility = Visibility.Collapsed;
+
+                    break;
+                case 1:
+                    GridClientes.Visibility = Visibility.Visible;
+                    GridPrincipal.Visibility = Visibility.Collapsed;
+                    GridContratos.Visibility = Visibility.Collapsed;
+                    break;
+                case 2:
+                    GridContratos.Visibility = Visibility.Visible;
+                    GridGestionContrato.Visibility = Visibility.Visible;
+                    GridClientes.Visibility = Visibility.Collapsed;
+                    break;
+            }
+        }
+
+        private void BtnMostrarContratos_Click(object sender, RoutedEventArgs e)
+        {
+            CambiarAGridContratos();
+            GridContratosListas.Visibility = Visibility.Visible;
+            GridAgregarContrato.Visibility = Visibility.Collapsed;
+            GridActu.Visibility = Visibility.Collapsed;
+            GridGestionContrato.Visibility = Visibility.Collapsed;
+            LlenaSinContra();
+        }
+
+        private void BtnMostrarClientes_Click(object sender, RoutedEventArgs e)
+        {
+            CambiarAGridClientes();
+            GridClientesListar.Visibility = Visibility.Visible;
+            GridRegistrarCliente.Visibility = Visibility.Collapsed;
+            GridGestionContrato.Visibility = Visibility.Collapsed;
+            LlenarSin();
+        }
+        private void BtnBuscarContratosPrin_Click(object sender, RoutedEventArgs e)
+        {
+            CambiarAGridContratos();
+            GridAgregarContrato.Visibility = Visibility.Collapsed;
+            GridContratosListas.Visibility = Visibility.Collapsed;
+            GridActu.Visibility = Visibility.Collapsed;
+            GridGestionContrato.Visibility = Visibility.Visible;
+            stkBuscar.Visibility = Visibility.Visible;
+            txtBuscarNumero.Clear();
+        }
+
+        private void BtnAgregrarContratoPrin_Click(object sender, RoutedEventArgs e)
+        {
+            CambiarAGridContratos();
+            GridAgregarContrato.Visibility = Visibility.Visible;
+            GridContratosListas.Visibility = Visibility.Collapsed;
+            GridActu.Visibility = Visibility.Collapsed;
+            GridGestionContrato.Visibility = Visibility.Collapsed;
+        }
+
+        private void BntCrarClientePrin_Click(object sender, RoutedEventArgs e)
+        {
+            CambiarAGridClientes();
+            GridClientesListar.Visibility = Visibility.Collapsed;
+            GridRegistrarCliente.Visibility = Visibility.Visible;
+            VaciarContrato();
+        }
+
         private void MoverCursor(int index)
         {
             Transi.OnApplyTemplate();
             BarraTran.Margin = new Thickness(0, 150 + (70 * index), 0, 0);
         }
-
         
-
         private void TxtRutCliente_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtRutCliente.Text.Equals(""))
@@ -273,6 +311,7 @@ namespace Interfaz
             if (cliente.Insert())
             {
                 MessageBox.Show("Cliente Agregado Correctamente");
+                VaciarCliente();
             }
             else
             {
@@ -283,23 +322,7 @@ namespace Interfaz
 
         private void BtnBuscarClientes_Click(object sender, RoutedEventArgs e)
         {
-
-            List<Cliente> listClientes = new List<Cliente>();
-            Cliente cliente = Cliente.Find(txtRutCliente.Text);
-            if (cliente != null)
-            {
-                listClientes.Add(cliente);
-                txtbNombreCliente.Text = listClientes[0].nombre;
-                txtApellidoCliente.Text = listClientes[0].apellido;
-                txtGeneroCliente.SelectedIndex = listClientes[0].idSexo - 1;
-                txtEstadoCivilCliente.SelectedIndex = listClientes[0].idEstadoCivil - 1;
-                dtpFechNacimiento.Text = cliente.fechaNacimiento;
-            }
-            else
-            {
-                MessageBox.Show("Cliente no encontrado");
-            }
-
+            LlenarClient(txtRutCliente.Text);
         }
 
         private void BtnBorrarUsuario_Click(object sender, RoutedEventArgs e)
@@ -315,6 +338,8 @@ namespace Interfaz
                 if (cliente.Delete(rut))
                 {
                     MessageBox.Show("Cliente Eliminado");
+                    VaciarCliente();
+
                 }
                 else
                 {
@@ -344,6 +369,7 @@ namespace Interfaz
                 if (cliente.Update())
                 {
                     MessageBox.Show("Cliente Actualizado");
+                    VaciarCliente();
                 }
                 else
                 {
@@ -363,7 +389,7 @@ namespace Interfaz
                 float primaAnu = primaMen * 12;
                 Contrato contrato = new Contrato
                 {
-                    numero = "5",
+                    numero = txtb_titular.Text + "." + Contrato.FindAll_ByRut(txtb_titular.Text).LongCount(),
                     fechaCreacion = DiaYHora,
                     fechaTermino = DiaYHora.AddYears(5),
                     rutCliente = txtb_titular.Text,
@@ -375,10 +401,12 @@ namespace Interfaz
                     primaAnual = primaAnu,
                     primaMensual = primaMen,
                     observaciones = txtb_obs.Text
+                   
                 };
                 if (contrato.Insert())
                 {
                     MessageBox.Show("Insertado Correctamente");
+                    VaciarContrato();
                 }
                 else
                 {
@@ -394,17 +422,6 @@ namespace Interfaz
 
         }
 
-        private void BtnContraste_Click(object sender, RoutedEventArgs e)
-        {
-            var paleta = new PaletteHelper();
-            ITheme tema = paleta.GetTheme();
-            tema.PrimaryMid = new ColorPair(Colors.Red,Colors.Red);
-            
-            tema.TextBoxBorder = Colors.Red;
-            paleta.SetTheme(tema);
-        }
-
-
         private void BtnEliminarContrato_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -417,6 +434,8 @@ namespace Interfaz
                 if (contrato.Delete())
                 {
                     MessageBox.Show("Contrato Eliminado");
+                    GridActu.Visibility = Visibility.Collapsed;
+                    GridGestionContrato.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -439,6 +458,7 @@ namespace Interfaz
                 float primaAnu = primaMen * 12;
                 Contrato contrato = new Contrato
                 {
+                    numero = txtBuscarNumero.Text,
                     rutCliente = txta_titular.Text,
                     codigoPlan = "VID0" + (txta_plan.SelectedIndex + 1).ToString(),
                     fechaInicioVigencia = txta_inicioVig.SelectedDate.Value,
@@ -452,6 +472,8 @@ namespace Interfaz
                 if (contrato.Update())
                 {
                     MessageBox.Show("Contrato Actualizado");
+                    GridActu.Visibility = Visibility.Collapsed;
+                    GridGestionContrato.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -465,6 +487,25 @@ namespace Interfaz
             }
         }
 
+        private void BtnEncontrarContra_Click(object sender, RoutedEventArgs e)
+        {
+            LlenarContrat(txtBuscarNumero.Text);
+        }
+
+        private void BtnVolverActu_Click(object sender, RoutedEventArgs e)
+        {
+            GridActu.Visibility = Visibility.Collapsed;
+            GridGestionContrato.Visibility = Visibility.Visible;
+
+        }
+
+        private void BtnVolverAgreCon_Click(object sender, RoutedEventArgs e)
+        {
+            GridAgregarContrato.Visibility = Visibility.Collapsed;
+            GridGestionContrato.Visibility = Visibility.Visible;
+            VaciarContrato();
+        }
+
         private void BtnAgregarContrato_Click(object sender, RoutedEventArgs e)
         {
             GridAgregarContrato.Visibility = Visibility.Visible;
@@ -474,55 +515,19 @@ namespace Interfaz
         private void BtnBuscarContraro_Click(object sender, RoutedEventArgs e)
         {
             stkBuscar.Visibility = Visibility.Visible;
-          
-        }
-
-        private void BtnEncontrarContra_Click(object sender, RoutedEventArgs e)
-        {
-
-            Contrato contrato = new Contrato();
-            contrato = Contrato.Find(txtBuscarNumero.Text);
-            DatosContrato datosContrato = new DatosContrato();
-            if (contrato !=null)
-            {
-                GridGestionContrato.Visibility = Visibility.Collapsed;
-                GridActu.Visibility = Visibility.Visible;
-                txta_titular.Text = contrato.rutCliente;
-                txta_obs.Text = contrato.observaciones;
-                txta_primaAnu.Text = contrato.primaAnual.ToString();
-                txta_primaMen.Text = contrato.primaMensual.ToString();
-                lblNContrato.Content = "Contrato Nº" + contrato.numero;
-                txta_creacion.Text = contrato.fechaCreacion.ToString();
-                txta_inicioVig.Text = contrato.fechaInicioVigencia.ToString();
-                txta_terminoVig.Text = contrato.fechaFinVigencia.ToString();
-                txta_termino.Text = contrato.fechaTermino.ToString();
-                txta_salud.IsChecked = contrato.declaracionSalud;
-                CB_estado.IsChecked = contrato.declaracionSalud;
-                txta_plan.SelectedIndex = datosContrato.ObtenerPlan(contrato.codigoPlan);
-                txta_poliza.Text = datosContrato.ObtenerPoliza(contrato.codigoPlan);
-
-            }
-            else
-            {
-                MessageBox.Show("El número no está asociado a ningún contrato");
-            }
             txtBuscarNumero.Clear();
+
         }
 
-        private void BtnVolverActu_Click(object sender, RoutedEventArgs e)
+        private void BtnContraste_Click(object sender, RoutedEventArgs e)
         {
-            GridActu.Visibility = Visibility.Collapsed;
-            GridGestionContrato.Visibility = Visibility.Visible;
-            
+            var paleta = new PaletteHelper();
+            ITheme tema = paleta.GetTheme();
+            tema.PrimaryMid = new ColorPair(Colors.Red, Colors.Red);
+            tema.TextBoxBorder = Colors.Red;
+            paleta.SetTheme(tema);
         }
 
-        private void BtnVolverAgreCon_Click(object sender, RoutedEventArgs e)
-        {
-            GridAgregarContrato.Visibility = Visibility.Collapsed;
-            GridGestionContrato.Visibility = Visibility.Visible;
-        }
-
-        
         public void LlenarConFiltro(string filtrar)
         {
             DatosClientes datos = new DatosClientes();
@@ -582,50 +587,122 @@ namespace Interfaz
             }
         }
 
-        private void BtnFiltrarContratos_Click(object sender, RoutedEventArgs e)
+        public void VaciarCliente()
         {
-            string filtrar = "";
-            if (txtNumeroFiltrar.SelectedIndex > 0)
-            {
-                filtrar = filtrar + " Numero=" + txtNumeroFiltrar.SelectedIndex.ToString();
+            txtRutCliente.Text = "RUT";
+            txtbNombreCliente.Text = "Nombre";
+            txtApellidoCliente.Text="Apellido";
+            txtEstadoCivilCliente.SelectedIndex = -1;
+            txtEstadoCivilCliente.Text = "Estado Civil";
+            txtGeneroCliente.SelectedIndex = -1;
+            txtGeneroCliente.Text = "Género";
+            dtpFechNacimiento.Text = "";
+        }
 
+        public void VaciarContrato()
+        {
+            txtb_titular.Text = "";
+            txtb_inicioVig.Text = "";
+            txtb_terminoVig.Text = "";
+            txtb_obs.Text = "";
+            txtb_plan.SelectedIndex = -1;
+            txtb_plan.Text = "Seleccione Un Plan";
+            txtb_salud.IsChecked = false;
+            txtb_vigente.IsChecked = false;
+        }
+
+        private void BtnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            InicioSesion inicio = new InicioSesion();
+            inicio.Show();
+            this.Close();
+        }
+
+        private void DtgMostrarContratos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dtgMostrarContratos.SelectedCells.Count>0)
+            {
+                string a = GetSelectedValue(dtgMostrarContratos);
+                LlenarContrat(a);
+                GridContratosListas.Visibility = Visibility.Collapsed;
             }
-            if (txtPlanFiltrar.SelectedIndex > 0)
-            {
-                if (filtrar.Equals(""))
-                {
-                    filtrar = filtrar + " CodigoPlan= 'VID0" + txtPlanFiltrar.SelectedIndex.ToString()+"'";
-                }
+        }
 
-                else
-                {
-                    filtrar = filtrar + " and CodigoPlan='VID0" + txtPlanFiltrar.SelectedIndex.ToString()+"'";
-                }
+        private void DtgMostrarClientes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dtgMostrarClientes.SelectedCells.Count > 0)
+            {
+                string a = GetSelectedValue(dtgMostrarClientes);
+                LlenarClient(a);
+                GridClientesListar.Visibility = Visibility.Collapsed;
             }
+        }
 
-            if (txtRutFiltrar.Text != "")
-            {
-                if (filtrar.Equals(""))
-                {
-                    filtrar = filtrar + " RutCliente='" + txtRutFiltrar.SelectedItem.ToString() + "'";
-                }
-                else
-                {
-                    filtrar = filtrar + "and RutCliente='" + txtRutFiltrar.SelectedItem.ToString() + "'";
-                }
+        private string GetSelectedValue(DataGrid grid)
+        {
+            DataGridCellInfo cellInfo = grid.SelectedCells[0];
+            if (cellInfo == null) return null;
 
-            }
-            MessageBox.Show(filtrar);
-            if (filtrar != "")
+            DataGridBoundColumn column = cellInfo.Column as DataGridBoundColumn;
+            if (column == null) return null;
+
+            FrameworkElement element = new FrameworkElement() { DataContext = cellInfo.Item };
+            BindingOperations.SetBinding(element, TagProperty, column.Binding);
+
+            return element.Tag.ToString();
+        }
+
+        public void LlenarContrat(string numeros)
+        {
+            Contrato contrato = new Contrato();
+            contrato = Contrato.Find(numeros);
+            DatosContrato datosContrato = new DatosContrato();
+            if (contrato != null)
             {
-                LlenarConFiltroContrato(filtrar);
+                GridGestionContrato.Visibility = Visibility.Collapsed;
+                stkBuscar.Visibility = Visibility.Collapsed;
+                GridActu.Visibility = Visibility.Visible;
+                txta_titular.Text = contrato.rutCliente;
+                txta_obs.Text = contrato.observaciones;
+                txta_primaAnu.Text = contrato.primaAnual.ToString();
+                txta_primaMen.Text = contrato.primaMensual.ToString();
+                lblNContrato.Content = "Contrato Nº" + contrato.numero;
+                txta_creacion.Text = contrato.fechaCreacion.ToString();
+                txta_inicioVig.Text = contrato.fechaInicioVigencia.ToString();
+                txta_terminoVig.Text = contrato.fechaFinVigencia.ToString();
+                txta_termino.Text = contrato.fechaTermino.ToString();
+                txta_salud.IsChecked = contrato.declaracionSalud;
+                CB_estado.IsChecked = contrato.vigente;
+                txta_plan.SelectedIndex = datosContrato.ObtenerPlan(contrato.codigoPlan);
+                txta_poliza.Text = datosContrato.ObtenerPoliza(contrato.codigoPlan);
+
             }
             else
             {
-                LlenaSinContra();
+                MessageBox.Show("El número no está asociado a ningún contrato");
             }
-            filtrar = "";
 
+        }
+
+        public void LlenarClient(string rut)
+        {
+            GridRegistrarCliente.Visibility = Visibility.Visible;
+            List<Cliente> listClientes = new List<Cliente>();
+            Cliente cliente = Cliente.Find(rut);
+            if (cliente != null)
+            {
+                listClientes.Add(cliente);
+                txtRutCliente.Text = rut;
+                txtbNombreCliente.Text = listClientes[0].nombre;
+                txtApellidoCliente.Text = listClientes[0].apellido;
+                txtGeneroCliente.SelectedIndex = listClientes[0].idSexo - 1;
+                txtEstadoCivilCliente.SelectedIndex = listClientes[0].idEstadoCivil - 1;
+                dtpFechNacimiento.Text = cliente.fechaNacimiento;
+            }
+            else
+            {
+                MessageBox.Show("Cliente no encontrado");
+            }
         }
     }
 }

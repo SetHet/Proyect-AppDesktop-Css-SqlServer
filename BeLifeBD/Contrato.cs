@@ -253,8 +253,6 @@ namespace BeLifeBD
             if (!Exist()) return false;
 
             int? i = Conexion.Update(table, 
-                $"FechaCreacion = CONVERT(DATETIME,'{fechaCreacion_string}', 105), " +
-                $"FechaTermino = CONVERT(DATETIME,'{fechaTermino_string}', 105), " +
                 $"RutCliente = '{rutCliente}', " +
                 $"CodigoPlan = '{codigoPlan}', " +
                 $"FechaInicioVigencia = CONVERT(DATETIME,'{fechaInicioVigencia_string}', 105), " +
