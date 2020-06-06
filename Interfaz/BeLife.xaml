@@ -35,7 +35,7 @@
     </Window.Triggers>
 
     <Grid Background="White" x:Name="Gi">
-        <Grid Margin="80,0,0,0" Height="80" VerticalAlignment="Top">
+        <Grid x:Name="gridTitle" Margin="80,0,0,0" Height="80" VerticalAlignment="Top">
             <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Close"/>
             </Button>
@@ -49,37 +49,37 @@
         </Grid>
         <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Visible">
             <Label Content="Bienvenido" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <Button x:Name="BtnMostrarContratos" Click="BtnMostrarContratos_Click" Width="200" Height="150" Margin="267,129,477,241" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+            <Button x:Name="BtnMostrarContratos" Click="BtnMostrarContratos_Click" Width="200" Height="150" Margin="267,129,477,241" BorderThickness="0" Background="#7e3b81">
                 <StackPanel Width="200" Height="150" Margin="-20 -4">
                     <materialDesign:PackIcon Kind="Contract" Width="120" Height="120" HorizontalAlignment="Center"/>
                     <Label Content="Mostrar Contratos" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnBuscarContratosPrin" Width="200" Height="73" Margin="210,0,0,187" BorderThickness="1" Background="#7e3b81" Click="BtnBuscarContratosPrin_Click">
+            <Button x:Name="btnBuscarContratosPrin" Width="200" Height="73" Margin="210,0,0,187" BorderThickness="0" Background="#7e3b81" Click="BtnBuscarContratosPrin_Click">
                 <StackPanel Width="200" Height="73" Margin="-16,-10" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="FileFindOutline" Height="65" Width="65" VerticalAlignment="Center"/>
                     <Label Content="Buscar Contrato" VerticalAlignment="Center" Foreground="White"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnAgregrarContratoPrin" Click="BtnAgregrarContratoPrin_Click" Width="200" Height="73" Margin="210,0,0,33"  BorderThickness="1" Background="#7e3b81">
+            <Button x:Name="btnAgregrarContratoPrin" Click="BtnAgregrarContratoPrin_Click" Width="200" Height="73" Margin="210,0,0,33"  BorderThickness="0" Background="#7e3b81">
                 <StackPanel Width="200" Height="73" Margin="-16,-10" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="NoteAdd" Height="65" Width="65" VerticalAlignment="Center"/>
                     <Label Content="Agregar Contrato" VerticalAlignment="Center" Foreground="White"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="bntCrarClientePrin" Click="BntCrarClientePrin_Click" Width="200" Height="Auto" Margin="267,290,477,157" BorderThickness="1" Background="#7e3b81">
+            <Button x:Name="bntCrarClientePrin" Click="BntCrarClientePrin_Click" Width="200" Height="Auto" Margin="267,290,477,157" BorderThickness="0" Background="#7e3b81">
                 <StackPanel Width="200" Height="73" Margin="-16,-10" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AccountAdd" Height="65" Width="65" VerticalAlignment="Center"/>
                     <Label Content="Agregar Cliente" VerticalAlignment="Center" Foreground="White"/>
                 </StackPanel>
             </Button>
-            <Button Width="200" Height="73" Click="BntCrarClientePrin_Click" Margin="0,287,210,0" BorderThickness="1" Background="#7e3b81">
+            <Button Width="200" Height="73" Click="BntCrarClientePrin_Click" Margin="0,287,210,0" BorderThickness="0" Background="#7e3b81">
                 <StackPanel Width="200" Height="73" Margin="-16,-10" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="UserSearch" Height="65" Width="65" VerticalAlignment="Center"/>
                     <Label Content="Buscar Cliente" VerticalAlignment="Center" Foreground="White"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="BtnMostrarClientes" Click="BtnMostrarClientes_Click" Width="200" Height="Auto" Margin="477,290,267,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+            <Button x:Name="BtnMostrarClientes" Click="BtnMostrarClientes_Click" Width="200" Height="Auto" Margin="477,290,267,80" BorderThickness="0" Background="#7e3b81" >
                 <StackPanel Orientation="Vertical" Width="200" Height="150" Margin="-20,-4">
                     <materialDesign:PackIcon Width="120" Height="120" HorizontalAlignment="Center" Kind="UserGroup"/>
                     <Label Content="Mostrar Clientes" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
@@ -88,14 +88,14 @@
         </Grid>
         <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="White">
             <Grid x:Name="GridClientesListar" Visibility="Collapsed">
-                <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
+                <Grid Background="#7e3b81" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
-                    <ComboBox x:Name="txtGenFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black" Text="Género" IsReadOnly="True" IsEditable="True">
+                    <ComboBox x:Name="txtGenFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="White" Text="Género" IsReadOnly="True" IsEditable="True" Foreground="White">
                         <ComboBoxItem>Sin Filtro</ComboBoxItem>
                         <ComboBoxItem>Hombre</ComboBoxItem>
                         <ComboBoxItem>Mujer</ComboBoxItem>
                     </ComboBox>
-                    <ComboBox x:Name="txtEstadoFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" BorderBrush="Black" IsEditable="True" IsReadOnly="True" Text="Estado Civil">
+                    <ComboBox x:Name="txtEstadoFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" BorderBrush="White" IsEditable="True" IsReadOnly="True" Text="Estado Civil" Foreground="White">
                         <ComboBoxItem>Sin Filtro</ComboBoxItem>
                         <ComboBoxItem>Soltero</ComboBoxItem>
                         <ComboBoxItem>Casado</ComboBoxItem>
@@ -103,16 +103,16 @@
                         <ComboBoxItem>Viuda</ComboBoxItem>
                     </ComboBox>
                     <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 40" Orientation="Horizontal" Height="50" Width="150">
-                        <TextBox x:Name="txtRutFiltro" Width="100" VerticalAlignment="Center" />
+                        <TextBox x:Name="txtRutFiltro" Width="100" VerticalAlignment="Center" Foreground="White" CaretBrush="White" BorderBrush="White" />
                         <Button x:Name="btnFiltratClientes" Click="BtnFiltratClientes_Click" Margin="10,0" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}">
                             <materialDesign:PackIcon Kind="Search" Width="30" Height="30" Foreground="White" Margin="-16 -12"/>
                         </Button>
                     </StackPanel>
                 </Grid>
-                <DataGrid x:Name="dtgMostrarClientes" Margin="300,50,50,50" MouseDoubleClick="DtgMostrarClientes_MouseDoubleClick" IsReadOnly="True">
+                <DataGrid x:Name="dtgMostrarClientes" Margin="300,50,50,50" MouseDoubleClick="DtgMostrarClientes_MouseDoubleClick" IsReadOnly="True" Background="White" Foreground="#DDFFFFFF">
                     <DataGrid.Columns>
-                        <materialDesign:DataGridTextColumn Header="Rut" Binding="{Binding Rut}" Width="118.72"/>
-                        <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding Nombre}"/>
+                        <materialDesign:DataGridTextColumn Header="Rut"  Binding="{Binding Rut}" Width="118.72" Foreground="White"/>
+                        <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding Nombre}" Foreground="White"/>
                         <materialDesign:DataGridTextColumn Header="Apellidos" Width="118.72" Binding="{Binding Apellido}"/>
                         <materialDesign:DataGridTextColumn Header="Género" Width="118.72" Binding="{Binding Genero}"/>
                         <materialDesign:DataGridTextColumn Header="Estado Civil" Width="118.72" Binding="{Binding Estado}"/>
@@ -120,14 +120,14 @@
                 </DataGrid>
             </Grid>
             <Grid x:Name="GridRegistrarCliente" Visibility="Visible">
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="161" Margin="130,20,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="624"/>
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="161" Margin="130,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
-                <Rectangle Fill="White" HorizontalAlignment="Left" Height="320" Margin="539,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="215"/>
-                <Image HorizontalAlignment="Left" Height="160" Margin="140,20,0,0" VerticalAlignment="Top" Width="170" Source="Imagenes/Id.png"/>
-                <Image HorizontalAlignment="Left" Height="160" Margin="140,180,0,0" VerticalAlignment="Top" Width="188" Source="Imagenes/EstadoCivil.png"/>
-                <Image HorizontalAlignment="Left" Height="160" Margin="140,340,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Genero.png"/>
-                <Image HorizontalAlignment="Left" Height="90" Margin="595,200,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/Calendario.png"/>
+                <Rectangle HorizontalAlignment="Left" Height="161" Margin="130,20,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="624"/>
+                <Rectangle HorizontalAlignment="Left" Height="161" Margin="130,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
+                <Rectangle HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
+                <Rectangle HorizontalAlignment="Left" Height="320" Margin="539,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="215"/>
+                <materialDesign:PackIcon x:Name="cardId" Kind="IdCardOutline" Margin="140,20,0,0" Height="160" Width="130" Foreground="#FF7E3B81"/>
+                <materialDesign:PackIcon x:Name="ring" Kind="ring" Width="130" Height="160" Margin="140,180" Foreground="#FF7E3B81"/>
+                <materialDesign:PackIcon x:Name="helicopteroApache" Kind="GenderMaleFemale" Margin="140,340,0,0" Width="130" Height="160" Foreground="#FF7E3B81"/>
+                <materialDesign:PackIcon x:Name="calendar" Kind="Calendar" Width="90" Height="90" Margin="595,200,0,0" Foreground="#FF7E3B81"/>
                 <TextBox x:Name="txtRutCliente" MaxLength="10" HorizontalAlignment="Left" Height="30" Margin="330,45,0,0" VerticalAlignment="Top" Width="400" Text="RUT" LostFocus="TxtRutCliente_LostFocus" GotFocus="TxtRutCliente_GotFocus" />
                 <TextBox x:Name="txtbNombreCliente" MaxLength="20" HorizontalAlignment="Left" Height="30" Margin="330,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Text="Nombre" GotFocus="TxtbNombreCliente_GotFocus" LostFocus="TxtbNombreCliente_LostFocus"/>
                 <TextBox x:Name="txtApellidoCliente" MaxLength="20" HorizontalAlignment="Left" Height="30" Margin="330,125,0,0" VerticalAlignment="Top" Width="400" Text="Apellido" GotFocus="TxtApellidoCliente_GotFocus" LostFocus="TxtApellidoCliente_LostFocus"/>
@@ -143,46 +143,48 @@
                 </ComboBox>
                 <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short"/>
                 <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}" Foreground="#DDFD0303">
-                    <materialDesign:PackIcon Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10"/>
+                    <materialDesign:PackIcon x:Name="add" Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10"/>
                 </Button>
                 <Button x:Name="BtnBuscarClientes" Click="BtnBuscarClientes_Click" HorizontalAlignment="Left" Height="120" Margin="790,140,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
-                    <materialDesign:PackIcon Kind="Search" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                    <materialDesign:PackIcon x:Name="lupa" Kind="Search" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
                 </Button>
                 <Button x:Name="BtnActualizar" Click="BtnActualizar_Click" HorizontalAlignment="Left" Height="120" Margin="790,270,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
-                    <materialDesign:PackIcon Kind="AccountEdit" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                    <materialDesign:PackIcon x:Name="update" Kind="AccountEdit" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
                 </Button>
                 <Button x:Name="BtnBorrarUsuario" Click="BtnBorrarUsuario_Click" HorizontalAlignment="Left" Height="120" Margin="790,400,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
-                    <materialDesign:PackIcon Kind="Delete" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                    <materialDesign:PackIcon x:Name="trash" Kind="Delete" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
                 </Button>
             </Grid>
         </Grid>
         <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Collapsed" Background="White">
-            <Grid x:Name="GridGestionContrato" Visibility="Collapsed">
-                <Button x:Name="BtnAgregarContrato" Click="BtnAgregarContrato_Click" Width="200" Height="311" Margin="267,129,477,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+            <Grid x:Name="GridGestionContrato" Visibility="Visible">
+                <Button x:Name="BtnAgregarContrato" Click="BtnAgregarContrato_Click" Width="200" Height="311" Margin="267,129,477,80" BorderThickness="0" Background="#7e3b81" BorderBrush="#FF7E3B81">
                     <StackPanel Width="200" Height="150" Margin="-20 -4">
-                        <materialDesign:PackIcon Kind="NoteAdd" Width="120" Height="120" HorizontalAlignment="Center"/>
+                        <materialDesign:PackIcon Kind="NoteAdd" Width="120"  Height="120" HorizontalAlignment="Center"/>
                         <Label Content="Agregar Contrato" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
                     </StackPanel>
                 </Button>
-
-                <Button x:Name="BtnBuscarContraro" Click="BtnBuscarContraro_Click" Width="200" Height="Auto" Margin="477,129,267,80" BorderThickness="5" Background="#7e3b81" BorderBrush="#FF7E3B81">
+                <Button x:Name="BtnBuscarContraro" Click="BtnBuscarContraro_Click" Width="200" Height="Auto" Margin="477,129,267,80" BorderThickness="0" Background="#7e3b81" BorderBrush="#FF7E3B81">
                     <StackPanel Orientation="Vertical" Width="200" Height="150" Margin="-20,-4">
                         <materialDesign:PackIcon Width="120" Height="120" HorizontalAlignment="Center" Kind="TextBoxSearch"/>
                         <Label Content="Buscar Contrato" HorizontalContentAlignment="Center" FontWeight="Normal" Foreground="#DDFFFFFF"/>
                     </StackPanel>
                 </Button>
                 <StackPanel Width="300" Height="200" Background="#FF673AB7" Visibility="Collapsed" x:Name="stkBuscar">
-                    <Label Content="Ingrese Número Para Buscar" Foreground="White" HorizontalAlignment="Center" Margin="0 20" FontSize="20"/>
-                    <TextBox x:Name="txtBuscarNumero" BorderBrush="White" Margin="20 0"/>
+                    <Button x:Name="btnCerrarBusqueda" Margin="4" Click="BtnCerrarBusqueda_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Background="#FF7E3B81" Width="30" Height="30" BorderBrush="{x:Null}" MouseEnter="BtnCerrarBusqueda_MouseEnter" MouseLeave="BtnCerrarBusqueda_MouseLeave">
+                        <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" Margin="-16,-11"/>
+                    </Button>
+                    <Label Content="Ingrese Número Para Buscar" Foreground="White" HorizontalAlignment="Center" Margin="0 10" FontSize="20"/>
+                    <TextBox x:Name="txtBuscarNumero" BorderBrush="White" Margin="20 -10" Foreground="White"/>
                     <Button x:Name="BtnEncontrarContra" Click="BtnEncontrarContra_Click" Width="100" Height="50" Margin="0 30" VerticalAlignment="Bottom" Background="#7e3b81">
                         <StackPanel Orientation="Horizontal" Height="50" Width="100" Margin="-16,-10">
-                            <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Width="30" Height="30"/>
+                            <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Width="30" Height="30" Margin="10 0"/>
                             <TextBlock Text="Buscar" VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
             </Grid>
-            <Grid x:Name="GridContratosListas" Visibility="Visible">
+            <Grid x:Name="GridContratosListas" Visibility="Collapsed">
                 <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
                     <ComboBox x:Name="txtPlanFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black">
@@ -215,46 +217,46 @@
                 </DataGrid>
             </Grid>
             <Grid x:Name="GridAgregarContrato" Visibility="Collapsed">
-                <Rectangle HorizontalAlignment="Left" Height="380" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="461"/>
-                <TextBox x:Name="txtb_titular" MaxLength="10" HorizontalAlignment="Left" Height="26" Margin="15,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81"/>
-                <ComboBox x:Name="txtb_plan" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" IsEditable="True" IsReadOnly="True" Text="Seleccione Un Plan" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81">
+                <Rectangle x:Name="rtgAdd" HorizontalAlignment="Left" Height="300" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="461" Fill="#FF7E3B81"/>
+                <TextBox x:Name="txtb_titular" MaxLength="10" HorizontalAlignment="Left" Height="26" Margin="15,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" Foreground="White" CaretBrush="White" BorderBrush="White" />
+                <ComboBox x:Name="txtb_plan" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" IsEditable="True" IsReadOnly="True" Text="Seleccione Un Plan" VerticalAlignment="Top" Width="421" BorderBrush="White" Foreground="White" >
                     <ComboBoxItem>Vida Inicial</ComboBoxItem>
                     <ComboBoxItem>Vida Total</ComboBoxItem>
                     <ComboBoxItem>Vida Conductor</ComboBoxItem>
                     <ComboBoxItem>Vida Senior</ComboBoxItem>
                     <ComboBoxItem>Vida Ahorro</ComboBoxItem>
                 </ComboBox>
-                <DatePicker x:Name="txtb_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,208,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <DatePicker x:Name="txtb_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,267,0,0" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <CheckBox x:Name="txtb_vigente" HorizontalAlignment="Left" Height="16" Margin="355.5,208,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="#FF7E3B81"/>
-                <CheckBox x:Name="txtb_salud" HorizontalAlignment="Left" Height="16" Margin="355.5,270,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="#FF7E3B81"/>
-                <TextBox x:Name="txtb_obs" HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="425" BorderBrush="#FFBA86BC"/>
-                <Button x:Name="btn_agregar" HorizontalAlignment="Left" Height="114" Margin="489,365,0,0" VerticalAlignment="Top" Width="200" BorderBrush="#FFBA86BC" Click="Btn_agregar_Click" Background="#7e3b81">
+                <DatePicker x:Name="txtb_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,208,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <DatePicker x:Name="txtb_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,267,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <CheckBox x:Name="txtb_vigente" HorizontalAlignment="Left" Height="16" Margin="303,208,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="#7e3b81"/>
+                <CheckBox x:Name="txtb_salud" HorizontalAlignment="Left" Height="16" Margin="303,268,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="#7e3b81" Background="White"/>
+                <TextBox x:Name="txtb_obs" HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="425" Background="#FF7E3B81" Foreground="White" BorderBrush="#FF7E3B81" CaretBrush="White"/>
+                <Button x:Name="btn_agregar" HorizontalAlignment="Left" Height="114" Margin="489,365,0,0" VerticalAlignment="Top" Width="200" BorderBrush="#FF7E3B81" Click="Btn_agregar_Click" Background="#7e3b81">
                     <StackPanel Orientation="Horizontal" Margin="-100,-56.5">
                         <materialDesign:PackIcon Kind="NoteAdd" Height="104" Width="104" />
                         <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="20"><Run Text="Añadir"/><LineBreak/><Run Text="Contrato"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnVolverAgreCon" HorizontalAlignment="Left" Height="114" Margin="714,365,0,0" VerticalAlignment="Top" Width="200" BorderBrush="#FFBA86BC" Click="BtnVolverAgreCon_Click" Background="#7e3b81">
+                <Button x:Name="BtnVolverAgreCon" HorizontalAlignment="Left" Height="114" Margin="714,365,0,0" VerticalAlignment="Top" Width="200" BorderBrush="#FF7E3B81" Click="BtnVolverAgreCon_Click" Background="#7e3b81">
                     <StackPanel Orientation="Horizontal" Margin="-100,-56.5">
                         <materialDesign:PackIcon Kind="ArrowBack" Height="104" Width="104" />
                         <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="Volver" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Label Content="Titular" HorizontalAlignment="Left" Margin="15,55,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
-                <Label Content="Plan Asociado" HorizontalAlignment="Left" Margin="15,112,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
-                <Label Content="Inicio Vigencia" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
-                <Label Content="Termino Vigencia" HorizontalAlignment="Left" Margin="15,242,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
-                <Label Content="Vigencia" HorizontalAlignment="Left" Margin="306,182,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
-                <Label Content="Salud" HorizontalAlignment="Left" Margin="306,242,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
-                <Label Content="Contrato Nº" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="378" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
-                <Label Content="Observaciones" HorizontalAlignment="Left" Margin="586,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+                <Label Content="Titular" HorizontalAlignment="Left" Margin="15,55,0,0" VerticalAlignment="Top" Width="115" Background="#7e3b81" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Plan Asociado" HorizontalAlignment="Left" Margin="15,112,0,0" VerticalAlignment="Top" Width="115" Background="#7e3b81" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Inicio Vigencia" HorizontalAlignment="Left" Margin="15,182,0,0" VerticalAlignment="Top" Width="115" Background="#7e3b81" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Termino Vigencia" HorizontalAlignment="Left" Margin="15,242,0,0" VerticalAlignment="Top" Width="115" Background="#7e3b81" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Vigencia" HorizontalAlignment="Left" Margin="306,182,0,0" VerticalAlignment="Top" Width="115" Background="#7e3b81" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label Content="Salud" HorizontalAlignment="Left" Margin="306,242,0,0" VerticalAlignment="Top" Width="115" Background="#7e3b81" Foreground="White" Height="26" FontFamily="Verdana"/>
+                <Label x:Name="lblNContrati" Content="Contrato Nº" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="378" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+                <Label x:Name="lblObserAdd" Content="Observaciones" HorizontalAlignment="Left" Margin="584,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
             </Grid>
             <Grid x:Name="GridActu" Visibility="Collapsed">
-                <Rectangle HorizontalAlignment="Left" Height="430" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="460"/>
-                <TextBox x:Name="txta_titular" HorizontalAlignment="Left" Height="26" MaxLength="10" Margin="15,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81"/>
-                <TextBox x:Name="txta_poliza"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81"/>
-                <ComboBox x:Name="txta_plan" HorizontalAlignment="Left" Height="26" Margin="15,195,0,0"  VerticalAlignment="Top" Width="421" BorderBrush="#FF7E3B81" IsReadOnly="True" IsEditable="True">
+                <Rectangle HorizontalAlignment="Left" Height="430" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="460" Fill="#FF7E3B81"/>
+                <TextBox x:Name="txta_titular" HorizontalAlignment="Left" Height="27" MaxLength="10" Margin="15,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" BorderBrush="#FFFDFDFD" Foreground="White"/>
+                <TextBox x:Name="txta_poliza"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="White" Foreground="White"/>
+                <ComboBox x:Name="txta_plan" HorizontalAlignment="Left" Height="26" Margin="15,195,0,0"  VerticalAlignment="Top" Width="421" BorderBrush="White" IsReadOnly="True" IsEditable="True" Foreground="White">
                     <ComboBoxItem>Vida Inicial</ComboBoxItem>
                     <ComboBoxItem>Vida Total</ComboBoxItem>
                     <ComboBoxItem>Vida Conductor</ComboBoxItem>
@@ -262,28 +264,28 @@
                     <ComboBoxItem>Vida Ahorro</ComboBoxItem>
                 </ComboBox>
                 <DatePicker x:Name="txta_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,263,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <DatePicker x:Name="txta_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,315,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <TextBox x:Name="txta_creacion" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <TextBox x:Name="txta_termino" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <TextBox x:Name="txta_primaMen"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <TextBox x:Name="txta_primaAnu"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,434,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <CheckBox x:Name="txta_salud" HorizontalAlignment="Left" Height="26" Margin="304,382,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <CheckBox x:Name="CB_estado" HorizontalAlignment="Left" Margin="304,434,0,0" VerticalAlignment="Top" Width="130" Height="26"/>
-                <TextBox x:Name="txta_obs"  HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" VerticalAlignment="Top" Width="425" BorderBrush="#FFBA86BC"/>
-                <Button x:Name="BtnActualizarContrato" Click="BtnActualizarContrato_Click" HorizontalAlignment="Left" Height="55" Margin="509,385,0,0" Background="{x:Null}" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC">
+                <DatePicker x:Name="txta_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,315,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <TextBox x:Name="txta_creacion" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <TextBox x:Name="txta_termino" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <TextBox x:Name="txta_primaMen"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <TextBox x:Name="txta_primaAnu"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,434,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <CheckBox x:Name="txta_salud" HorizontalAlignment="Left" Height="26" Margin="304,382,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <CheckBox x:Name="CB_estado" HorizontalAlignment="Left" Margin="304,434,0,0" VerticalAlignment="Top" Width="130" Height="26" Foreground="White" BorderBrush="White"/>
+                <TextBox x:Name="txta_obs"  HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" VerticalAlignment="Top" Width="425" BorderBrush="#FF7E3B81" Background="#FF7E3B81" Foreground="White"/>
+                <Button x:Name="BtnActualizarContrato" Click="BtnActualizarContrato_Click" HorizontalAlignment="Left" Height="55" Margin="509,385,0,0" Background="White" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC">
                     <StackPanel Orientation="Horizontal" Margin="-17,0,0,0" Width="170" >
                         <materialDesign:PackIcon Kind="Update" HorizontalAlignment="Right" Width="55" Height="45" Foreground="#7e3b81"/>
                         <TextBlock Width="105" VerticalAlignment="Center" Foreground="#7e3b81" TextAlignment="Center"><Run Text="Actualizar "/><LineBreak/><Run Text="Contrato"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnEliminarContrato" Click="BtnEliminarContrato_Click" HorizontalAlignment="Left" Height="55" Margin="729,385,0,0" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC" Background="{x:Null}" Foreground="{x:Null}">
+                <Button x:Name="BtnEliminarContrato" Click="BtnEliminarContrato_Click" HorizontalAlignment="Left" Height="55" Margin="729,385,0,0" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC" Background="White" Foreground="{x:Null}">
                     <StackPanel Orientation="Horizontal" Margin="-17,0,0,0" Width="170">
                         <materialDesign:PackIcon Kind="Trash" HorizontalAlignment="Right" Width="55" Height="45" Foreground="#7e3b81"/>
                         <TextBlock Width="105" VerticalAlignment="Center" Foreground="#7e3b81" TextAlignment="Center"><Run Text="ELiminar "/><LineBreak/><Run Text="Contrato"/></TextBlock>
                     </StackPanel>
                 </Button>
-                <Button x:Name="BtnVolverActu" Click="BtnVolverActu_Click" HorizontalAlignment="Left" Height="55" Margin="619,450,0,0" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC" Background="{x:Null}" Foreground="{x:Null}">
-                    <StackPanel Orientation="Horizontal" Margin="-17,0,0,0" Width="170">
+                <Button x:Name="BtnVolverActu" Click="BtnVolverActu_Click" HorizontalAlignment="Left" Height="55" Margin="619,450,0,0" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC" Background="White" Foreground="{x:Null}">
+                    <StackPanel Orientation="Horizontal" Margin="-17,0,0,0" Width="170" Background="White">
                         <materialDesign:PackIcon Kind="ArrowBack" HorizontalAlignment="Right" Width="55" Height="45" Foreground="#7e3b81"/>
                         <TextBlock Width="105" VerticalAlignment="Center" Foreground="#7e3b81" TextAlignment="Center" Text="Volver"/>
                     </StackPanel>
@@ -300,7 +302,7 @@
                 <Label Content="Salud" HorizontalAlignment="Left" Margin="304,356,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
                 <Label Content="Estado" HorizontalAlignment="Left" Margin="304,408,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
                 <Label Content="Contrato Nº" x:Name="lblNContrato" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="378" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
-                <Label Content="Observaciones" HorizontalAlignment="Left" Margin="586,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+                <Label x:Name="lblObser" Content="Observaciones" HorizontalAlignment="Left" Margin="586,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
             </Grid>
         </Grid>
         <Grid Visibility="Visible" x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#7e3b81">
@@ -315,7 +317,7 @@
             <Button VerticalAlignment="Bottom" Background="{x:Null}" BorderBrush="{x:Null}" Width="80" Height="80" Click="BtnLogOut_Click" x:Name="btnLogOut">
                 <materialDesign:PackIcon Kind="Logout" Width="60" Height="60" Margin="-10"/>
             </Button>
-            
+
             <materialDesign:TransitioningContent x:Name="Transi" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
                 <Grid Width="10" x:Name="BarraTran" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,150" Background="Blue"/>
             </materialDesign:TransitioningContent>

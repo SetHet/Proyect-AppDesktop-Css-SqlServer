@@ -23,6 +23,7 @@ namespace Interfaz
     /// </summary>
     public partial class BeLife : Window
     {
+        int contador = 0;
         public BeLife()
         {
             InitializeComponent();
@@ -76,36 +77,20 @@ namespace Interfaz
 
         private void BtnFiltrarContratos_Click(object sender, RoutedEventArgs e)
         {
-            string filtrar = "";
+            string filtrar = "Vigente = 1";
             if (txtNumeroFiltrar.SelectedIndex > 0)
             {
-                filtrar = filtrar + " Numero='" + txtNumeroFiltrar.Text.ToString() + "'";
+                filtrar = filtrar + " and Numero='" + txtNumeroFiltrar.Text.ToString() + "'";
 
             }
             if (txtPlanFiltrar.SelectedIndex > 0)
             {
-                if (filtrar.Equals(""))
-                {
-                    filtrar = filtrar + " CodigoPlan= 'VID0" + txtPlanFiltrar.SelectedIndex.ToString() + "'";
-                }
-
-                else
-                {
-                    filtrar = filtrar + " and CodigoPlan='VID0" + txtPlanFiltrar.SelectedIndex.ToString() + "'";
-                }
+                filtrar = filtrar + " and CodigoPlan= 'VID0" + txtPlanFiltrar.SelectedIndex.ToString() + "'";
             }
 
             if (txtRutFiltrar.SelectedIndex > 0)
             {
-                if (filtrar.Equals(""))
-                {
-                    filtrar = filtrar + " RutCliente='" + txtRutFiltrar.SelectedItem.ToString() + "'";
-                }
-                else
-                {
-                    filtrar = filtrar + "and RutCliente='" + txtRutFiltrar.SelectedItem.ToString() + "'";
-                }
-
+                filtrar = filtrar + " and RutCliente='" + txtRutFiltrar.SelectedItem.ToString() + "'";
             }
             if (filtrar != "")
             {
@@ -521,11 +506,83 @@ namespace Interfaz
 
         private void BtnContraste_Click(object sender, RoutedEventArgs e)
         {
-            var paleta = new PaletteHelper();
-            ITheme tema = paleta.GetTheme();
-            tema.PrimaryMid = new ColorPair(Colors.Red, Colors.Red);
-            tema.TextBoxBorder = Colors.Red;
-            paleta.SetTheme(tema);
+
+            if (contador == 0)
+            {
+                GridPrincipal.Background = Brushes.DimGray;
+                GridClientes.Background = Brushes.DimGray;
+                GridClientesListar.Background = Brushes.DimGray;
+                GridRegistrarCliente.Background = Brushes.DimGray;
+                GridContratos.Background = Brushes.DimGray;
+                GridContratosListas.Background = Brushes.DimGray;
+                GridActu.Background = Brushes.DimGray;
+                GridAgregarContrato.Background = Brushes.DimGray;
+                GridGestionContrato.Background = Brushes.DimGray;
+                gridTitle.Background = Brushes.Black;
+                lblNContrati.Foreground = Brushes.White;
+                lblObserAdd.Foreground = Brushes.White;
+                ring.Foreground = Brushes.White;
+                cardId.Foreground = Brushes.White;
+                helicopteroApache.Foreground = Brushes.White;
+                calendar.Foreground = Brushes.White;
+                txtRutCliente.Foreground = Brushes.White;
+                txtbNombreCliente.Foreground = Brushes.White;
+                txtApellidoCliente.Foreground = Brushes.White;
+                txtEstadoCivilCliente.Foreground = Brushes.White;
+                txtGeneroCliente.Foreground = Brushes.White;
+                dtpFechNacimiento.Foreground = Brushes.White;
+                txtRutCliente.BorderBrush = Brushes.White;
+                txtbNombreCliente.BorderBrush = Brushes.White;
+                txtApellidoCliente.BorderBrush = Brushes.White;
+                txtEstadoCivilCliente.BorderBrush = Brushes.White;
+                txtGeneroCliente.BorderBrush = Brushes.White;
+                dtpFechNacimiento.BorderBrush = Brushes.White;
+                update.Foreground = Brushes.White;
+                lupa.Foreground = Brushes.White;
+                trash.Foreground = Brushes.White;
+                add.Foreground = Brushes.White;
+                lblNContrato.Foreground = Brushes.White;
+                lblObser.Foreground = Brushes.White;
+                contador = contador+1;
+            }
+            else
+            {
+                GridPrincipal.Background = Brushes.White;
+                GridClientes.Background = Brushes.White;
+                GridClientesListar.Background = Brushes.White;
+                GridRegistrarCliente.Background = Brushes.White;
+                GridContratos.Background = Brushes.White;
+                GridContratosListas.Background = Brushes.White;
+                GridActu.Background = Brushes.White;
+                GridAgregarContrato.Background = Brushes.White;
+                GridGestionContrato.Background = Brushes.White;
+                gridTitle.Background = Brushes.White;
+                lblNContrati.Foreground = Brushes.Black;
+                lblObserAdd.Foreground = Brushes.Black;
+                ring.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+                cardId.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+                helicopteroApache.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+                calendar.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+                txtRutCliente.Foreground = Brushes.Black;
+                txtbNombreCliente.Foreground = Brushes.Black;
+                txtApellidoCliente.Foreground = Brushes.Black;
+                txtEstadoCivilCliente.Foreground = Brushes.Black;
+                txtGeneroCliente.Foreground = Brushes.Black;
+                dtpFechNacimiento.Foreground = Brushes.Black;
+                txtRutCliente.BorderBrush = Brushes.Black;
+                txtbNombreCliente.BorderBrush = Brushes.Black;
+                txtApellidoCliente.BorderBrush = Brushes.Black;
+                txtEstadoCivilCliente.BorderBrush = Brushes.Black;
+                txtGeneroCliente.BorderBrush = Brushes.Black;
+                dtpFechNacimiento.BorderBrush = Brushes.Black;
+                update.Foreground = new SolidColorBrush(Color.FromRgb(126,59,129));
+                lupa.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+                trash.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+                add.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+                lblNContrato.Foreground = Brushes.Black;
+                lblObser.Foreground = Brushes.Black;
+                contador = contador - 1;
+            }
         }
 
         public void LlenarConFiltro(string filtrar)
@@ -575,7 +632,7 @@ namespace Interfaz
             txtRutFiltrar.Items.Add("Sin Filtro");
             txtNumeroFiltrar.Items.Add("Sin Filtro");
             DatosContrato datosContrato = new DatosContrato();
-            object[][] matriz = Conexion.Select("Contrato").ToArray();
+            object[][] matriz = Conexion.Select("Contrato", where: "Vigente=1").ToArray();
             foreach (object[] row in matriz)
             {
                 string poliza = datosContrato.ObtenerPoliza((string)row[4]);
@@ -703,6 +760,22 @@ namespace Interfaz
             {
                 MessageBox.Show("Cliente no encontrado");
             }
+        }
+
+        private void BtnCerrarBusqueda_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnCerrarBusqueda.Background = new SolidColorBrush(Color.FromRgb(247, 50, 50));
+        }
+
+        private void BtnCerrarBusqueda_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnCerrarBusqueda.Background = new SolidColorBrush(Color.FromRgb(126, 59, 129));
+        }
+
+        private void BtnCerrarBusqueda_Click(object sender, RoutedEventArgs e)
+        {
+            stkBuscar.Visibility = Visibility.Collapsed;
+            txtBuscarNumero.Clear();
         }
     }
 }
