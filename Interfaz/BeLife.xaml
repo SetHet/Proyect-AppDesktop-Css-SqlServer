@@ -111,8 +111,8 @@
                 </Grid>
                 <DataGrid x:Name="dtgMostrarClientes" Margin="300,50,50,50" MouseDoubleClick="DtgMostrarClientes_MouseDoubleClick" IsReadOnly="True" Background="White" Foreground="#DDFFFFFF">
                     <DataGrid.Columns>
-                        <materialDesign:DataGridTextColumn Header="Rut"  Binding="{Binding Rut}" Width="118.72" Foreground="White"/>
-                        <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding Nombre}" Foreground="White"/>
+                        <materialDesign:DataGridTextColumn Header="Rut"  Binding="{Binding Rut}" Width="118.72"/>
+                        <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding Nombre}"/>
                         <materialDesign:DataGridTextColumn Header="Apellidos" Width="118.72" Binding="{Binding Apellido}"/>
                         <materialDesign:DataGridTextColumn Header="Género" Width="118.72" Binding="{Binding Genero}"/>
                         <materialDesign:DataGridTextColumn Header="Estado Civil" Width="118.72" Binding="{Binding Estado}"/>
@@ -185,9 +185,9 @@
                 </StackPanel>
             </Grid>
             <Grid x:Name="GridContratosListas" Visibility="Collapsed">
-                <Grid Background="#FFBA86BC" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
+                <Grid Background="#FF7E3B81" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
-                    <ComboBox x:Name="txtPlanFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="Black">
+                    <ComboBox x:Name="txtPlanFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="White" Foreground="White">
                         <ComboBoxItem>Sin Filtro</ComboBoxItem>
                         <ComboBoxItem>POL120113229</ComboBoxItem>
                         <ComboBoxItem>POL120648575</ComboBoxItem>
@@ -195,9 +195,9 @@
                         <ComboBoxItem>POL120100054</ComboBoxItem>
                         <ComboBoxItem>POL120500489</ComboBoxItem>
                     </ComboBox>
-                    <ComboBox x:Name="txtNumeroFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150"  BorderBrush="Black">
+                    <ComboBox x:Name="txtNumeroFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150"  BorderBrush="White" Foreground="White">
                     </ComboBox>
-                    <ComboBox x:Name="txtRutFiltrar" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="25,150,25,0"  Height="40.5" Width="150" BorderBrush="Black" >
+                    <ComboBox x:Name="txtRutFiltrar" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="25,150,25,0"  Height="40.5" Width="150" BorderBrush="White" Foreground="White" >
                     </ComboBox>
                     <Button Margin="50,0,50,20" VerticalAlignment="Bottom" x:Name="btnFiltrarContratos" Click="BtnFiltrarContratos_Click" Background="White">
                         <StackPanel  Orientation="Horizontal" Margin="-50,-11">
@@ -269,8 +269,8 @@
                 <TextBox x:Name="txta_termino" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
                 <TextBox x:Name="txta_primaMen"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
                 <TextBox x:Name="txta_primaAnu"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,434,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
-                <CheckBox x:Name="txta_salud" HorizontalAlignment="Left" Height="26" Margin="304,382,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
-                <CheckBox x:Name="CB_estado" HorizontalAlignment="Left" Margin="304,434,0,0" VerticalAlignment="Top" Width="130" Height="26" Foreground="White" BorderBrush="White"/>
+                <CheckBox x:Name="txta_salud" HorizontalAlignment="Left" Height="26" Margin="304,382,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White" Background="White"/>
+                <CheckBox x:Name="CB_estado" HorizontalAlignment="Left" Margin="304,434,0,0" VerticalAlignment="Top" Width="130" Height="26" Foreground="White" BorderBrush="White" Background="White"/>
                 <TextBox x:Name="txta_obs"  HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" VerticalAlignment="Top" Width="425" BorderBrush="#FF7E3B81" Background="#FF7E3B81" Foreground="White"/>
                 <Button x:Name="BtnActualizarContrato" Click="BtnActualizarContrato_Click" HorizontalAlignment="Left" Height="55" Margin="509,385,0,0" Background="White" VerticalAlignment="Top" Width="170" BorderBrush="#FFBA86BC">
                     <StackPanel Orientation="Horizontal" Margin="-17,0,0,0" Width="170" >

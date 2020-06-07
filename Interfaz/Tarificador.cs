@@ -8,7 +8,7 @@ namespace Interfaz
 {
     class Tarificador
     {
-        public float primaBase = 200000;
+        public float primaBase = 75000;
         
         public float ObtenerPrima(string plan)
         {

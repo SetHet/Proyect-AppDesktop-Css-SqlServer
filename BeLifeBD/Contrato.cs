@@ -96,6 +96,7 @@ namespace BeLifeBD
                 contrato.primaMensual = (float)(double)obj[10];
                 contrato.observaciones = (string)obj[11];
                 list.Add(contrato);
+                contrato.codigoPlan.Substring(-1);
             }
             
             return list;
