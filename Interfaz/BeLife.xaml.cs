@@ -414,7 +414,7 @@ namespace Interfaz
             {
                 Contrato contrato = new Contrato
                 {
-                    numero = txtBuscarNumero.Text
+                    numero = lblNContrato.Content.ToString()
                 };
 
                 if (contrato.Delete())
