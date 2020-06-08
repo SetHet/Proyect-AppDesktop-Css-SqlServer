@@ -172,7 +172,7 @@ namespace Interfaz
                     break;
                 case 2:
                     GridContratos.Visibility = Visibility.Visible;
-                    GridGestionContrato.Visibility = Visibility.Visible;
+                    GridPrincipal.Visibility = Visibility.Collapsed;
                     GridClientes.Visibility = Visibility.Collapsed;
                     break;
             }
@@ -185,6 +185,7 @@ namespace Interfaz
             GridAgregarContrato.Visibility = Visibility.Collapsed;
             GridActu.Visibility = Visibility.Collapsed;
             GridGestionContrato.Visibility = Visibility.Collapsed;
+
             LlenaSinContra();
         }
 
@@ -443,7 +444,7 @@ namespace Interfaz
                 float primaAnu = primaMen * 12;
                 Contrato contrato = new Contrato
                 {
-                    numero = txtBuscarNumero.Text,
+                    numero = lblNContrato.Content.ToString(),
                     rutCliente = txta_titular.Text,
                     codigoPlan = "VID0" + (txta_plan.SelectedIndex + 1).ToString(),
                     fechaInicioVigencia = txta_inicioVig.SelectedDate.Value,
@@ -528,21 +529,16 @@ namespace Interfaz
                 txtRutCliente.Foreground = Brushes.White;
                 txtbNombreCliente.Foreground = Brushes.White;
                 txtApellidoCliente.Foreground = Brushes.White;
-                txtEstadoCivilCliente.Foreground = Brushes.White;
-                txtGeneroCliente.Foreground = Brushes.White;
-                dtpFechNacimiento.Foreground = Brushes.White;
                 txtRutCliente.BorderBrush = Brushes.White;
                 txtbNombreCliente.BorderBrush = Brushes.White;
                 txtApellidoCliente.BorderBrush = Brushes.White;
-                txtEstadoCivilCliente.BorderBrush = Brushes.White;
-                txtGeneroCliente.BorderBrush = Brushes.White;
-                dtpFechNacimiento.BorderBrush = Brushes.White;
                 update.Foreground = Brushes.White;
                 lupa.Foreground = Brushes.White;
                 trash.Foreground = Brushes.White;
                 add.Foreground = Brushes.White;
                 lblNContrato.Foreground = Brushes.White;
                 lblObser.Foreground = Brushes.White;
+                lblOtroNro.Foreground = Brushes.White;
                 contador = contador+1;
             }
             else
@@ -566,20 +562,15 @@ namespace Interfaz
                 txtRutCliente.Foreground = Brushes.Black;
                 txtbNombreCliente.Foreground = Brushes.Black;
                 txtApellidoCliente.Foreground = Brushes.Black;
-                txtEstadoCivilCliente.Foreground = Brushes.Black;
-                txtGeneroCliente.Foreground = Brushes.Black;
-                dtpFechNacimiento.Foreground = Brushes.Black;
                 txtRutCliente.BorderBrush = Brushes.Black;
                 txtbNombreCliente.BorderBrush = Brushes.Black;
                 txtApellidoCliente.BorderBrush = Brushes.Black;
-                txtEstadoCivilCliente.BorderBrush = Brushes.Black;
-                txtGeneroCliente.BorderBrush = Brushes.Black;
-                dtpFechNacimiento.BorderBrush = Brushes.Black;
                 update.Foreground = new SolidColorBrush(Color.FromRgb(126,59,129));
                 lupa.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
                 trash.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
                 add.Foreground = new SolidColorBrush(Color.FromRgb(126, 59, 129));
                 lblNContrato.Foreground = Brushes.Black;
+                lblOtroNro.Foreground = Brushes.Black;
                 lblObser.Foreground = Brushes.Black;
                 contador = contador - 1;
             }
@@ -723,7 +714,7 @@ namespace Interfaz
                 txta_obs.Text = contrato.observaciones;
                 txta_primaAnu.Text = contrato.primaAnual.ToString();
                 txta_primaMen.Text = contrato.primaMensual.ToString();
-                lblNContrato.Content = "Contrato Nº" + contrato.numero;
+                lblNContrato.Content = contrato.numero;
                 txta_creacion.Text = contrato.fechaCreacion.ToString();
                 txta_inicioVig.Text = contrato.fechaInicioVigencia.ToString();
                 txta_terminoVig.Text = contrato.fechaFinVigencia.ToString();

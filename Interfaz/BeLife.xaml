@@ -90,12 +90,12 @@
             <Grid x:Name="GridClientesListar" Visibility="Collapsed">
                 <Grid Background="#7e3b81" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
-                    <ComboBox x:Name="txtGenFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="White" Text="Género" IsReadOnly="True" IsEditable="True" Foreground="White">
+                    <ComboBox x:Name="txtGenFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="White" Text="Género" IsReadOnly="True" IsEditable="True" Foreground="#FF4CA8FA">
                         <ComboBoxItem>Sin Filtro</ComboBoxItem>
                         <ComboBoxItem>Hombre</ComboBoxItem>
                         <ComboBoxItem>Mujer</ComboBoxItem>
                     </ComboBox>
-                    <ComboBox x:Name="txtEstadoFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" BorderBrush="White" IsEditable="True" IsReadOnly="True" Text="Estado Civil" Foreground="White">
+                    <ComboBox x:Name="txtEstadoFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150" BorderBrush="White" IsEditable="True" IsReadOnly="True" Text="Estado Civil" Foreground="#FF4CA8FA">
                         <ComboBoxItem>Sin Filtro</ComboBoxItem>
                         <ComboBoxItem>Soltero</ComboBoxItem>
                         <ComboBoxItem>Casado</ComboBoxItem>
@@ -132,17 +132,17 @@
                 <TextBox x:Name="txtRutCliente" MaxLength="10" HorizontalAlignment="Left" Height="30" Margin="330,45,0,0" VerticalAlignment="Top" Width="400" Text="RUT" LostFocus="TxtRutCliente_LostFocus" GotFocus="TxtRutCliente_GotFocus" />
                 <TextBox x:Name="txtbNombreCliente" MaxLength="20" HorizontalAlignment="Left" Height="30" Margin="330,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Text="Nombre" GotFocus="TxtbNombreCliente_GotFocus" LostFocus="TxtbNombreCliente_LostFocus"/>
                 <TextBox x:Name="txtApellidoCliente" MaxLength="20" HorizontalAlignment="Left" Height="30" Margin="330,125,0,0" VerticalAlignment="Top" Width="400" Text="Apellido" GotFocus="TxtApellidoCliente_GotFocus" LostFocus="TxtApellidoCliente_LostFocus"/>
-                <ComboBox x:Name="txtEstadoCivilCliente" HorizontalAlignment="Left" Height="35" Margin="330,210,0,0" VerticalAlignment="Top" Width="180" IsEditable="True" IsReadOnly="True" Text="Estado Civil">
+                <ComboBox x:Name="txtEstadoCivilCliente" HorizontalAlignment="Left" Height="35" Margin="330,210,0,0" VerticalAlignment="Top" Width="180" IsEditable="True" IsReadOnly="True" Text="Estado Civil" Foreground="#FF4CA8FA" BorderBrush="#89000000">
                     <ComboBoxItem>Soltero</ComboBoxItem>
                     <ComboBoxItem>Casado</ComboBoxItem>
                     <ComboBoxItem>Divorciado</ComboBoxItem>
                     <ComboBoxItem>Viudo</ComboBoxItem>
                 </ComboBox>
-                <ComboBox  x:Name="txtGeneroCliente" HorizontalAlignment="Left" Margin="330,370,0,0" VerticalAlignment="Top" Width="180" Height="35" Text="Género" IsReadOnly="True" IsEditable="True">
+                <ComboBox  x:Name="txtGeneroCliente" HorizontalAlignment="Left" Margin="330,370,0,0" VerticalAlignment="Top" Width="180" Height="35" Text="Género" IsReadOnly="True" IsEditable="True" Foreground="#FF4CA8FA">
                     <ComboBoxItem>Hombre</ComboBoxItem>
                     <ComboBoxItem>Mujer</ComboBoxItem>
                 </ComboBox>
-                <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short"/>
+                <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short" Foreground="#FFCAC9C9"/>
                 <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}" Foreground="#DDFD0303">
                     <materialDesign:PackIcon x:Name="add" Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10" ToolTip="Añadir un cliente"/>
                 </Button>
@@ -157,7 +157,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Visible" Background="White">
+        <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Collapsed" Background="White">
             <Grid x:Name="GridGestionContrato" Visibility="Visible">
                 <Button x:Name="BtnAgregarContrato" Click="BtnAgregarContrato_Click" Width="200" Height="311" Margin="267,129,477,80" BorderThickness="0" Background="#7e3b81" BorderBrush="#FF7E3B81">
                     <StackPanel Width="200" Height="150" Margin="-20 -4">
@@ -188,7 +188,7 @@
             <Grid x:Name="GridContratosListas" Visibility="Collapsed">
                 <Grid Background="#FF7E3B81" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
-                    <ComboBox x:Name="txtPlanFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="White" Foreground="White">
+                    <ComboBox x:Name="txtPlanFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="White" Foreground="#FF4CA8FA">
                         <ComboBoxItem>Sin Filtro</ComboBoxItem>
                         <ComboBoxItem>POL120113229</ComboBoxItem>
                         <ComboBoxItem>POL120648575</ComboBoxItem>
@@ -196,9 +196,9 @@
                         <ComboBoxItem>POL120100054</ComboBoxItem>
                         <ComboBoxItem>POL120500489</ComboBoxItem>
                     </ComboBox>
-                    <ComboBox x:Name="txtNumeroFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150"  BorderBrush="White" Foreground="White">
+                    <ComboBox x:Name="txtNumeroFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 100" VerticalAlignment="Top" Width="150"  BorderBrush="White" Foreground="#FF4CA8FA">
                     </ComboBox>
-                    <ComboBox x:Name="txtRutFiltrar" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="25,150,25,0"  Height="40.5" Width="150" BorderBrush="White" Foreground="White" >
+                    <ComboBox x:Name="txtRutFiltrar" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="25,150,25,0"  Height="40.5" Width="150" BorderBrush="White" Foreground="#FF4CA8FA" >
                     </ComboBox>
                     <Button Margin="50,0,50,20" VerticalAlignment="Bottom" x:Name="btnFiltrarContratos" Click="BtnFiltrarContratos_Click" Background="White">
                         <StackPanel  Orientation="Horizontal" Margin="-50,-11">
@@ -220,17 +220,17 @@
             <Grid x:Name="GridAgregarContrato" Visibility="Collapsed">
                 <Rectangle x:Name="rtgAdd" HorizontalAlignment="Left" Height="300" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="461" Fill="#FF7E3B81"/>
                 <TextBox x:Name="txtb_titular" MaxLength="10" HorizontalAlignment="Left" Height="26" Margin="15,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" Foreground="White" CaretBrush="White" BorderBrush="White" />
-                <ComboBox x:Name="txtb_plan" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" IsEditable="True" IsReadOnly="True" Text="Seleccione Un Plan" VerticalAlignment="Top" Width="421" BorderBrush="White" Foreground="White" >
+                <ComboBox x:Name="txtb_plan" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" IsEditable="True" IsReadOnly="True" Text="Seleccione Un Plan" VerticalAlignment="Top" Width="421" BorderBrush="White" Foreground="#FF4CA8FA" >
                     <ComboBoxItem>Vida Inicial</ComboBoxItem>
                     <ComboBoxItem>Vida Total</ComboBoxItem>
                     <ComboBoxItem>Vida Conductor</ComboBoxItem>
                     <ComboBoxItem>Vida Senior</ComboBoxItem>
                     <ComboBoxItem>Vida Ahorro</ComboBoxItem>
                 </ComboBox>
-                <DatePicker x:Name="txtb_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,208,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
-                <DatePicker x:Name="txtb_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,267,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
-                <CheckBox x:Name="txtb_vigente" HorizontalAlignment="Left" Height="16" Margin="303,208,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="#7e3b81"/>
-                <CheckBox x:Name="txtb_salud" HorizontalAlignment="Left" Height="16" Margin="303,268,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="#7e3b81" Background="White"/>
+                <DatePicker x:Name="txtb_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,208,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="#FFCAC9C9"/>
+                <DatePicker x:Name="txtb_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,267,0,0" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="#FFCAC9C9"/>
+                <CheckBox x:Name="txtb_vigente" HorizontalAlignment="Left" Height="16" Margin="303,208,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="White" Background="White"/>
+                <CheckBox x:Name="txtb_salud" HorizontalAlignment="Left" Height="16" Margin="303,268,0,0"  VerticalAlignment="Top" Width="16" BorderBrush="White" Background="White"/>
                 <TextBox x:Name="txtb_obs" HorizontalAlignment="Left" Height="300" Margin="488,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="425" Background="#FF7E3B81" Foreground="White" BorderBrush="#FF7E3B81" CaretBrush="White"/>
                 <Button x:Name="btn_agregar" HorizontalAlignment="Left" Height="114" Margin="489,365,0,0" VerticalAlignment="Top" Width="200" BorderBrush="#FF7E3B81" Click="Btn_agregar_Click" Background="#7e3b81">
                     <StackPanel Orientation="Horizontal" Margin="-100,-56.5">
@@ -257,18 +257,18 @@
                 <Rectangle HorizontalAlignment="Left" Height="430" Margin="10,49,0,0" Stroke="#FF7E3B81" VerticalAlignment="Top" Width="460" Fill="#FF7E3B81"/>
                 <TextBox x:Name="txta_titular" HorizontalAlignment="Left" Height="27" MaxLength="10" Margin="15,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" BorderBrush="#FFFDFDFD" Foreground="White"/>
                 <TextBox x:Name="txta_poliza"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421" BorderBrush="White" Foreground="White"/>
-                <ComboBox x:Name="txta_plan" HorizontalAlignment="Left" Height="26" Margin="15,195,0,0"  VerticalAlignment="Top" Width="421" BorderBrush="White" IsReadOnly="True" IsEditable="True" Foreground="White">
+                <ComboBox x:Name="txta_plan" HorizontalAlignment="Left" Height="26" Margin="15,195,0,0"  VerticalAlignment="Top" Width="421" BorderBrush="White" IsReadOnly="True" IsEditable="True" Foreground="#FF4CA8FA">
                     <ComboBoxItem>Vida Inicial</ComboBoxItem>
                     <ComboBoxItem>Vida Total</ComboBoxItem>
                     <ComboBoxItem>Vida Conductor</ComboBoxItem>
                     <ComboBoxItem>Vida Senior</ComboBoxItem>
                     <ComboBoxItem>Vida Ahorro</ComboBoxItem>
                 </ComboBox>
-                <DatePicker x:Name="txta_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,263,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="#FF7E3B81"/>
-                <DatePicker x:Name="txta_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,315,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <DatePicker x:Name="txta_inicioVig" HorizontalAlignment="Left" Height="26" Margin="15,263,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="#FFCAC9C9"/>
+                <DatePicker x:Name="txta_terminoVig" HorizontalAlignment="Left" Height="26" Margin="15,315,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="#FFCAC9C9" Background="#FF7E3B81"/>
                 <TextBox x:Name="txta_creacion" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
                 <TextBox x:Name="txta_termino" IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="304,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
-                <TextBox x:Name="txta_primaMen"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
+                <TextBox x:Name="txta_primaMen"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White" Background="{x:Null}"/>
                 <TextBox x:Name="txta_primaAnu"  IsReadOnly="True" HorizontalAlignment="Left" Height="26" Margin="15,434,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White"/>
                 <CheckBox x:Name="txta_salud" HorizontalAlignment="Left" Height="26" Margin="304,382,0,0"  VerticalAlignment="Top" Width="130" BorderBrush="White" Foreground="White" Background="White"/>
                 <CheckBox x:Name="CB_estado" HorizontalAlignment="Left" Margin="304,434,0,0" VerticalAlignment="Top" Width="130" Height="26" Foreground="White" BorderBrush="White" Background="White"/>
@@ -302,8 +302,9 @@
                 <Label Content="Prima Anual" HorizontalAlignment="Left" Margin="15,408,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
                 <Label Content="Salud" HorizontalAlignment="Left" Margin="304,356,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
                 <Label Content="Estado" HorizontalAlignment="Left" Margin="304,408,0,0" VerticalAlignment="Top" Width="115" Background="#FFBA86BC" Foreground="White" Height="26" FontFamily="Verdana"/>
-                <Label Content="Contrato Nº" x:Name="lblNContrato" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="378" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+                <Label x:Name="lblOtroNro" Content="Contrato Nº" HorizontalAlignment="Left" Height="44" Margin="10,0,0,0" VerticalAlignment="Top" Width="208" FontSize="30" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
                 <Label x:Name="lblObser" Content="Observaciones" HorizontalAlignment="Left" Margin="586,9,0,0" VerticalAlignment="Top" Height="35" FontSize="25" BorderBrush="#FFBA86BC" Foreground="#FF7E3B81" FontWeight="Bold" FontFamily="Verdana"/>
+                <Label x:Name="lblNContrato" Content="" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Top" Height="44" Width="288" Foreground="#FF7E3B81" FontSize="30" FontWeight="Bold" FontFamily="Verdana"/>
             </Grid>
         </Grid>
         <Grid Visibility="Visible" x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#7e3b81">
