@@ -19,17 +19,17 @@
                     <Label Content="Iniciar Sesión" Foreground="White" VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="BtnConfig" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="50" Margin="10" Background="#7e3b81" BorderBrush="#7e3b81" Click="BtnConfig_Click" >
+            <Button x:Name="BtnConfig" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="50" Margin="10" Background="#7e3b81" BorderBrush="#7e3b81" Click="BtnConfig_Click" ToolTip="Configurar conexión a la base de datos" >
                 <materialDesign:PackIcon Kind="Gear" Width="30" Height="30" Margin="-8"/>
             </Button>
         </Grid>
         <Grid Visibility="Collapsed" x:Name="GridConfig">
             <materialDesign:PackIcon Kind="Server" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,200,0,0" Foreground="#7e3b81"/>
-            <TextBox x:Name="txtServer" Margin="0,-20,0,0" Width="200" Height="30" HorizontalAlignment="Center" BorderBrush="#7e3b81"/>
+            <TextBox x:Name="txtServer" Margin="0,-20,0,0" Width="200" Height="30" HorizontalAlignment="Center" BorderBrush="#7e3b81" ToolTip="Nombre del server"/>
             <materialDesign:PackIcon Kind="Database" Width="70" Height="70" HorizontalAlignment="Center" Margin="0,315,0,0" Foreground="#7e3b81"/>
-            <TextBox x:Name="txtData" Margin="0,200,0,0" Width="200" Height="30" HorizontalAlignment="Center" BorderBrush="#7e3b81"/>
+            <TextBox x:Name="txtData" Margin="0,200,0,0" Width="200" Height="30" HorizontalAlignment="Center" BorderBrush="#7e3b81" ToolTip="Nombre de la base de datos"/>
             <materialDesign:PackIcon Kind="Security" Margin="-30,425,0,0" HorizontalAlignment="Center" Width="70" Height="70" Foreground="#7e3b81"/>
-            <CheckBox x:Name="CheckSafeCon" HorizontalAlignment="Center" Margin="250,451,157.6,132" Width="18" Height="18" />
+            <CheckBox x:Name="CheckSafeCon" HorizontalAlignment="Center" Margin="250,451,157.6,132" Width="18" Height="18" ToolTip="Base de datos confiable" />
             <Button x:Name="BtnBack" Margin="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="50" Background="#7e3b81" Click="BtnBack_Click">
                 <materialDesign:PackIcon Kind="ArrowBack" Width="50" Height="50" Margin="-16,-10" Foreground="White"/>
             </Button>

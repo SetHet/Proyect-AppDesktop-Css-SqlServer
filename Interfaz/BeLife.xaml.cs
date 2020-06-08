@@ -777,5 +777,23 @@ namespace Interfaz
             stkBuscar.Visibility = Visibility.Collapsed;
             txtBuscarNumero.Clear();
         }
+
+        private void TxtRutFiltro_GotFocus(object sender, RoutedEventArgs e)
+        {
+            string rut = txtRutFiltro.Text.Trim();
+            if (rut.Equals("RUT"))
+            {
+                txtRutFiltro.Text = "";
+            }
+        }
+
+        private void TxtRutFiltro_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string rut = txtRutFiltro.Text.Trim();
+            if (rut.Equals(""))
+            {
+                txtRutFiltro.Text = "RUT";
+            }
+        }
     }
 }

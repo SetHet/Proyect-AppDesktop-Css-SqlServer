@@ -36,13 +36,13 @@
 
     <Grid Background="White" x:Name="Gi">
         <Grid x:Name="gridTitle" Margin="80,0,0,0" Height="80" VerticalAlignment="Top">
-            <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81">
+            <Button x:Name="BtnClose" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,30,0" BorderThickness="0" Click="BtnClose_Click" MouseEnter="BtnClose_MouseEnter" MouseLeave="BtnClose_MouseLeave" Background="#7e3b81" ToolTip="Cerrar">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Close"/>
             </Button>
-            <Button x:Name="BtnMinimizar" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,65,0" BorderThickness="0" Click="BtnMinimizar_Click"  Background="#7e3b81">
+            <Button x:Name="BtnMinimizar" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,65,0" BorderThickness="0" Click="BtnMinimizar_Click"  Background="#7e3b81" ToolTip="Minimizar">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="WindowMinimize"/>
             </Button>
-            <Button x:Name="BtnContraste" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,100,0" BorderThickness="0" Click="BtnContraste_Click"  Background="#7e3b81">
+            <Button x:Name="BtnContraste" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,30,100,0" BorderThickness="0" Click="BtnContraste_Click"  Background="#7e3b81" ToolTip="Activar/Desactivar modo oscuro">
                 <materialDesign:PackIcon Margin="-13.5,-12" Width="25" Height="25" Kind="Electricity"/>
             </Button>
             <Image Source="Imagenes/Logo BeLife.png" Margin="10" Width="200"/>
@@ -86,7 +86,7 @@
                 </StackPanel>
             </Button>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="White">
+        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="White" ToolTip="Buscar un cliente">
             <Grid x:Name="GridClientesListar" Visibility="Collapsed">
                 <Grid Background="#7e3b81" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
@@ -103,13 +103,13 @@
                         <ComboBoxItem>Viuda</ComboBoxItem>
                     </ComboBox>
                     <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0 40" Orientation="Horizontal" Height="50" Width="150">
-                        <TextBox x:Name="txtRutFiltro" Width="100" VerticalAlignment="Center" Foreground="White" CaretBrush="White" BorderBrush="White" />
-                        <Button x:Name="btnFiltratClientes" Click="BtnFiltratClientes_Click" Margin="10,0" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}">
-                            <materialDesign:PackIcon Kind="Search" Width="30" Height="30" Foreground="White" Margin="-16 -12"/>
+                        <TextBox x:Name="txtRutFiltro" Width="100" VerticalAlignment="Center" Foreground="White" CaretBrush="White" BorderBrush="White" GotFocus="TxtRutFiltro_GotFocus" Text="RUT" LostFocus="TxtRutFiltro_LostFocus" />
+                        <Button x:Name="btnFiltratClientes" Click="BtnFiltratClientes_Click" Margin="10,0" Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" ToolTip="Aplicar Filtros de búsqueda">
+                            <materialDesign:PackIcon Kind="Filter" Width="30" Height="30" Foreground="White" Margin="-16 -12"/>
                         </Button>
                     </StackPanel>
                 </Grid>
-                <DataGrid x:Name="dtgMostrarClientes" Margin="300,50,50,50" MouseDoubleClick="DtgMostrarClientes_MouseDoubleClick" IsReadOnly="True" Background="White" Foreground="#DDFFFFFF">
+                <DataGrid x:Name="dtgMostrarClientes" Margin="300,50,50,50" MouseDoubleClick="DtgMostrarClientes_MouseDoubleClick" IsReadOnly="True" Background="White" Foreground="#DDFFFFFF" ToolTip="Presione dos veces para desplegar toda la información">
                     <DataGrid.Columns>
                         <materialDesign:DataGridTextColumn Header="Rut"  Binding="{Binding Rut}" Width="118.72"/>
                         <materialDesign:DataGridTextColumn Header="Nombre" Width="118.72" Binding="{Binding Nombre}"/>
@@ -125,6 +125,7 @@
                 <Rectangle HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
                 <Rectangle HorizontalAlignment="Left" Height="320" Margin="539,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="215"/>
                 <materialDesign:PackIcon x:Name="cardId" Kind="IdCardOutline" Margin="140,20,0,0" Height="160" Width="130" Foreground="#FF7E3B81"/>
+                <materialDesign:PackIcon Kind="InfoCircle" Height="18" Width="23" Margin="732,53,0,0" ToolTip="Ingrese un Rut y presione el bontón buscar para encontrar un usuario y rellenar los cambos automaticamente"/>
                 <materialDesign:PackIcon x:Name="ring" Kind="ring" Width="130" Height="160" Margin="140,180" Foreground="#FF7E3B81"/>
                 <materialDesign:PackIcon x:Name="helicopteroApache" Kind="GenderMaleFemale" Margin="140,340,0,0" Width="130" Height="160" Foreground="#FF7E3B81"/>
                 <materialDesign:PackIcon x:Name="calendar" Kind="Calendar" Width="90" Height="90" Margin="595,200,0,0" Foreground="#FF7E3B81"/>
@@ -143,20 +144,20 @@
                 </ComboBox>
                 <DatePicker x:Name="dtpFechNacimiento" Margin="550,160,0,0" Width="190" HorizontalAlignment="Left" SelectedDateFormat="Short"/>
                 <Button x:Name="BtnAgregarUnCliente" Click="BtnAgregarUnCliente_Click" HorizontalAlignment="Left" Height="120" Margin="790,10,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}"  Background="{x:Null}" Foreground="#DDFD0303">
-                    <materialDesign:PackIcon x:Name="add" Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10"/>
+                    <materialDesign:PackIcon x:Name="add" Kind="UserAdd" Height="120" Width="120" Foreground="#7e3b81" Margin="-16,-10" ToolTip="Añadir un cliente"/>
                 </Button>
                 <Button x:Name="BtnBuscarClientes" Click="BtnBuscarClientes_Click" HorizontalAlignment="Left" Height="120" Margin="790,140,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
                     <materialDesign:PackIcon x:Name="lupa" Kind="Search" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
                 </Button>
                 <Button x:Name="BtnActualizar" Click="BtnActualizar_Click" HorizontalAlignment="Left" Height="120" Margin="790,270,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
-                    <materialDesign:PackIcon x:Name="update" Kind="AccountEdit" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                    <materialDesign:PackIcon x:Name="update" Kind="AccountEdit" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81" ToolTip="Actualizar un cliente"/>
                 </Button>
                 <Button x:Name="BtnBorrarUsuario" Click="BtnBorrarUsuario_Click" HorizontalAlignment="Left" Height="120" Margin="790,400,0,0" VerticalAlignment="Top" Width="120" BorderBrush="{x:Null}" Background="{x:Null}">
-                    <materialDesign:PackIcon x:Name="trash" Kind="Delete" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81"/>
+                    <materialDesign:PackIcon x:Name="trash" Kind="Delete" Width="120" Height="120" Margin="-16,-10" Foreground="#7e3b81" ToolTip="Eliminar un cliente"/>
                 </Button>
             </Grid>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Collapsed" Background="White">
+        <Grid Margin="80,80,0,0" x:Name="GridContratos" Visibility="Visible" Background="White">
             <Grid x:Name="GridGestionContrato" Visibility="Visible">
                 <Button x:Name="BtnAgregarContrato" Click="BtnAgregarContrato_Click" Width="200" Height="311" Margin="267,129,477,80" BorderThickness="0" Background="#7e3b81" BorderBrush="#FF7E3B81">
                     <StackPanel Width="200" Height="150" Margin="-20 -4">
@@ -206,7 +207,7 @@
                         </StackPanel>
                     </Button>
                 </Grid>
-                <DataGrid x:Name="dtgMostrarContratos" Margin="300,50,50,50" MouseDoubleClick="DtgMostrarContratos_MouseDoubleClick" IsReadOnly="True">
+                <DataGrid x:Name="dtgMostrarContratos" Margin="300,50,50,50" MouseDoubleClick="DtgMostrarContratos_MouseDoubleClick" IsReadOnly="True" ToolTip="Presione dos veces para desplegar toda la información">
                     <DataGrid.Columns>
                         <materialDesign:DataGridTextColumn Header="N° Contrato" Binding="{Binding Numero}" Width="118.72"/>
                         <materialDesign:DataGridTextColumn Header="Titular" Width="118.72" Binding="{Binding RutTitular}"/>
