@@ -52,9 +52,9 @@ namespace Interfaz
                 }
             }
 
-            if (txtRutFiltro.Text != "")
+            if (txtRutFiltro.Text != "RUT")
             {
-                if (filtrar.Equals(""))
+                if (filtrar.Equals("RUT"))
                 {
                     filtrar = filtrar + " RutCliente='" + txtRutFiltro.Text + "'";
                 }

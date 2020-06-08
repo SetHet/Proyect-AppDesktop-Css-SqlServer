@@ -47,7 +47,7 @@
             </Button>
             <Image Source="Imagenes/Logo BeLife.png" Margin="10" Width="200"/>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Visible">
+        <Grid Margin="80,80,0,0" x:Name="GridPrincipal" Visibility="Collapsed">
             <Label Content="Bienvenido" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <Button x:Name="BtnMostrarContratos" Click="BtnMostrarContratos_Click" Width="200" Height="150" Margin="267,129,477,241" BorderThickness="0" Background="#7e3b81">
                 <StackPanel Width="200" Height="150" Margin="-20 -4">
@@ -86,8 +86,8 @@
                 </StackPanel>
             </Button>
         </Grid>
-        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Collapsed" Background="White" ToolTip="Buscar un cliente">
-            <Grid x:Name="GridClientesListar" Visibility="Collapsed">
+        <Grid Margin="80,80,0,0" x:Name="GridClientes" Visibility="Visible" Background="White" ToolTip="Buscar un cliente">
+            <Grid x:Name="GridClientesListar" Visibility="Visible">
                 <Grid Background="#7e3b81" HorizontalAlignment="Left" Height="252" Margin="50,0,0,0"  VerticalAlignment="Center" Width="200">
                     <Label Content="Filtrar por:" HorizontalAlignment="Center" Height="33"  VerticalAlignment="Top" Width="104" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="Verdana" Background="{x:Null}" Foreground="White"/>
                     <ComboBox x:Name="txtGenFiltrar" HorizontalAlignment="Center" Height="40" Margin="0 50"  VerticalAlignment="Top" Width="150" BorderBrush="White" Text="Género" IsReadOnly="True" IsEditable="True" Foreground="#FF4CA8FA">
@@ -119,7 +119,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-            <Grid x:Name="GridRegistrarCliente" Visibility="Visible">
+            <Grid x:Name="GridRegistrarCliente" Visibility="Collapsed">
                 <Rectangle HorizontalAlignment="Left" Height="161" Margin="130,20,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="624"/>
                 <Rectangle HorizontalAlignment="Left" Height="161" Margin="130,180,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
                 <Rectangle HorizontalAlignment="Left" Height="160" Margin="130,340,0,0" Stroke="#FFBA86BC" VerticalAlignment="Top" Width="411"/>
